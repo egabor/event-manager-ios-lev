@@ -16,11 +16,13 @@
 		96FC2BE91F81739A005D3B54 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC2BE71F817399005D3B54 /* LogInViewController.swift */; };
 		96FC2BEA1F81739A005D3B54 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC2BE81F81739A005D3B54 /* LogInViewModel.swift */; };
 		96FC2BEC1F817CA7005D3B54 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC2BEB1F817CA7005D3B54 /* RestClient.swift */; };
+		96FC2BF21F81964B005D3B54 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC2BF11F81964B005D3B54 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45AE099A1193B62A9B246F55 /* Pods-event-manager-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-event-manager-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-event-manager-ios/Pods-event-manager-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		4B529FECA67FFFAE034AF712 /* Pods-event-manager-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-event-manager-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-event-manager-ios/Pods-event-manager-ios.release.xcconfig"; sourceTree = "<group>"; };
+		55AEA7F26090E46A0323C7F4 /* Pods-event-manager-ios.debug staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-event-manager-ios.debug staging.xcconfig"; path = "Pods/Target Support Files/Pods-event-manager-ios/Pods-event-manager-ios.debug staging.xcconfig"; sourceTree = "<group>"; };
 		96FC2BC61F816D42005D3B54 /* event-manager-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "event-manager-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FC2BC91F816D42005D3B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96FC2BCE1F816D42005D3B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,7 +33,9 @@
 		96FC2BE71F817399005D3B54 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		96FC2BE81F81739A005D3B54 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		96FC2BEB1F817CA7005D3B54 /* RestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		96FC2BF11F81964B005D3B54 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		A364A175C667325B9D925C3A /* Pods_event_manager_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_event_manager_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41F3AB19CDF3D358A700AA8 /* Pods-event-manager-ios.debug mock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-event-manager-ios.debug mock.xcconfig"; path = "Pods/Target Support Files/Pods-event-manager-ios/Pods-event-manager-ios.debug mock.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 			children = (
 				45AE099A1193B62A9B246F55 /* Pods-event-manager-ios.debug.xcconfig */,
 				4B529FECA67FFFAE034AF712 /* Pods-event-manager-ios.release.xcconfig */,
+				A41F3AB19CDF3D358A700AA8 /* Pods-event-manager-ios.debug mock.xcconfig */,
+				55AEA7F26090E46A0323C7F4 /* Pods-event-manager-ios.debug staging.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -133,6 +139,7 @@
 			children = (
 				96FC2BE51F8171BB005D3B54 /* Extensions */,
 				96FC2BEB1F817CA7005D3B54 /* RestClient.swift */,
+				96FC2BF11F81964B005D3B54 /* Configuration.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -293,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FC2BEC1F817CA7005D3B54 /* RestClient.swift in Sources */,
+				96FC2BF21F81964B005D3B54 /* Configuration.swift in Sources */,
 				96FC2BE91F81739A005D3B54 /* LogInViewController.swift in Sources */,
 				96FC2BEA1F81739A005D3B54 /* LogInViewModel.swift in Sources */,
 				96FC2BCA1F816D42005D3B54 /* AppDelegate.swift in Sources */,
@@ -321,7 +329,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		96FC2BD61F816D42005D3B54 /* Debug */ = {
+		96FC2BD61F816D42005D3B54 /* Debug Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -376,7 +384,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = "Debug Staging";
 		};
 		96FC2BD71F816D42005D3B54 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -428,9 +436,9 @@
 			};
 			name = Release;
 		};
-		96FC2BD91F816D42005D3B54 /* Debug */ = {
+		96FC2BD91F816D42005D3B54 /* Debug Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45AE099A1193B62A9B246F55 /* Pods-event-manager-ios.debug.xcconfig */;
+			baseConfigurationReference = 55AEA7F26090E46A0323C7F4 /* Pods-event-manager-ios.debug staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,7 +450,7 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = "Debug Staging";
 		};
 		96FC2BDA1F816D42005D3B54 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -460,13 +468,87 @@
 			};
 			name = Release;
 		};
+		96FC2BED1F819382005D3B54 /* Debug Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Debug Mock";
+		};
+		96FC2BEE1F819382005D3B54 /* Debug Mock */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A41F3AB19CDF3D358A700AA8 /* Pods-event-manager-ios.debug mock.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QT666FZ6Y2;
+				INFOPLIST_FILE = "event-manager-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gaboreszenyi.event-manager-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug Mock";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		96FC2BC11F816D42005D3B54 /* Build configuration list for PBXProject "event-manager-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96FC2BD61F816D42005D3B54 /* Debug */,
+				96FC2BD61F816D42005D3B54 /* Debug Staging */,
+				96FC2BED1F819382005D3B54 /* Debug Mock */,
 				96FC2BD71F816D42005D3B54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -475,7 +557,8 @@
 		96FC2BD81F816D42005D3B54 /* Build configuration list for PBXNativeTarget "event-manager-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96FC2BD91F816D42005D3B54 /* Debug */,
+				96FC2BD91F816D42005D3B54 /* Debug Staging */,
+				96FC2BEE1F819382005D3B54 /* Debug Mock */,
 				96FC2BDA1F816D42005D3B54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
