@@ -11,6 +11,7 @@
 		96FC2BCF1F816D42005D3B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FC2BCD1F816D42005D3B54 /* Main.storyboard */; };
 		96FC2BD11F816D42005D3B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FC2BD01F816D42005D3B54 /* Assets.xcassets */; };
 		96FC2BD41F816D42005D3B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FC2BD21F816D42005D3B54 /* LaunchScreen.storyboard */; };
+		96FC2BDD1F816F46005D3B54 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FC2BDC1F816F46005D3B54 /* LogIn.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		96FC2BD01F816D42005D3B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96FC2BD31F816D42005D3B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96FC2BD51F816D42005D3B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96FC2BDC1F816F46005D3B54 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +55,21 @@
 			isa = PBXGroup;
 			children = (
 				96FC2BC91F816D42005D3B54 /* AppDelegate.swift */,
-				96FC2BCD1F816D42005D3B54 /* Main.storyboard */,
+				96FC2BDB1F816F09005D3B54 /* Storyboards */,
 				96FC2BD01F816D42005D3B54 /* Assets.xcassets */,
 				96FC2BD21F816D42005D3B54 /* LaunchScreen.storyboard */,
 				96FC2BD51F816D42005D3B54 /* Info.plist */,
 			);
 			path = "event-manager-ios";
+			sourceTree = "<group>";
+		};
+		96FC2BDB1F816F09005D3B54 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				96FC2BCD1F816D42005D3B54 /* Main.storyboard */,
+				96FC2BDC1F816F46005D3B54 /* LogIn.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FC2BDD1F816F46005D3B54 /* LogIn.storyboard in Resources */,
 				96FC2BD41F816D42005D3B54 /* LaunchScreen.storyboard in Resources */,
 				96FC2BD11F816D42005D3B54 /* Assets.xcassets in Resources */,
 				96FC2BCF1F816D42005D3B54 /* Main.storyboard in Resources */,
