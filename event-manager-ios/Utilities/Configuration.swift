@@ -33,5 +33,4 @@ enum Environment: String {
 		case .release: return ""
 		}
 	}
-
 }
