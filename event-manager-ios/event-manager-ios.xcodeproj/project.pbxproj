@@ -55,6 +55,9 @@
 			isa = PBXGroup;
 			children = (
 				96FC2BC91F816D42005D3B54 /* AppDelegate.swift */,
+				96FC2BE01F81710C005D3B54 /* Modules */,
+				96FC2BE11F817158005D3B54 /* Shared */,
+				96FC2BE31F817179005D3B54 /* Utilities */,
 				96FC2BDB1F816F09005D3B54 /* Storyboards */,
 				96FC2BD01F816D42005D3B54 /* Assets.xcassets */,
 				96FC2BD21F816D42005D3B54 /* LaunchScreen.storyboard */,
@@ -70,6 +73,43 @@
 				96FC2BDC1F816F46005D3B54 /* LogIn.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		96FC2BE01F81710C005D3B54 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		96FC2BE11F817158005D3B54 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				96FC2BE21F81715D005D3B54 /* Models */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		96FC2BE21F81715D005D3B54 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96FC2BE31F817179005D3B54 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				96FC2BE51F8171BB005D3B54 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		96FC2BE51F8171BB005D3B54 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
