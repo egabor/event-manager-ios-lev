@@ -15,6 +15,7 @@
 		96FC2BDD1F816F46005D3B54 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FC2BDC1F816F46005D3B54 /* Onboarding.storyboard */; };
 		96FC2BE91F81739A005D3B54 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC2BE71F817399005D3B54 /* LogInViewController.swift */; };
 		96FC2BEA1F81739A005D3B54 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC2BE81F81739A005D3B54 /* LogInViewModel.swift */; };
+		96FC2BEC1F817CA7005D3B54 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC2BEB1F817CA7005D3B54 /* RestClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		96FC2BDC1F816F46005D3B54 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		96FC2BE71F817399005D3B54 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		96FC2BE81F81739A005D3B54 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		96FC2BEB1F817CA7005D3B54 /* RestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		A364A175C667325B9D925C3A /* Pods_event_manager_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_event_manager_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				96FC2BE51F8171BB005D3B54 /* Extensions */,
+				96FC2BEB1F817CA7005D3B54 /* RestClient.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FC2BEC1F817CA7005D3B54 /* RestClient.swift in Sources */,
 				96FC2BE91F81739A005D3B54 /* LogInViewController.swift in Sources */,
 				96FC2BEA1F81739A005D3B54 /* LogInViewModel.swift in Sources */,
 				96FC2BCA1F816D42005D3B54 /* AppDelegate.swift in Sources */,
