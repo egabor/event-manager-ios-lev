@@ -7,5 +7,6 @@ target 'event-manager-ios' do
 
   # Pods for event-manager-ios
   pod 'RxSwift',    '~> 3.0'
+  pod 'RxCocoa',    '~> 3.0'
 
 end
