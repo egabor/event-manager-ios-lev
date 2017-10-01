@@ -1,6 +1,9 @@
 disabled_rules:
   - line_length
 
+excluded:
+  - Pods
+
 # line_length:
 #  - 120 # warning
 #  - 240 # error
