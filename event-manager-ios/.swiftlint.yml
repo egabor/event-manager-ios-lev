@@ -1,0 +1,6 @@
+disabled_rules:
+  - line_length
+
+# line_length:
+#  - 120 # warning
+#  - 240 # error
