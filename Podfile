@@ -10,6 +10,7 @@ target 'event-manager-ios' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
+  pod 'Alamofire', '~> 4.5'
 
 end
 
