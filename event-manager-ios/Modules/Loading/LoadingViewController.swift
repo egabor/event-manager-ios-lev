@@ -100,7 +100,6 @@ extension LoadingViewController {
 						self?.loadingIndicator.stopAnimating()
 					})
 				}
-				
 			}
 		}
 	}

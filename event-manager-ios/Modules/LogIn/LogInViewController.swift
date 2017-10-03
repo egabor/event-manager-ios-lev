@@ -63,7 +63,6 @@ class LogInViewController: UIViewController {
 		loadingView.alpha = 1.0
 		NotificationCenter.default.post(Notification(name: Constants.Notifications.ShowLoadingAnimationView))
 	}
-	
 
 	@objc func hideLoading() {
 		let handler: (_ finished: Bool) -> Void = { [weak self] (finished) -> Void in
@@ -73,7 +72,7 @@ class LogInViewController: UIViewController {
 		}
 		NotificationCenter.default.post(name: Constants.Notifications.HideLoadingAnimationView, object: handler)
 	}
-	
+
 	@objc func hideModalLoading() {
 		let handler: (_ finished: Bool) -> Void = { [weak self] (finished) -> Void in
 			if finished {
