@@ -95,8 +95,11 @@ extension LoadingViewController {
 			if finished {
 				if let handler = notification.object as? LoadingViewController.HideLoadingCompletionHandler {
 					handler(finished)
+				} else {
+					self?.dismiss(animated: true, completion: {
+						self?.loadingIndicator.stopAnimating()
+					})
 				}
-				self?.loadingIndicator.stopAnimating()
 				
 			}
 		}

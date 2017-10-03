@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import SnapKit
 
 class LogInViewController: UIViewController {
 
@@ -23,13 +24,18 @@ class LogInViewController: UIViewController {
     // MARK: - var variables
 
     // MARK: - Interface Builder Outlets
+	@IBOutlet weak var loadingView: UIView!
 
     // MARK: - UIViewController Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		view.addSubview(loadingView)
+		loadingView.snp.makeConstraints { (make) in
+			make.center.size.equalToSuperview()
+		}
 
-        // TODO: Do the viewmodel binding here
+		// TODO: Do the viewmodel binding here
     }
 
     deinit {
@@ -53,12 +59,47 @@ class LogInViewController: UIViewController {
 
     // MARK: - Helper Methods
 
+	func showLoading() {
+		loadingView.alpha = 1.0
+		NotificationCenter.default.post(Notification(name: Constants.Notifications.ShowLoadingAnimationView))
+	}
+	
+
+	@objc func hideLoading() {
+		let handler: (_ finished: Bool) -> Void = { [weak self] (finished) -> Void in
+			if finished {
+				self?.loadingView.alpha = 0.0
+			}
+		}
+		NotificationCenter.default.post(name: Constants.Notifications.HideLoadingAnimationView, object: handler)
+	}
+	
+	@objc func hideModalLoading() {
+		let handler: (_ finished: Bool) -> Void = { [weak self] (finished) -> Void in
+			if finished {
+				self?.dismiss(animated: true, completion: nil)
+			}
+		}
+		NotificationCenter.default.post(name: Constants.Notifications.HideLoadingAnimationView, object: handler)
+	}
+
 }
 
 // MARK: - Interface Builder Actions
 
 extension LogInViewController {
-
+	@IBAction func testLoading(_ sender: UIButton) {
+		showLoading()
+		
+		perform(#selector(hideLoading), with: nil, afterDelay: 3.0)
+	}
+	
+	@IBAction func testModalLoading(_ sender: UIButton) {
+		performSegue(withIdentifier: "ShowModalLoading", sender: nil)
+		NotificationCenter.default.post(Notification(name: Constants.Notifications.ShowLoadingAnimationView))
+	
+		perform(#selector(hideModalLoading), with: nil, afterDelay: 3.0)
+	}
 }
 
 // MARK: - Notification handlers can be placed here
