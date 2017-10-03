@@ -39,7 +39,7 @@
                     </view>
                     <connections>
                         <outlet property="loadingView" destination="Xy1-d9-z9p" id="BCf-8g-bSg"/>
-                        <segue destination="Mtl-tq-nP2" kind="presentation" identifier="ShowModalLoading" modalPresentationStyle="overCurrentContext" id="I7H-KW-wHs"/>
+                        <segue destination="Mtl-tq-nP2" kind="presentation" identifier="ShowModalLoading" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="I7H-KW-wHs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70w-18-UzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
