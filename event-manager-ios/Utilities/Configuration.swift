@@ -28,7 +28,7 @@ enum Environment: String {
 
 	var baseURL: String {
 		switch self {
-		case .mock: return ""
+		case .mock: return "http://s29pda6cgdg2lubuf-mock.stoplight-proxy.io/api"
 		case .staging: return ""
 		case .release: return ""
 		}
