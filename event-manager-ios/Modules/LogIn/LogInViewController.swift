@@ -89,14 +89,14 @@ class LogInViewController: UIViewController {
 extension LogInViewController {
 	@IBAction func testLoading(_ sender: UIButton) {
 		showLoading()
-		
+
 		perform(#selector(hideLoading), with: nil, afterDelay: 3.0)
 	}
-	
+
 	@IBAction func testModalLoading(_ sender: UIButton) {
 		performSegue(withIdentifier: "ShowModalLoading", sender: nil)
 		NotificationCenter.default.post(Notification(name: Constants.Notifications.ShowLoadingAnimationView))
-	
+
 		perform(#selector(hideModalLoading), with: nil, afterDelay: 3.0)
 	}
 }
