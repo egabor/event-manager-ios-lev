@@ -11,7 +11,7 @@ target 'event-manager-ios' do
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'Alamofire', '~> 4.5'
-  pod 'SnapKit', '~> 4.0.0'
+  pod 'SnapKit', '~> 3.0.0'
 
 end
 
