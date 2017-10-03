@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="fdB-dA-LzQ">
+            <objects>
+                <viewController storyboardIdentifier="LoadingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="akf-HB-UVp" customClass="LoadingViewController" customModule="event_manager_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" alpha="0.0" contentMode="scaleToFill" id="P9t-eT-eTm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyK-8V-QVQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ohj-MA-eEy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hw5-Vx-UfB">
+                                            <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="hw5-Vx-UfB" firstAttribute="centerY" secondItem="Ohj-MA-eEy" secondAttribute="centerY" id="DIH-s7-5oN"/>
+                                        <constraint firstItem="hw5-Vx-UfB" firstAttribute="centerX" secondItem="Ohj-MA-eEy" secondAttribute="centerX" id="gyp-kv-j9O"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tyK-8V-QVQ" firstAttribute="centerX" secondItem="U4v-UZ-SQK" secondAttribute="centerX" id="Aua-Cx-5cQ"/>
+                            <constraint firstItem="tyK-8V-QVQ" firstAttribute="bottom" secondItem="U4v-UZ-SQK" secondAttribute="bottom" id="C4z-X3-KVT"/>
+                            <constraint firstItem="tyK-8V-QVQ" firstAttribute="top" secondItem="P9t-eT-eTm" secondAttribute="top" id="Dho-He-gVI"/>
+                            <constraint firstItem="tyK-8V-QVQ" firstAttribute="leading" secondItem="U4v-UZ-SQK" secondAttribute="leading" id="scJ-nR-0at"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U4v-UZ-SQK"/>
+                    </view>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="hw5-Vx-UfB" id="A5D-ju-Wlc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCi-uA-sug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-446" y="285"/>
+        </scene>
+    </scenes>
+</document>
