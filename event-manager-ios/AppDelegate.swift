@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
-		let configuration = Configuration()
+        var configuration = Configuration()
+        print(configuration.environment.baseURL)
+        RestClient.shared.getEvents { (events, error) in
+            print("success \(events.count)")
+            for e in events {
+                print(e.description())
+            }
+        }
+
 		return true
 	}
 
