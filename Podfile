@@ -12,7 +12,7 @@ target 'event-manager-ios' do
   pod 'RxDataSources'
   pod 'Alamofire', '~> 4.5'
   pod 'SwiftyJSON'
-  pod 'ObjectMapper'
+  pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'SnapKit', '~> 3.0.0'
 
 end
