@@ -20,10 +20,8 @@ class RestClient {
         let url = URL(string: configuration.environment.baseURL + "/events")!
 
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { (response: DataResponse<[Event]>) in
-            let json = JSON(data: response.data!)
             if response.result.isSuccess {
                 let result: [Event] = response.result.value!
-
                 complitionBlock!(result, nil)
             }
         }
