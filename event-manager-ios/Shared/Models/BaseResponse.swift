@@ -8,22 +8,21 @@
 
 import ObjectMapper
 
-class BaseResponse : Mappable, Bindable {
-    
-    required init?(map: Map){
-        
+class BaseResponse: Mappable, Bindable {
+
+    required init?(map: Map) {
+
     }
-    
-    init?(){
-        
+
+    init?() {
+
     }
-    
+
     func mapping(map: Map) {
 
     }
-    
-    init(_ data: [String:Any]) {
+
+    init(_ data: [String: Any]) {
 
     }
 }
-

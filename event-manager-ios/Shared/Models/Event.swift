@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Event: BaseResponse  {
+class Event: BaseResponse {
 
     // MARK: - Model Properties
     var eventId: String! = ""
@@ -20,18 +20,15 @@ class Event: BaseResponse  {
     var showOnDate: Date! = Date.init(timeIntervalSince1970: 0)
     var startDate: Date! = Date.init(timeIntervalSince1970: 0)
     var performingMinutes: Int = 0
-    
-    
 
-
-    required init?(map: Map){
+    required init?(map: Map) {
         super.init(map: map)
     }
-    
+
     override init() {
         super.init()!
     }
-    
+
     override func mapping(map: Map) {
         eventId <- map["id"]
         performer <- map["performer"]
@@ -43,9 +40,8 @@ class Event: BaseResponse  {
         performingMinutes <- map["performingMinutes"]
 
     }
-    
+
     func description() -> String! {
-        print("\(self.showOnDate.toString()), \(self.startDate.toString())")
         return "\(String(describing: self.toJSONString(prettyPrint: true)!))"
     }
 }

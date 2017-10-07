@@ -7,7 +7,7 @@
 //
 
 enum EventType: String {
-    case music,  cinema,  standUp,  other, unknown
+    case music, cinema, standUp, other, unknown
 }
 
 enum PlaceType: String {

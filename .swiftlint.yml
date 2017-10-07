@@ -1,8 +1,13 @@
 disabled_rules:
   - line_length
+  - multiple_closures_with_trailing_closure
 
 excluded:
   - Pods
+
+identifier_name:
+  excluded:
+    - wc
 
 # line_length:
 #  - 120 # warning

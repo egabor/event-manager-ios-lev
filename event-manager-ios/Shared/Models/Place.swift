@@ -16,15 +16,15 @@ class Place: BaseResponse {
     var name: String! = ""
     var type: PlaceType! = .unknown
     var location: Location! = Location()
-    
-    required init?(map: Map){
+
+    required init?(map: Map) {
         super.init(map: map)
     }
-    
+
     override init() {
         super.init()!
     }
-    
+
     override func mapping(map: Map) {
         placeId <- map["id"]
         name <- map["name"]
