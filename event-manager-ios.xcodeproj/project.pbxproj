@@ -18,6 +18,9 @@
 		6213B5AE1F88E85E00121CFF /* Performer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213B5AD1F88E85E00121CFF /* Performer.swift */; };
 		6213B5B01F88E86E00121CFF /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213B5AF1F88E86E00121CFF /* Place.swift */; };
 		6213B5B21F88E98300121CFF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213B5B11F88E98300121CFF /* Location.swift */; };
+		6213B5B41F88FE4400121CFF /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213B5B31F88FE4400121CFF /* BaseResponse.swift */; };
+		6213B5B81F89061C00121CFF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213B5B71F89061C00121CFF /* String+Extensions.swift */; };
+		6213B5BA1F89062800121CFF /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213B5B91F89062800121CFF /* Date+Extensions.swift */; };
 		9653EFCF1F841EF900A98D68 /* Shared.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9653EFCE1F841EF900A98D68 /* Shared.storyboard */; };
 		9653EFD31F841F5800A98D68 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9653EFD11F841F5800A98D68 /* LoadingViewController.swift */; };
 		9653EFD41F841F5800A98D68 /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9653EFD21F841F5800A98D68 /* LoadingViewModel.swift */; };
@@ -47,6 +50,9 @@
 		6213B5AD1F88E85E00121CFF /* Performer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performer.swift; sourceTree = "<group>"; };
 		6213B5AF1F88E86E00121CFF /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		6213B5B11F88E98300121CFF /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		6213B5B31F88FE4400121CFF /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		6213B5B71F89061C00121CFF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		6213B5B91F89062800121CFF /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		9653EFCE1F841EF900A98D68 /* Shared.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shared.storyboard; sourceTree = "<group>"; };
 		9653EFD11F841F5800A98D68 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		9653EFD21F841F5800A98D68 /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 		96FC2BE21F81715D005D3B54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6213B5B31F88FE4400121CFF /* BaseResponse.swift */,
 				6213B59C1F88E11D00121CFF /* Event.swift */,
 				6213B5AD1F88E85E00121CFF /* Performer.swift */,
 				6213B5AF1F88E86E00121CFF /* Place.swift */,
@@ -205,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				6213B59E1F88E13A00121CFF /* UIExtended.swift */,
+				6213B5B71F89061C00121CFF /* String+Extensions.swift */,
+				6213B5B91F89062800121CFF /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,7 +367,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6213B5B81F89061C00121CFF /* String+Extensions.swift in Sources */,
 				96FC2BEC1F817CA7005D3B54 /* RestClient.swift in Sources */,
+				6213B5BA1F89062800121CFF /* Date+Extensions.swift in Sources */,
 				6213B59D1F88E11D00121CFF /* Event.swift in Sources */,
 				6213B5A71F88E18500121CFF /* TableViewSection.swift in Sources */,
 				96FC2BF21F81964B005D3B54 /* Configuration.swift in Sources */,
@@ -375,6 +386,7 @@
 				6213B5AE1F88E85E00121CFF /* Performer.swift in Sources */,
 				96FC2BCA1F816D42005D3B54 /* AppDelegate.swift in Sources */,
 				9653EFD31F841F5800A98D68 /* LoadingViewController.swift in Sources */,
+				6213B5B41F88FE4400121CFF /* BaseResponse.swift in Sources */,
 				9653EFD61F8422FF00A98D68 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
