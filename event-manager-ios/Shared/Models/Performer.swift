@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Performer: Bindable {
+class Performer: BaseResponse {
 
     // MARK: - Model Properties
     var performerId: String! = ""
@@ -16,7 +17,18 @@ class Performer: Bindable {
     var description: String? = ""
     var imageUrl: String! = ""
     
-    init () {
-
+    required init?(map: Map){
+        super.init(map: map)
+    }
+    
+    override init() {
+        super.init()!
+    }
+    
+    override func mapping(map: Map) {
+        performerId <- map["id"]
+        name <- map["name"]
+        description <- map["description"]
+        imageUrl <- map["imageUrl"]
     }
 }

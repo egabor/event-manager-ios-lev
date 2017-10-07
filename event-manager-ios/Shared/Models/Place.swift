@@ -7,16 +7,28 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Place: Bindable {
+class Place: BaseResponse {
 
     // MARK: - Model Properties
-    var performerId: String! = ""
+    var placeId: String! = ""
     var name: String! = ""
     var type: PlaceType! = .unknown
     var location: Location! = Location()
     
-    init () {
-
+    required init?(map: Map){
+        super.init(map: map)
+    }
+    
+    override init() {
+        super.init()!
+    }
+    
+    override func mapping(map: Map) {
+        placeId <- map["id"]
+        name <- map["name"]
+        type <- map["type"]
+        location <- map["location"]
     }
 }

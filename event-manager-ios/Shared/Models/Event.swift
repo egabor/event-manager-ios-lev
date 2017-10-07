@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Event: Bindable {
+class Event: BaseResponse  {
 
     // MARK: - Model Properties
     var eventId: String! = ""
@@ -19,12 +20,32 @@ class Event: Bindable {
     var showOnDate: Date! = Date.init(timeIntervalSince1970: 0)
     var startDate: Date! = Date.init(timeIntervalSince1970: 0)
     var performingMinutes: Int = 0
+    
+    
 
-    init () {
+
+    required init?(map: Map){
+        super.init(map: map)
+    }
+    
+    override init() {
+        super.init()!
+    }
+    
+    override func mapping(map: Map) {
+        eventId <- map["id"]
+        performer <- map["performer"]
+        place <- map["place"]
+        type <- map["type"]
+        relatedEvents <- map["relatedEvents"]
+        showOnDate <- (map["showOnDate"], DateTransform())
+        startDate <- (map["startDate"], DateTransform())
+        performingMinutes <- map["performingMinutes"]
 
     }
     
     func description() -> String! {
-        return "\"event\": {\n\t\"eventId\": \(self.eventId),\n\t\"type\": \(self.type!)\n\t\"performingMinutes\": \(self.performingMinutes)\n}"
+        print("\(self.showOnDate.toString()), \(self.startDate.toString())")
+        return "\(String(describing: self.toJSONString(prettyPrint: true)!))"
     }
 }
