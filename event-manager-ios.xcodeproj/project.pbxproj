@@ -21,6 +21,8 @@
 		6213B5B41F88FE4400121CFF /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213B5B31F88FE4400121CFF /* BaseResponse.swift */; };
 		6213B5B81F89061C00121CFF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213B5B71F89061C00121CFF /* String+Extensions.swift */; };
 		6213B5BA1F89062800121CFF /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6213B5B91F89062800121CFF /* Date+Extensions.swift */; };
+		625351E21F891B8E00B37CA4 /* nestquick.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 625351E11F891B8E00B37CA4 /* nestquick.storyboard */; };
+		625351E41F891BDD00B37CA4 /* egabor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 625351E31F891BDD00B37CA4 /* egabor.storyboard */; };
 		9653EFCF1F841EF900A98D68 /* Shared.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9653EFCE1F841EF900A98D68 /* Shared.storyboard */; };
 		9653EFD31F841F5800A98D68 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9653EFD11F841F5800A98D68 /* LoadingViewController.swift */; };
 		9653EFD41F841F5800A98D68 /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9653EFD21F841F5800A98D68 /* LoadingViewModel.swift */; };
@@ -53,6 +55,8 @@
 		6213B5B31F88FE4400121CFF /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		6213B5B71F89061C00121CFF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		6213B5B91F89062800121CFF /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		625351E11F891B8E00B37CA4 /* nestquick.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = nestquick.storyboard; sourceTree = "<group>"; };
+		625351E31F891BDD00B37CA4 /* egabor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = egabor.storyboard; sourceTree = "<group>"; };
 		9653EFCE1F841EF900A98D68 /* Shared.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shared.storyboard; sourceTree = "<group>"; };
 		9653EFD11F841F5800A98D68 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		9653EFD21F841F5800A98D68 /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				96FC2BCD1F816D42005D3B54 /* Main.storyboard */,
+				625351E11F891B8E00B37CA4 /* nestquick.storyboard */,
+				625351E31F891BDD00B37CA4 /* egabor.storyboard */,
 				96FC2BDC1F816F46005D3B54 /* Onboarding.storyboard */,
 				9653EFCE1F841EF900A98D68 /* Shared.storyboard */,
 			);
@@ -294,7 +300,9 @@
 				9653EFCF1F841EF900A98D68 /* Shared.storyboard in Resources */,
 				96FC2BD41F816D42005D3B54 /* LaunchScreen.storyboard in Resources */,
 				96FC2BD11F816D42005D3B54 /* Assets.xcassets in Resources */,
+				625351E21F891B8E00B37CA4 /* nestquick.storyboard in Resources */,
 				96FC2BCF1F816D42005D3B54 /* Main.storyboard in Resources */,
+				625351E41F891BDD00B37CA4 /* egabor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
