@@ -16,30 +16,11 @@
                     <view key="view" contentMode="scaleToFill" id="3DR-Ba-sYM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3N-lq-Pbv">
-                                <rect key="frame" x="57" y="152" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test loading"/>
-                                <connections>
-                                    <action selector="testLoading:" destination="dFL-Ou-sDL" eventType="touchUpInside" id="vp5-yz-hfI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQC-ma-jY0">
-                                <rect key="frame" x="187" y="152" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test Modal loading"/>
-                                <connections>
-                                    <action selector="testModalLoading:" destination="dFL-Ou-sDL" eventType="touchUpInside" id="LTS-GL-Gpk"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="W37-TY-zJu"/>
                     </view>
                     <connections>
                         <outlet property="loadingView" destination="Xy1-d9-z9p" id="BCf-8g-bSg"/>
-                        <segue destination="Mtl-tq-nP2" kind="presentation" identifier="ShowModalLoading" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="I7H-KW-wHs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70w-18-UzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -52,14 +33,6 @@
                 </containerView>
             </objects>
             <point key="canvasLocation" x="-5" y="-839"/>
-        </scene>
-        <!--LoadingViewController-->
-        <scene sceneID="aDp-yf-Ukj">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Shared" referencedIdentifier="LoadingViewController" id="Mtl-tq-nP2" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xKk-vp-e1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="671" y="-961"/>
         </scene>
         <!--LoadingViewController-->
         <scene sceneID="ank-OQ-DB0">
