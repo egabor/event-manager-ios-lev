@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.5.1)
   - Differentiator (2.0.2)
+  - ObjectMapper (3.0.0)
   - RxCocoa (3.6.1):
     - RxSwift (~> 3.6)
   - RxDataSources (2.0.2):
@@ -9,22 +10,27 @@ PODS:
     - RxSwift (>= 3.6.1)
   - RxSwift (3.6.1)
   - SnapKit (3.0.2)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - ObjectMapper
   - RxCocoa
   - RxDataSources
   - RxSwift
   - SnapKit (~> 3.0.0)
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Differentiator: caa9b3957981a2ac8e6b2eac8a676af461caa604
+  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxDataSources: 7f190474a93a206c082c2d74c4cc9c8f7bea4feb
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: ac5b0824aa55f3ce1e5bb489d5b3661f2988ed6f
+PODFILE CHECKSUM: 1df1c915c228e68203e0ff15b6a0c7743ff19e21
 
 COCOAPODS: 1.2.0
