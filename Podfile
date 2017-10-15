@@ -15,6 +15,7 @@ target 'event-manager-ios' do
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'SnapKit', '~> 3.0.0'
   pod 'SDWebImage', '~> 4.0'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
 end
 

@@ -3,6 +3,9 @@ PODS:
   - AlamofireObjectMapper (5.0.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - Differentiator (2.0.2)
   - ObjectMapper (3.0.0)
   - RxCocoa (3.6.1):
@@ -21,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - AlamofireObjectMapper (~> 5.0)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - RxCocoa
   - RxDataSources
   - RxSwift
@@ -28,9 +32,19 @@ DEPENDENCIES:
   - SnapKit (~> 3.0.0)
   - SwiftyJSON
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Differentiator: caa9b3957981a2ac8e6b2eac8a676af461caa604
   ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
@@ -40,6 +54,6 @@ SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 6fdf0745af9db15ac164c84f2118f6899e19858d
+PODFILE CHECKSUM: 4f26cfb618d8aab0dd614a7eec2169539c851676
 
 COCOAPODS: 1.2.0

@@ -423,6 +423,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJf-HN-4bm">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahL-0Z-qUf">
                                         <rect key="frame" x="8" y="120.5" width="359" height="22.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -435,11 +439,15 @@
                                     <constraint firstAttribute="bottom" secondItem="yFv-MX-0Et" secondAttribute="bottom" id="0e7-3G-4by"/>
                                     <constraint firstItem="yFv-MX-0Et" firstAttribute="bottom" secondItem="ahL-0Z-qUf" secondAttribute="bottom" constant="8" id="12h-lH-uqX"/>
                                     <constraint firstItem="yFv-MX-0Et" firstAttribute="top" secondItem="B4C-z6-d1n" secondAttribute="top" id="4nX-Ha-dnr"/>
+                                    <constraint firstItem="VJf-HN-4bm" firstAttribute="trailing" secondItem="yFv-MX-0Et" secondAttribute="trailing" id="5z4-D9-1MT"/>
                                     <constraint firstItem="ahL-0Z-qUf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yFv-MX-0Et" secondAttribute="top" id="NGf-1F-kHi"/>
                                     <constraint firstItem="yFv-MX-0Et" firstAttribute="trailing" secondItem="ahL-0Z-qUf" secondAttribute="trailing" constant="8" id="Olc-rK-e1k"/>
                                     <constraint firstItem="ahL-0Z-qUf" firstAttribute="leading" secondItem="yFv-MX-0Et" secondAttribute="leading" constant="8" id="QQa-xp-MNa"/>
+                                    <constraint firstItem="VJf-HN-4bm" firstAttribute="leading" secondItem="yFv-MX-0Et" secondAttribute="leading" id="Xh1-gV-fg5"/>
                                     <constraint firstAttribute="trailing" secondItem="yFv-MX-0Et" secondAttribute="trailing" id="dPc-0h-5Zy"/>
+                                    <constraint firstItem="VJf-HN-4bm" firstAttribute="bottom" secondItem="yFv-MX-0Et" secondAttribute="bottom" id="dRf-md-WKS"/>
                                     <constraint firstItem="ahL-0Z-qUf" firstAttribute="height" secondItem="yFv-MX-0Et" secondAttribute="height" multiplier="0.15" priority="900" id="hpk-en-qUO"/>
+                                    <constraint firstItem="VJf-HN-4bm" firstAttribute="height" secondItem="B4C-z6-d1n" secondAttribute="height" id="myc-qA-fXH"/>
                                     <constraint firstItem="yFv-MX-0Et" firstAttribute="leading" secondItem="B4C-z6-d1n" secondAttribute="leading" id="xWs-UI-VFi"/>
                                 </constraints>
                             </view>
@@ -461,6 +469,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="Wa1-Ea-qhT"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="gradientView" destination="VJf-HN-4bm" id="Oae-Ad-SbF"/>
                         <outlet property="imageViewBottomConstraint" destination="0e7-3G-4by" id="ySE-8A-FwP"/>
                         <outlet property="nameLabel" destination="ahL-0Z-qUf" id="euG-nK-thN"/>
                         <outlet property="performerImageView" destination="yFv-MX-0Et" id="rCy-n1-Hkg"/>
