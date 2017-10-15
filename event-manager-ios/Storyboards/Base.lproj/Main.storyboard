@@ -676,13 +676,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Button" width="20" height="22"/>
+        <image name="Button" width="10" height="12"/>
         <image name="facebook_f" width="30" height="30"/>
         <image name="favorite" width="25" height="25"/>
         <image name="favorite_filled" width="25" height="25"/>
         <image name="place" width="30" height="30"/>
         <image name="profile" width="25" height="25"/>
-        <image name="ticket" width="30" height="30"/>
+        <image name="ticket" width="25" height="25"/>
         <image name="time" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
