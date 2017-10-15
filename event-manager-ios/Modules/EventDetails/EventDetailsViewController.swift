@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SDWebImage
+import ChameleonFramework
 
 class EventDetailsViewController: UIViewController {
 
@@ -20,16 +21,22 @@ class EventDetailsViewController: UIViewController {
     // The viewmodel must be let!
     // To prevent memory leaks change the model inside the viewmodel instead of changing the viewmodel object.
     let viewModel = EventDetailsViewModel()
+    let imageViewGradientLayer = CAGradientLayer()
 
     // MARK: - var variables
 
     // MARK: - Interface Builder Outlets
-
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var gradientView: UIView!
 
     @IBOutlet weak var performerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var ticketLabel: UILabel!
+    @IBOutlet weak var facebookEventLabel: UILabel!
+
 
     // MARK: - ViewController Lifecycle Methods
 
@@ -41,6 +48,8 @@ class EventDetailsViewController: UIViewController {
         // Uncomment if the cells are self-sizing
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
+        
+        gradientView.backgroundColor = UIColor(gradientStyle:.topToBottom, withFrame:gradientView.bounds, andColors:[UIColor.clear, UIColor.black])
 
         setUpBindings()
     }
@@ -55,15 +64,33 @@ class EventDetailsViewController: UIViewController {
             self?.performerImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "favorite"))
             }.disposed(by: disposeBag)
         viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
+        viewModel.isFavorite.asObservable().subscribe { [weak self] (event) in
+            guard let isFavorite = event.element else { return }
+            var favoriteItem: UIBarButtonItem!
+            if isFavorite {
+                favoriteItem = UIBarButtonItem(image: UIImage(named: "favorite_filled"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self?.toggleFavorite))
+            } else {
+                favoriteItem = UIBarButtonItem(image: UIImage(named: "favorite"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self?.toggleFavorite))
+            }
+            self?.navigationItem.rightBarButtonItems = [favoriteItem]
+
+            }.disposed(by: disposeBag)
+        
+        viewModel.startTimeInfo.asObservable().bind(to: startTimeLabel.rx.text).disposed(by: disposeBag)
+        viewModel.placeInfo.asObservable().bind(to: placeLabel.rx.text).disposed(by: disposeBag)
+        viewModel.ticketInfo.asObservable().bind(to: ticketLabel.rx.text).disposed(by: disposeBag)
+        viewModel.facebookEventInfo.asObservable().bind(to: facebookEventLabel.rx.text).disposed(by: disposeBag)
 
         tableView
             .rx.observe(CGPoint.self, "contentOffset")
             .subscribe(onNext: { [weak self] contentOffset in
                 if contentOffset != nil {
-                    self?.imageViewBottomConstraint.constant = min((contentOffset?.y ?? 0.0), 0.0)
-                    self?.view.layoutIfNeeded()
+                    self?.imageViewBottomConstraint.constant = min(contentOffset?.y ?? 0.0, 0.0)
                 }
             }).disposed(by: disposeBag)
+        
+        viewModel.bottomConstraintOffset.asObservable().bind(to: imageViewBottomConstraint.rx.constant).disposed(by: disposeBag)
+        
 
         // MARK: - Cell Binding
 
@@ -127,7 +154,10 @@ class EventDetailsViewController: UIViewController {
 // MARK: - Interface Builder Actions
 
 extension EventDetailsViewController {
-
+    @objc func toggleFavorite() {
+        viewModel.isFavorite.value = !viewModel.isFavorite.value
+        // TODO: post a notification about it
+    }
 }
 
 // MARK: - Notification handlers can be placed here

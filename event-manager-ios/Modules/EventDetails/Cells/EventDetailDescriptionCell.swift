@@ -56,7 +56,7 @@ extension EventDetailDescriptionCell: ReactiveBindable {
     }
 
     func bind(to model: Bindable?) {
-        guard let model = model as? Event else { return }
+        guard let model = model as? EventDetailDescription else { return }
         viewModel.model = model
     }
 

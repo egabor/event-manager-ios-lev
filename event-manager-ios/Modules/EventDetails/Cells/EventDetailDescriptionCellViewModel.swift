@@ -17,10 +17,10 @@ class EventDetailDescriptionCellViewModel {
     // MARK: - var variables
     var description = Variable("")
 
-    var model: Event? {
+    var model: EventDetailDescription? {
         didSet {
             guard let model = model else { return }
-            description.value = model.performer.description!
+            description.value = model.description
         }
     }
 
@@ -28,10 +28,6 @@ class EventDetailDescriptionCellViewModel {
 
     init() {
 
-    }
-
-    init(with model: Event) {
-        self.model = model
     }
 
     deinit {
