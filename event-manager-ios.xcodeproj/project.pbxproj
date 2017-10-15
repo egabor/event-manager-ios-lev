@@ -27,6 +27,7 @@
 		62374F361F93A2FC00C9841A /* EventDetailDescriptionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62374F341F93A2FC00C9841A /* EventDetailDescriptionCellViewModel.swift */; };
 		62374F381F93C3DE00C9841A /* EventDetailDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62374F371F93C3DE00C9841A /* EventDetailDescription.swift */; };
 		6241DEE11F9133CA0011C32E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6241DEE01F9133CA0011C32E /* Profile.storyboard */; };
+		6247732A1F93F2A200FD58B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6247732C1F93F2A200FD58B2 /* Localizable.strings */; };
 		625DC81E1F893483008AE6DE /* EventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625DC81B1F893483008AE6DE /* EventHeader.swift */; };
 		625DC81F1F893483008AE6DE /* EventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625DC81C1F893483008AE6DE /* EventHeaderCell.swift */; };
 		625DC8201F893483008AE6DE /* EventHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625DC81D1F893483008AE6DE /* EventHeaderCellViewModel.swift */; };
@@ -73,6 +74,7 @@
 		62374F341F93A2FC00C9841A /* EventDetailDescriptionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailDescriptionCellViewModel.swift; sourceTree = "<group>"; };
 		62374F371F93C3DE00C9841A /* EventDetailDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailDescription.swift; sourceTree = "<group>"; };
 		6241DEE01F9133CA0011C32E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		6247732B1F93F2A200FD58B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		625DC81B1F893483008AE6DE /* EventHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHeader.swift; sourceTree = "<group>"; };
 		625DC81C1F893483008AE6DE /* EventHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHeaderCell.swift; sourceTree = "<group>"; };
 		625DC81D1F893483008AE6DE /* EventHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHeaderCellViewModel.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				96FC2BD01F816D42005D3B54 /* Assets.xcassets */,
 				96FC2BD21F816D42005D3B54 /* LaunchScreen.storyboard */,
 				96FC2BD51F816D42005D3B54 /* Info.plist */,
+				6247732C1F93F2A200FD58B2 /* Localizable.strings */,
 			);
 			path = "event-manager-ios";
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				96FC2BDD1F816F46005D3B54 /* Onboarding.storyboard in Resources */,
 				9653EFCF1F841EF900A98D68 /* Shared.storyboard in Resources */,
 				6241DEE11F9133CA0011C32E /* Profile.storyboard in Resources */,
+				6247732A1F93F2A200FD58B2 /* Localizable.strings in Resources */,
 				96FC2BD41F816D42005D3B54 /* LaunchScreen.storyboard in Resources */,
 				96FC2BD11F816D42005D3B54 /* Assets.xcassets in Resources */,
 				96FC2BCF1F816D42005D3B54 /* Main.storyboard in Resources */,
@@ -490,6 +494,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		6247732C1F93F2A200FD58B2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6247732B1F93F2A200FD58B2 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		96FC2BCD1F816D42005D3B54 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

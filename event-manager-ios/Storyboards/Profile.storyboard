@@ -38,6 +38,9 @@
                                 <segue destination="6gm-Tp-5hy" kind="show" id="ByA-9R-LDm"/>
                             </connections>
                         </barButtonItem>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="Profile.Title"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -76,6 +79,9 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="EcX-2O-w8m">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="EditProfile.Title"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R42-OV-c00" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -105,7 +111,11 @@
                             <outlet property="delegate" destination="PM2-F4-bJR" id="uKI-zT-2vb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tickets" id="lE8-cD-S0P"/>
+                    <navigationItem key="navigationItem" title="Tickets" id="lE8-cD-S0P">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="Tickets.Title"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
                     <connections>
                         <segue destination="2Mi-1y-j92" kind="show" id="kIF-ue-959"/>
                     </connections>
@@ -141,6 +151,9 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="zxT-hM-e8h">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="TicketDetails.Title"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHq-aT-TeA" userLabel="First Responder" sceneMemberID="firstResponder"/>

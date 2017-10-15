@@ -1,0 +1,28 @@
+/*
+  Localizable.strings
+  event-manager-ios
+
+  Created by Eszenyi Gábor on 2017. 10. 15..
+  Copyright © 2017. Gabor Eszenyi. All rights reserved.
+*/
+
+
+"Events.Title" = "Events";
+
+"EventDetails.Title" = "Details";
+"EventDetails.Button.SeeAll.Title" = "See All For This Place";
+"EventDetails.Button.RelatedEvents.Title" = "Related Events";
+
+"Map.Title" = "Map";
+
+"Friends.Title" = "Friends";
+
+"News.Title" = "News";
+
+"Profile.Title" = "Profile";
+
+"EditProfile.Title" = "Edit Profile";
+
+"Tickets.Title" = "Tickets";
+
+"TicketDetails.Title" = "Details";
