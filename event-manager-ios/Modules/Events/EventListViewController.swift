@@ -36,7 +36,7 @@ class EventListViewController: UIViewController {
 
         // Uncomment if the cells are self-sizing
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 44
+        tableView.estimatedRowHeight = 60
 
         /*
         // Uncomment in case of use custom section headers or footers

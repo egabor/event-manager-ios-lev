@@ -20,6 +20,7 @@ class Event: BaseResponse {
     var showOnDate: Date! = Date.init(timeIntervalSince1970: 0)
     var startDate: Date! = Date.init(timeIntervalSince1970: 0)
     var performingMinutes: Int = 0
+    var isFavorite: Bool = false
 
     required init?(map: Map) {
         super.init(map: map)
@@ -38,7 +39,7 @@ class Event: BaseResponse {
         showOnDate <- (map["showOnDate"], DateTransform())
         startDate <- (map["startDate"], DateTransform())
         performingMinutes <- map["performingMinutes"]
-
+        isFavorite <- map["isFavorite"]
     }
 
     func description() -> String! {

@@ -23,7 +23,10 @@ class EventCell: UITableViewCell {
     // MARK: - var variables
 
     // MARK: - Interface Builder Outlets
+    @IBOutlet weak var performerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var infoLabel : UILabel!
+    @IBOutlet weak var toggleFavoriteButton: UIButton!
 
     // MARK: - UITableViewCell Lifecycle Methods
 
@@ -53,6 +56,8 @@ extension EventCell: ReactiveBindable {
 
     func setUpBindings() {
         viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
+        viewModel.info.asObservable().bind(to: infoLabel.rx.text).disposed(by: disposeBag)
+        viewModel.isFavorite.asObservable().bind(to: toggleFavoriteButton.rx.isSelected).disposed(by: disposeBag)
     }
 
     func bind(to model: Bindable?) {
@@ -65,7 +70,10 @@ extension EventCell: ReactiveBindable {
 // MARK: - Interface Builder Actions
 
 extension EventCell {
-
+    @IBAction func toggleFavorite(_ sender: UIButton) {
+        viewModel.isFavorite.value = !viewModel.isFavorite.value
+        // TODO: post a notification about it
+    }
 }
 
 // MARK: - Notification handlers can be placed here
