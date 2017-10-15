@@ -6,4 +6,20 @@
 //  Copyright © 2017. Gabor Eszenyi. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIButton {
+    @IBInspectable var localizedTitle: String {
+        get {
+            return titleLabel?.text ?? ""
+        }
+        set {
+            #if TARGET_INTERFACE_BUILDER
+                var bundle = NSBundle(forClass: type(of: self))
+                setTitle(bundle.localizedStringForKey(newValue.localized, value:"", table: nil), for: .normal)
+            #else
+                setTitle(newValue.localized, for: .normal)
+            #endif
+        }
+    }
+}
