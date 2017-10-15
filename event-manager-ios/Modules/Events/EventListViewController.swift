@@ -94,6 +94,9 @@ class EventListViewController: UIViewController {
         tableView.rx
             .modelSelected(Bindable.self)
             .subscribe(onNext: { [weak self] value in
+                if let selectedIndexPath = self?.tableView.indexPathForSelectedRow {
+                    self?.tableView.deselectRow(at: selectedIndexPath, animated: true)
+                }
                 self?.performSegue(withIdentifier: "ShowEventDetails", sender: value)
             })
             .disposed(by: disposeBag)
