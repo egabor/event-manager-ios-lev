@@ -14,6 +14,7 @@ target 'event-manager-ios' do
   pod 'SwiftyJSON'
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'SnapKit', '~> 3.0.0'
+  pod 'SDWebImage', '~> 4.0'
 
 end
 

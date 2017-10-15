@@ -12,6 +12,9 @@ PODS:
     - RxCocoa (>= 3.6.1)
     - RxSwift (>= 3.6.1)
   - RxSwift (3.6.1)
+  - SDWebImage (4.1.2):
+    - SDWebImage/Core (= 4.1.2)
+  - SDWebImage/Core (4.1.2)
   - SnapKit (3.0.2)
   - SwiftyJSON (3.1.4)
 
@@ -21,6 +24,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxDataSources
   - RxSwift
+  - SDWebImage (~> 4.0)
   - SnapKit (~> 3.0.0)
   - SwiftyJSON
 
@@ -32,9 +36,10 @@ SPEC CHECKSUMS:
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxDataSources: 7f190474a93a206c082c2d74c4cc9c8f7bea4feb
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 5309bc0d0828d5cee08aeb640266dee024064cf6
+PODFILE CHECKSUM: 6fdf0745af9db15ac164c84f2118f6899e19858d
 
 COCOAPODS: 1.2.0
