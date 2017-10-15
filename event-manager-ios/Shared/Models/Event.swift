@@ -21,6 +21,7 @@ class Event: BaseResponse {
     var startDate: Date! = Date.init(timeIntervalSince1970: 0)
     var performingMinutes: Int = 0
     var isFavorite: Bool = false
+    var facebookEventUrl: String?
 
     required init?(map: Map) {
         super.init(map: map)
@@ -40,6 +41,7 @@ class Event: BaseResponse {
         startDate <- (map["startDate"], DateTransform())
         performingMinutes <- map["performingMinutes"]
         isFavorite <- map["isFavorite"]
+        facebookEventUrl <- map["facebookEventUrl"]
     }
 
     func description() -> String! {
