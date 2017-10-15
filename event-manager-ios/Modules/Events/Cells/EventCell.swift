@@ -85,8 +85,10 @@ extension EventCell: ReactiveBindable {
 
 extension EventCell {
     @IBAction func toggleFavorite(_ sender: UIButton) {
+        guard let event = viewModel.model else { return }
+        viewModel.model?.isFavorite = !event.isFavorite
         viewModel.isFavorite.value = !viewModel.isFavorite.value
-        // TODO: post a notification about it (EventFavoriteStateUpdated)
+        NotificationCenter.default.post(name: Constants.Notifications.EventFavoriteStateUpdated, object: viewModel.model)
     }
 }
 

@@ -24,7 +24,7 @@ class EventDetailsViewModel {
             imageUrl.value = model.performer.imageUrl
             name.value = model.performer.name
             isFavorite.value = model.isFavorite
-            startTimeInfo.value = model.startDate.toString()!
+            startTimeInfo.value = model.startDate.toString(format: "MMM dd, EEEE")!
             placeInfo.value = model.place.name
             facebookEventInfo.value = model.facebookEventUrl ?? facebookEventInfo.value
         }
@@ -45,11 +45,11 @@ class EventDetailsViewModel {
     // MARK: - Lifecycle Methods
 
     init () {
-
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFavoriteState(_:)), name: Constants.Notifications.EventFavoriteStateUpdated, object: nil)
     }
 
     deinit {
-        // Don't forget to remove the observers here
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Business Logic
@@ -61,5 +61,11 @@ class EventDetailsViewModel {
 // MARK: - Notification handlers can be placed here
 
 extension EventDetailsViewModel {
-
+    @objc func updateFavoriteState(_ notification: Notification) {
+        guard let event = notification.object as? Event else { return }
+        if event.eventId == model?.eventId {
+            model?.isFavorite = event.isFavorite
+            isFavorite.value = event.isFavorite
+        }
+    }
 }

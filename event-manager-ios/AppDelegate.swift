@@ -17,12 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
         var configuration = Configuration()
         print(configuration.environment.baseURL)
-        RestClient.shared.getEvents { (events, _) in
-            print("success \(events.count)")
-            for e in events {
-                print(e.description())
-            }
-        }
+        RestClient.shared.getEvents(complitionBlock: nil)
 
 		return true
 	}

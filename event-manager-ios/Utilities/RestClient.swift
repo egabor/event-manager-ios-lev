@@ -9,20 +9,25 @@
 import Alamofire
 import AlamofireObjectMapper
 import SwiftyJSON
+import RxSwift
 
 class RestClient {
     var configuration = Configuration()
     static let shared = RestClient()
+
+    var events = Variable([Event]())
 
     private init() {}
 
     public func getEvents(complitionBlock: (([Event], String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/events")!
 
-        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { (response: DataResponse<[Event]>) in
+        // TODO: send the correct heders
+        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[Event]>) in
             if response.result.isSuccess {
-                let result: [Event] = response.result.value!
-                complitionBlock!(result, nil)
+                guard let result = response.result.value else { return }
+                self?.events.value = result
+                complitionBlock?(result, nil)
             }
         }
     }

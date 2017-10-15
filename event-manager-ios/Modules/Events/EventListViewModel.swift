@@ -25,13 +25,15 @@ class EventListViewModel {
     // MARK: - Lifecycle Methods
 
     init () {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFavoriteState(_:)), name: Constants.Notifications.EventFavoriteStateUpdated, object: nil)
         RestClient.shared.getEvents { [weak self] (events, error) in
             self?.mapEvents(events)
         }
     }
 
     deinit {
-        // Don't forget to remove the observers here
+        NotificationCenter.default.removeObserver(self)
+
     }
 
     // MARK: - Business Logic
@@ -51,5 +53,10 @@ class EventListViewModel {
 // MARK: - Notification handlers can be placed here
 
 extension EventListViewModel {
-
+    @objc func updateFavoriteState(_ notification: Notification) {
+        guard let event = notification.object as? Event else { return }
+        guard let eventToUpdate = (RestClient.shared.events.value.filter { $0.eventId == event.eventId }.first) else { return }
+        eventToUpdate.isFavorite = event.isFavorite
+        self.mapEvents(RestClient.shared.events.value)
+    }
 }

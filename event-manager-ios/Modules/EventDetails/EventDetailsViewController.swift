@@ -153,8 +153,18 @@ class EventDetailsViewController: UIViewController {
 
 extension EventDetailsViewController {
     @objc func toggleFavorite() {
+        guard let event = viewModel.model else { return }
+        viewModel.model?.isFavorite = !event.isFavorite
         viewModel.isFavorite.value = !viewModel.isFavorite.value
-        // TODO: post a notification about it (EventFavoriteStateUpdated)
+        NotificationCenter.default.post(name: Constants.Notifications.EventFavoriteStateUpdated, object: viewModel.model)
+    }
+
+    @IBAction func seeAllForThisPlace(_ sender: UIButton) {
+        print("See All")
+    }
+
+    @IBAction func showRelatedEvents(_ sender: UIButton) {
+        print("Show Related Events")
     }
 }
 

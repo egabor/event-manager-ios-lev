@@ -556,6 +556,9 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="EventDetails.Button.SeeAll.Title"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="seeAllForThisPlace:" destination="L4h-S1-xy1" eventType="touchUpInside" id="Iob-rC-igm"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdy-dU-HLC">
                                                     <rect key="frame" x="180.5" y="0.0" width="178.5" height="34"/>
@@ -566,6 +569,9 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="EventDetails.Button.RelatedEvents.Title"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="showRelatedEvents:" destination="L4h-S1-xy1" eventType="touchUpInside" id="BcT-hF-w1F"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
