@@ -16,9 +16,41 @@ extension UIButton {
         set {
             #if TARGET_INTERFACE_BUILDER
                 var bundle = NSBundle(forClass: type(of: self))
-                setTitle(bundle.localizedStringForKey(newValue.localized, value:"", table: nil), for: .normal)
+                setTitle(bundle.localizedStringForKey(newValue, value:"", table: nil), for: .normal)
             #else
                 setTitle(newValue.localized, for: .normal)
+            #endif
+        }
+    }
+}
+
+extension UINavigationItem {
+    @IBInspectable var localizedTitle: String {
+        get {
+            return title ?? ""
+        }
+        set {
+            #if TARGET_INTERFACE_BUILDER
+                var bundle = NSBundle(forClass: type(of: self))
+                title = bundle.localizedStringForKey(newValue, value:"", table: nil)
+            #else
+                title = newValue.localized
+            #endif
+        }
+    }
+}
+
+extension UIBarButtonItem {
+    @IBInspectable var localizedTitle: String {
+        get {
+            return title ?? ""
+        }
+        set {
+            #if TARGET_INTERFACE_BUILDER
+                var bundle = NSBundle(forClass: type(of: self))
+                title = bundle.localizedStringForKey(newValue, value:"", table: nil)
+            #else
+                title = newValue.localized
             #endif
         }
     }
