@@ -175,7 +175,7 @@ extension EventListViewController: UITableViewDelegate {
 extension EventListViewController {
     @IBAction func toggleSearch(_ sender: UIBarButtonItem) {
         viewModel.searchBarVisible.value = !viewModel.searchBarVisible.value
-        self.searchBar.becomeFirstResponder()
+        //self.searchBar.becomeFirstResponder()
 
     }
 }
