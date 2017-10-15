@@ -38,7 +38,6 @@ class EventDetailsViewModel {
     var ticketInfo = Variable("No ticket information.")
     var facebookEventInfo = Variable("No facebook event available.")
 
-
     // Change the sections variable to update the TableView
     var sections = Variable([TableViewSection]())
     var dataSource = RxTableViewSectionedReloadDataSource<TableViewSection>()

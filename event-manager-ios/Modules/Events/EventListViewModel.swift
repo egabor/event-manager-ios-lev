@@ -35,13 +35,13 @@ class EventListViewModel {
     }
 
     // MARK: - Business Logic
-    
+
     func mapEvents(_ events: [Event]) {
         sections.value = [TableViewSection(items: events)]
         /*events.group { $0.performer.name }.forEach { (key,element) in
             print("\(key): \(element)")
         }*/
-        
+
     }
 
     // MARK: - Helper Methods
