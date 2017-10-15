@@ -86,7 +86,7 @@ extension EventCell: ReactiveBindable {
 extension EventCell {
     @IBAction func toggleFavorite(_ sender: UIButton) {
         viewModel.isFavorite.value = !viewModel.isFavorite.value
-        // TODO: post a notification about it
+        // TODO: post a notification about it (EventFavoriteStateUpdated)
     }
 }
 

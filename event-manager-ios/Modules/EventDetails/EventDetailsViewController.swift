@@ -37,7 +37,6 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var ticketLabel: UILabel!
     @IBOutlet weak var facebookEventLabel: UILabel!
 
-
     // MARK: - ViewController Lifecycle Methods
 
     override func viewDidLoad() {
@@ -48,8 +47,8 @@ class EventDetailsViewController: UIViewController {
         // Uncomment if the cells are self-sizing
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
-        
-        gradientView.backgroundColor = UIColor(gradientStyle:.topToBottom, withFrame:gradientView.bounds, andColors:[UIColor.clear, UIColor.black])
+
+        gradientView.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: gradientView.bounds, andColors: [UIColor.clear, UIColor.black])
 
         setUpBindings()
     }
@@ -75,7 +74,7 @@ class EventDetailsViewController: UIViewController {
             self?.navigationItem.rightBarButtonItems = [favoriteItem]
 
             }.disposed(by: disposeBag)
-        
+
         viewModel.startTimeInfo.asObservable().bind(to: startTimeLabel.rx.text).disposed(by: disposeBag)
         viewModel.placeInfo.asObservable().bind(to: placeLabel.rx.text).disposed(by: disposeBag)
         viewModel.ticketInfo.asObservable().bind(to: ticketLabel.rx.text).disposed(by: disposeBag)
@@ -88,9 +87,8 @@ class EventDetailsViewController: UIViewController {
                     self?.imageViewBottomConstraint.constant = min(contentOffset?.y ?? 0.0, 0.0)
                 }
             }).disposed(by: disposeBag)
-        
+
         viewModel.bottomConstraintOffset.asObservable().bind(to: imageViewBottomConstraint.rx.constant).disposed(by: disposeBag)
-        
 
         // MARK: - Cell Binding
 
@@ -156,7 +154,7 @@ class EventDetailsViewController: UIViewController {
 extension EventDetailsViewController {
     @objc func toggleFavorite() {
         viewModel.isFavorite.value = !viewModel.isFavorite.value
-        // TODO: post a notification about it
+        // TODO: post a notification about it (EventFavoriteStateUpdated)
     }
 }
 

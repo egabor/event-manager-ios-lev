@@ -31,7 +31,6 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TODO: Do the viewmodel binding here
 		NotificationCenter.default.addObserver(self, selector: #selector(startLoading(_:)), name: Constants.Notifications.StartLoadingIndicatorAnimation, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(stopLoading(_:)), name: Constants.Notifications.StopLoadingIndicatorAnimation, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(show(_:)), name: Constants.Notifications.ShowLoadingAnimationView, object: nil)

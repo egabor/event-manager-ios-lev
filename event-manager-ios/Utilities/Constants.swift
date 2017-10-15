@@ -15,5 +15,7 @@ struct Constants {
 		static let StopLoadingIndicatorAnimation = NSNotification.Name(rawValue: "StopLoadingIndicatorAnimation")
 		static let ShowLoadingAnimationView = NSNotification.Name(rawValue: "ShowLoadingAnimationView")
 		static let HideLoadingAnimationView = NSNotification.Name(rawValue: "HideLoadingAnimationView")
+        
+        static let EventFavoriteStateUpdated = NSNotification.Name(rawValue: "EventFavoriteStateUpdated")
 	}
 }
