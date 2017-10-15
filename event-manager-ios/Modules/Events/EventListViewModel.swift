@@ -16,6 +16,7 @@ class EventListViewModel {
     // MARK: - let constants
 
     // MARK: - var variables
+    var searchBarVisible = Variable(false)
 
     // Change the sections variable to update the TableView
     var sections = Variable([TableViewSection]())

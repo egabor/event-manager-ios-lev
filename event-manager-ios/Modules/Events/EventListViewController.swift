@@ -25,7 +25,8 @@ class EventListViewController: UIViewController {
     // MARK: - Interface Builder Outlets
 
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     // MARK: - ViewController Lifecycle Methods
 
     override func viewDidLoad() {
@@ -33,9 +34,9 @@ class EventListViewController: UIViewController {
 
         tableView.dataSource = nil
 
-         // Uncomment if the cells are self-sizing
+        // Uncomment if the cells are self-sizing
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 140
+        tableView.estimatedRowHeight = 44
 
         /*
         // Uncomment in case of use custom section headers or footers
@@ -46,6 +47,7 @@ class EventListViewController: UIViewController {
         */
 
         setUpBindings()
+
     }
 
     deinit {
@@ -53,6 +55,14 @@ class EventListViewController: UIViewController {
     }
 
     func setUpBindings() {
+        /*viewModel.searchBarVisible.asObservable().subscribe { [weak self] (event) in
+            guard let searchBarVisible = event.element else { return }
+            if searchBarVisible {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self?.tableView.contentOffset = CGPoint.init(x: 0, y: 0)
+                })
+            }
+        }.disposed(by: disposeBag)*/
 
         tableView.rx.setDelegate(self)
             .addDisposableTo(disposeBag)
@@ -157,7 +167,11 @@ extension EventListViewController: UITableViewDelegate {
 // MARK: - Interface Builder Actions
 
 extension EventListViewController {
+    @IBAction func toggleSearch(_ sender: UIBarButtonItem) {
+        viewModel.searchBarVisible.value = !viewModel.searchBarVisible.value
+        self.searchBar.becomeFirstResponder()
 
+    }
 }
 
 // MARK: - Notification handlers can be placed here
