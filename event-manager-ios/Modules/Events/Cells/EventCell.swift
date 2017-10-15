@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import SDWebImage
 
 class EventCell: UITableViewCell {
 
@@ -23,9 +24,10 @@ class EventCell: UITableViewCell {
     // MARK: - var variables
 
     // MARK: - Interface Builder Outlets
+    @IBOutlet weak var performerImageWrapperView: UIView!
     @IBOutlet weak var performerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var infoLabel : UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var toggleFavoriteButton: UIButton!
 
     // MARK: - UITableViewCell Lifecycle Methods
@@ -33,6 +35,8 @@ class EventCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        performerImageWrapperView.layer.borderWidth = 2.0
+        performerImageWrapperView.layer.borderColor = UIColor.black.cgColor
         setUpBindings()
     }
 
@@ -48,6 +52,12 @@ class EventCell: UITableViewCell {
 
     // MARK: - Helper Methods
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        performerImageWrapperView.layer.cornerRadius = performerImageWrapperView.bounds.height / 2.0
+        performerImageView.layer.cornerRadius = performerImageView.bounds.height / 2.0
+    }
+
 }
 
 // MARK: - Reacive Bindable Implementation
@@ -55,6 +65,10 @@ class EventCell: UITableViewCell {
 extension EventCell: ReactiveBindable {
 
     func setUpBindings() {
+        viewModel.imageUrl.asObservable().subscribe { [weak self] (event) in
+            guard let imageUrl = event.element else { return }
+            self?.performerImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "favorite"))
+        }.disposed(by: disposeBag)
         viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
         viewModel.info.asObservable().bind(to: infoLabel.rx.text).disposed(by: disposeBag)
         viewModel.isFavorite.asObservable().bind(to: toggleFavoriteButton.rx.isSelected).disposed(by: disposeBag)
