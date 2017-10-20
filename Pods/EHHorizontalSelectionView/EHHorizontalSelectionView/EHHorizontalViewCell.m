@@ -119,8 +119,8 @@ static NSMutableDictionary * _Nullable _EHHorisontalSelectionStyles = nil;
 {
     return [@{ @"tintColor" : [UIColor colorWithRed:0 green:122/255.0 blue:1 alpha:1],
                @"textColor" : [UIColor colorWithWhite:1 alpha:1],
-              @"font" : [UIFont fontWithName:@"HelveticaNeue" size:18.0],
-              @"fontMedium" : [UIFont fontWithName:@"HelveticaNeue-Medium" size:18.0],
+              @"font" : [UIFont fontWithName:@"HelveticaNeue" size:14.0],
+              @"fontMedium" : [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0],
               @"cellGap" : @(_EHDefaultGap * 4),
               @"needCentered" : @(YES)
               } mutableCopy];

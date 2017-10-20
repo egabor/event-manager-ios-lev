@@ -16,7 +16,7 @@ target 'event-manager-ios' do
   pod 'SnapKit', '~> 3.0.0'
   pod 'SDWebImage', '~> 4.0'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-  pod 'EHHorizontalSelectionView'
+  pod 'EHHorizontalSelectionView', :git => 'https://github.com/egabor/EHHorizontalSelectionView.git'
 
 end
 

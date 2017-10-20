@@ -11,7 +11,7 @@
 
 @implementation EHHorizontalLineViewCell
 
-static float _EHHorizontalColorHeight = 4;
+static float _EHHorizontalColorHeight = 1;
 
 + (float)cellGap
 {

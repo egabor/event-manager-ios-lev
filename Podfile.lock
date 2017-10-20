@@ -26,7 +26,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.5)
   - AlamofireObjectMapper (~> 5.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
-  - EHHorizontalSelectionView
+  - EHHorizontalSelectionView (from `https://github.com/egabor/EHHorizontalSelectionView.git`)
   - RxCocoa
   - RxDataSources
   - RxSwift
@@ -37,11 +37,16 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
+  EHHorizontalSelectionView:
+    :git: https://github.com/egabor/EHHorizontalSelectionView.git
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
     :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
     :git: https://github.com/ViccAlexander/Chameleon.git
+  EHHorizontalSelectionView:
+    :commit: 40a8f05a39d17749e171744b4e31a4daf598e727
+    :git: https://github.com/egabor/EHHorizontalSelectionView.git
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -57,6 +62,6 @@ SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 6bf00809a3561bd9123c286bf9e04ea3abf7c808
+PODFILE CHECKSUM: e5bb0f217efef7ef9ed9dc8a18f00554789ee19e
 
 COCOAPODS: 1.2.0
