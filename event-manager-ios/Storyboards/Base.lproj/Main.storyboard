@@ -4,8 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -69,19 +70,69 @@
         <!--News-->
         <scene sceneID="v7x-3Z-XoJ">
             <objects>
-                <tableViewController id="b7i-TK-eQ5" sceneMemberID="viewController">
+                <tableViewController id="b7i-TK-eQ5" customClass="NewsListViewController" customModule="event_manager_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zfO-S2-ndm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NS8-TB-Kb2">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="66" id="NS8-TB-Kb2" userLabel="NewsCell" customClass="NewsCell" customModule="event_manager_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NS8-TB-Kb2" id="VIL-kP-JZd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSk-sf-kE4" userLabel="News Image Wrapper View">
+                                            <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y88-sK-oCd" userLabel="News Image View">
+                                                    <rect key="frame" x="3" y="3" width="44" height="44"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="y88-sK-oCd" secondAttribute="height" multiplier="1:1" id="dKe-zO-5CR"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="uSk-sf-kE4" secondAttribute="height" multiplier="1:1" id="ApI-xm-QfJ"/>
+                                                <constraint firstItem="y88-sK-oCd" firstAttribute="centerY" secondItem="uSk-sf-kE4" secondAttribute="centerY" id="B8r-iZ-dpW"/>
+                                                <constraint firstItem="y88-sK-oCd" firstAttribute="centerX" secondItem="uSk-sf-kE4" secondAttribute="centerX" id="N92-b3-YUZ"/>
+                                                <constraint firstItem="y88-sK-oCd" firstAttribute="width" secondItem="uSk-sf-kE4" secondAttribute="width" constant="-6" id="PMN-NE-RLM"/>
+                                                <constraint firstAttribute="height" constant="50" id="gIQ-yz-GuT"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 Cent lemondta a Sziget fellépését" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf4-24-RU5" userLabel="Title Label">
+                                            <rect key="frame" x="66" y="16" width="264" height="25"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Vasárnap 23:32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cg-Wu-Lt1" userLabel="Date Label">
+                                            <rect key="frame" x="66" y="43" width="88" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uSk-sf-kE4" secondAttribute="bottom" constant="8" id="2cM-3x-2XB"/>
+                                        <constraint firstItem="uSk-sf-kE4" firstAttribute="top" secondItem="VIL-kP-JZd" secondAttribute="top" constant="8" id="4FU-dn-0MB"/>
+                                        <constraint firstItem="1Cg-Wu-Lt1" firstAttribute="leading" secondItem="uSk-sf-kE4" secondAttribute="trailing" constant="8" id="Ih8-9b-UHz"/>
+                                        <constraint firstItem="uSk-sf-kE4" firstAttribute="leading" secondItem="VIL-kP-JZd" secondAttribute="leading" constant="8" id="Obx-i4-iRv"/>
+                                        <constraint firstItem="Lf4-24-RU5" firstAttribute="leading" secondItem="uSk-sf-kE4" secondAttribute="trailing" constant="8" id="dc5-0R-p7f"/>
+                                        <constraint firstItem="Lf4-24-RU5" firstAttribute="top" secondItem="VIL-kP-JZd" secondAttribute="topMargin" constant="8" id="oUD-v7-gMA"/>
+                                        <constraint firstItem="1Cg-Wu-Lt1" firstAttribute="top" secondItem="Lf4-24-RU5" secondAttribute="bottom" constant="2" id="uvW-ya-Zaw"/>
+                                        <constraint firstItem="1Cg-Wu-Lt1" firstAttribute="bottom" secondItem="VIL-kP-JZd" secondAttribute="bottomMargin" id="x38-q0-zxf"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="1Cg-Wu-Lt1" id="yAL-Qf-ChP"/>
+                                    <outlet property="newsImageView" destination="y88-sK-oCd" id="sRe-vJ-y9q"/>
+                                    <outlet property="newsImageWrapperView" destination="uSk-sf-kE4" id="NeK-6l-yHg"/>
+                                    <outlet property="titleLabel" destination="Lf4-24-RU5" id="RII-M1-yK9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -98,7 +149,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4m-FE-J7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="474" y="1528"/>
+            <point key="canvasLocation" x="472.80000000000001" y="1527.8860569715143"/>
         </scene>
         <!--Item-->
         <scene sceneID="VU4-Xg-tG6">
@@ -715,6 +766,6 @@
         <image name="time" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9Qy-Gf-gKA"/>
+        <segue reference="lrf-W2-5h5"/>
     </inferredMetricsTieBreakers>
 </document>
