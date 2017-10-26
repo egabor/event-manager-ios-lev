@@ -301,11 +301,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOi-GG-YhF">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOi-GG-YhF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZgH-Y2-uV4">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WN-co-7sZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="108"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZn-at-HVP">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="108"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
+                                    <constraint firstItem="ZgH-Y2-uV4" firstAttribute="top" secondItem="VOi-GG-YhF" secondAttribute="top" id="1eg-Qy-e8L"/>
+                                    <constraint firstItem="ZgH-Y2-uV4" firstAttribute="centerX" secondItem="VOi-GG-YhF" secondAttribute="centerX" id="GLI-BO-bzD"/>
                                     <constraint firstAttribute="height" constant="108" id="QMb-Dy-Con"/>
+                                    <constraint firstItem="ZgH-Y2-uV4" firstAttribute="centerY" secondItem="VOi-GG-YhF" secondAttribute="centerY" id="aF3-lX-TDv"/>
                                     <constraint firstAttribute="height" constant="52" id="g4A-wU-e11"/>
+                                    <constraint firstItem="ZgH-Y2-uV4" firstAttribute="leading" secondItem="VOi-GG-YhF" secondAttribute="leading" id="nhL-Uv-f3C"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="point" keyPath="layer.shadowOffset">
@@ -323,7 +342,7 @@
                                         <exclude reference="g4A-wU-e11"/>
                                     </mask>
                                 </variation>
-                            </containerView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

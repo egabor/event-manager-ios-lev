@@ -21,7 +21,6 @@ class EventListViewController: UIViewController {
     let viewModel = EventListViewModel()
 
     // MARK: - var variables
-    var eventFilterViewController: Variable<EventFilterViewController?> = Variable(nil)
 
     // MARK: - Interface Builder Outlets
     @IBOutlet weak var onlyGroupConstraint: NSLayoutConstraint!
@@ -59,17 +58,6 @@ class EventListViewController: UIViewController {
     }
 
     func setUpBindings() {
-        
-        Observable.combineLatest(viewModel.events.asObservable(), eventFilterViewController.asObservable()) { [weak self] (events, eventFilterViewController) in
-            self?.eventFilterViewController.value?.viewModel.events.value = events
-        }.subscribe().disposed(by: disposeBag)
-
-        
-        eventFilterViewController.value?.viewModel.isFilterHidden.asObservable().subscribe({ [weak self] (event) in
-            guard let isFilterHidden = event.element else { return }
-            self?.updateFilterHeight(isFilterHidden)
-            
-        }).disposed(by: disposeBag)
         
         /*viewModel.searchBarVisible.asObservable().subscribe { [weak self] (event) in
             guard let searchBarVisible = event.element else { return }
@@ -143,10 +131,6 @@ class EventListViewController: UIViewController {
             if let destination = segue.destination as? EventDetailsViewController {
                 guard let model = sender as? Event else { return }
                 destination.viewModel.model = model
-            }
-        } else if segue.identifier == "EmbedEventFilter" {
-            if let destination = segue.destination as? EventFilterViewController {
-                eventFilterViewController.value = destination
             }
         }
     }
