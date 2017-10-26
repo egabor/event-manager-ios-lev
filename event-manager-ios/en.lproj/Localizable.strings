@@ -9,6 +9,8 @@
 
 "Events.Title" = "Events";
 
+"EventFilter.All.Text" = "All";
+
 "EventDetails.Title" = "Details";
 "EventDetails.Button.SeeAll.Title" = "See All For This Place";
 "EventDetails.Button.RelatedEvents.Title" = "Related Events";

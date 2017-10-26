@@ -9,7 +9,12 @@
 import Foundation
 import ObjectMapper
 
-class Event: BaseResponse {
+class Event: BaseResponse, Hashable, Equatable {
+    var hashValue: Int { get { return eventId.hashValue } }
+
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        return lhs.eventId == rhs.eventId
+    }
 
     // MARK: - Model Properties
     var eventId: String! = ""

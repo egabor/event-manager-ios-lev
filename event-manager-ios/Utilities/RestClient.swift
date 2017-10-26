@@ -22,7 +22,7 @@ class RestClient {
     public func getEvents(complitionBlock: (([Event], String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/events")!
 
-        // TODO: send the correct heders
+        // TODO: send the correct headers
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[Event]>) in
             if response.result.isSuccess {
                 guard let result = response.result.value else { return }

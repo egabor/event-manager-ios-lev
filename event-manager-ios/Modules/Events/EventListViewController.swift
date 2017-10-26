@@ -21,9 +21,11 @@ class EventListViewController: UIViewController {
     let viewModel = EventListViewModel()
 
     // MARK: - var variables
+    var eventFilterViewController: Variable<EventFilterViewController?> = Variable(nil)
 
     // MARK: - Interface Builder Outlets
-
+    @IBOutlet weak var onlyGroupConstraint: NSLayoutConstraint!
+    @IBOutlet weak var groupAndFilterConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
@@ -31,6 +33,8 @@ class EventListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.tabBarController?.performSegue(withIdentifier: "ShowLoading", sender: nil)
+        //NotificationCenter.default.post(Notification(name: Constants.Notifications.ShowLoadingAnimationView))
 
         tableView.dataSource = nil
 
@@ -55,6 +59,18 @@ class EventListViewController: UIViewController {
     }
 
     func setUpBindings() {
+        
+        Observable.combineLatest(viewModel.events.asObservable(), eventFilterViewController.asObservable()) { [weak self] (events, eventFilterViewController) in
+            self?.eventFilterViewController.value?.viewModel.events.value = events
+        }.subscribe().disposed(by: disposeBag)
+
+        
+        eventFilterViewController.value?.viewModel.isFilterHidden.asObservable().subscribe({ [weak self] (event) in
+            guard let isFilterHidden = event.element else { return }
+            self?.updateFilterHeight(isFilterHidden)
+            
+        }).disposed(by: disposeBag)
+        
         /*viewModel.searchBarVisible.asObservable().subscribe { [weak self] (event) in
             guard let searchBarVisible = event.element else { return }
             if searchBarVisible {
@@ -128,6 +144,10 @@ class EventListViewController: UIViewController {
                 guard let model = sender as? Event else { return }
                 destination.viewModel.model = model
             }
+        } else if segue.identifier == "EmbedEventFilter" {
+            if let destination = segue.destination as? EventFilterViewController {
+                eventFilterViewController.value = destination
+            }
         }
     }
 
@@ -139,6 +159,26 @@ class EventListViewController: UIViewController {
             bindableCell.bind(to: item)
         }
         return cell!
+    }
+
+    func showLoading() {
+        NotificationCenter.default.post(Notification(name: Constants.Notifications.ShowLoadingAnimationView))
+    }
+
+    func updateFilterHeight(_ isFilterHidden: Bool) {
+        self.view.layoutIfNeeded()
+
+        if isFilterHidden {
+            self.groupAndFilterConstraint.isActive = false
+            self.onlyGroupConstraint.isActive = true
+        } else {
+            self.onlyGroupConstraint.isActive = false
+            self.groupAndFilterConstraint.isActive = true
+        }
+        self.view.layoutIfNeeded()
+        /*UIView.animate(withDuration: 0.3, delay: 0.0, options: [.beginFromCurrentState, .curveEaseInOut], animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+        }, completion: nil)*/
     }
 
 }

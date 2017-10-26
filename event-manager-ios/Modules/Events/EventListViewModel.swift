@@ -21,14 +21,22 @@ class EventListViewModel {
     // Change the sections variable to update the TableView
     var sections = Variable([TableViewSection]())
     var dataSource = RxTableViewSectionedReloadDataSource<TableViewSection>()
+    var events = Variable([Event]())
 
     // MARK: - Lifecycle Methods
 
     init () {
         NotificationCenter.default.addObserver(self, selector: #selector(updateFavoriteState(_:)), name: Constants.Notifications.EventFavoriteStateUpdated, object: nil)
-        RestClient.shared.getEvents { [weak self] (events, error) in
-            self?.mapEvents(events)
+        _ = RestClient.shared.events.asObservable().subscribe { [weak self] (event) in
+            guard let eventList = event.element else { return }
+            self?.events.value = eventList
+            self?.mapEvents(eventList)
+            
+            //NotificationCenter.default.post(name: Constants.Notifications.HideLoadingAnimationView, object: nil)
         }
+        /*RestClient.shared.getEvents { [weak self] (events, error) in
+            self?.mapEvents(events)
+        }*/
     }
 
     deinit {

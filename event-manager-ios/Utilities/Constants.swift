@@ -18,4 +18,8 @@ struct Constants {
         
         static let EventFavoriteStateUpdated = NSNotification.Name(rawValue: "EventFavoriteStateUpdated")
 	}
+    
+    static let DefaultEventFilter = "EventFilter.All.Text"
+
+    
 }

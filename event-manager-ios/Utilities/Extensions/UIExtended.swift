@@ -55,3 +55,19 @@ extension UIBarButtonItem {
         }
     }
 }
+
+extension UILabel {
+    @IBInspectable var localizedText: String {
+        get {
+            return text ?? ""
+        }
+        set {
+            #if TARGET_INTERFACE_BUILDER
+                var bundle = NSBundle(forClass: type(of: self))
+                text = bundle.localizedStringForKey(newValue, value: "", table: nil)
+            #else
+                text = newValue.localized
+            #endif
+        }
+    }
+}
