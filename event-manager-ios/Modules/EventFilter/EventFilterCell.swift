@@ -51,7 +51,7 @@ class EventFilterCell: UITableViewCell {
 extension EventFilterCell: ReactiveBindable {
 
     func setUpBindings() {
-        // TODO: Do the viewmodel binding here
+        viewModel.title.asObservable().bind(to: textLabel!.rx.text).disposed(by: disposeBag)
     }
 
     func bind(to model: Bindable?) {

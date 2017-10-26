@@ -15,10 +15,12 @@ class EventFilterCellViewModel {
     // MARK: - let constants
 
     // MARK: - var variables
+    var title = Variable("")
 
     var model: Filter? {
         didSet {
-            // Prepare the values
+            guard let model = model else { return }
+            title.value = model.name
         }
     }
 
@@ -26,10 +28,6 @@ class EventFilterCellViewModel {
 
     init() {
 
-    }
-
-    init(with model: Filter) {
-        self.model = model
     }
 
     deinit {

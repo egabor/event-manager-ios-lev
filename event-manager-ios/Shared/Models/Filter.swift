@@ -11,8 +11,9 @@ import Foundation
 class Filter: Bindable {
 
     // MARK: - Model Properties
+    var name: String
 
-    init () {
-
+    init (name: String) {
+        self.name = name
     }
 }

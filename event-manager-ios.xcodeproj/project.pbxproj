@@ -194,10 +194,10 @@
 		62B2B17B1FA2169400617D08 /* EventFilter */ = {
 			isa = PBXGroup;
 			children = (
+				62B2B1801FA2173300617D08 /* EventFilterTableViewController.swift */,
+				62B2B17E1FA2173300617D08 /* EventFilterViewModel.swift */,
 				62B2B17C1FA2173300617D08 /* EventFilterCell.swift */,
 				62B2B17F1FA2173300617D08 /* EventFilterCellViewModel.swift */,
-				62B2B17E1FA2173300617D08 /* EventFilterViewModel.swift */,
-				62B2B1801FA2173300617D08 /* EventFilterTableViewController.swift */,
 			);
 			path = EventFilter;
 			sourceTree = "<group>";
