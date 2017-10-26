@@ -14,7 +14,8 @@ import RxDataSources
 class EventListViewModel {
 
     // MARK: - let constants
-
+    let disposeBag = DisposeBag()
+    
     // MARK: - var variables
     var searchBarVisible = Variable(false)
 
@@ -22,6 +23,12 @@ class EventListViewModel {
     var sections = Variable([TableViewSection]())
     var dataSource = RxTableViewSectionedReloadDataSource<TableViewSection>()
     var events = Variable([Event]())
+    
+    var groups = [ EventGroup(name: "A-Z", option: .alphabetical, filters: []),
+                   EventGroup(name: "Places", option: .places, filters: []),
+                   EventGroup(name: "Dates", option: .dates, filters: []),
+                   EventGroup(name: "Favorites", option: .favorites, filters: []),
+                   EventGroup(name: "Live", option: .live, filters: [])]
 
     // MARK: - Lifecycle Methods
 
@@ -37,11 +44,30 @@ class EventListViewModel {
         /*RestClient.shared.getEvents { [weak self] (events, error) in
             self?.mapEvents(events)
         }*/
+        events.asObservable().subscribe { [weak self] (event) in
+            guard let eventsToFilter = event.element else { return }
+            
+            if (self?.groups.count ?? 0) > 0 {
+                for i in 0 ..< self!.groups.count {
+                    let group = self!.groups[i]
+                    switch group.option {
+                    case .alphabetical:
+                        break
+                    case .places, .live:
+                        self!.groups[i].filters = eventsToFilter.map { $0.place }.uniqueElements.sorted { $0.order < $1.order }.map { EventFilter(name: $0.name, identifier: $0.placeId) }
+                        self!.groups[i].filters.insert(EventFilter(name: "Events.Filter.All.Text".localized, identifier: "Events.Filter.All.Text"), at: 0)
+                    case .dates:
+                        break
+                    case .favorites:
+                        break
+                    }
+                }
+            }
+        }.disposed(by: disposeBag)
     }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
-
     }
 
     // MARK: - Business Logic
@@ -52,6 +78,14 @@ class EventListViewModel {
             print("\(key): \(element)")
         }*/
 
+    }
+    
+    func collectGroups() {
+        
+    }
+    
+    func collectFilters() {
+        
     }
 
     // MARK: - Helper Methods

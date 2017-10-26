@@ -27,6 +27,9 @@ class EventListViewController: UIViewController {
     @IBOutlet weak var groupAndFilterConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var changeGroupButton: UIButton!
+    @IBOutlet weak var changeFilterButton: UIButton!
+
 
     // MARK: - ViewController Lifecycle Methods
 
@@ -132,6 +135,11 @@ class EventListViewController: UIViewController {
                 guard let model = sender as? Event else { return }
                 destination.viewModel.model = model
             }
+        } else if segue.identifier == "ShowFilterSelect" {
+            if let destination = segue.destination as? EventFilterTableViewController {
+                guard let model = sender as? [Filter] else { return }
+                destination.viewModel.items.value = model
+            }
         }
     }
 
@@ -202,6 +210,14 @@ extension EventListViewController {
         viewModel.searchBarVisible.value = !viewModel.searchBarVisible.value
         //self.searchBar.becomeFirstResponder()
 
+    }
+
+    @IBAction func changeGroup(_ sender: UIButton) {
+        performSegue(withIdentifier: "ShowFilterSelect", sender: viewModel.groups)
+    }
+
+    @IBAction func changeFilter(_ sender: UIButton) {
+        performSegue(withIdentifier: "ShowFilterSelect", sender: nil)
     }
 }
 

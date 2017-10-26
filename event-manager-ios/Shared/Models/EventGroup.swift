@@ -8,8 +8,16 @@
 
 import Foundation
 
-struct EventGroup {
+class EventGroup: Filter {
+    
+    // MARK: - Model Properties
     var name: String
     var option: EventGroupOption
     var filters: [EventFilter]
+    
+    init (name: String, option: EventGroupOption, filters: [EventFilter]) {
+        self.name = name
+        self.option = option
+        self.filters = filters
+    }
 }

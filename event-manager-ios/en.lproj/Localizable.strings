@@ -8,8 +8,10 @@
 
 
 "Events.Title" = "Events";
+"Events.Group" = "Group";
+"Events.Filter" = "Filter";
 
-"EventFilter.All.Text" = "All";
+"Events.Filter.All.Text" = "All";
 
 "EventDetails.Title" = "Details";
 "EventDetails.Button.SeeAll.Title" = "See All For This Place";
