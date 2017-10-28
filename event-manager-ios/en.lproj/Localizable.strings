@@ -17,6 +17,8 @@
 "EventDetails.Button.SeeAll.Title" = "See All For This Place";
 "EventDetails.Button.RelatedEvents.Title" = "Related Events";
 
+"SelectFilter.Title" = "Select Filter";
+
 "Map.Title" = "Map";
 
 "Friends.Title" = "Friends";

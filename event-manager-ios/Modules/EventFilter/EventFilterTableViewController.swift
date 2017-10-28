@@ -35,8 +35,6 @@ class EventFilterTableViewController: UITableViewController {
         //tableView.rowHeight = UITableViewAutomaticDimension
         //tableView.estimatedRowHeight = 44
 
-        // TODO: Do the viewmodel binding here
-
         viewModel.items
             .asObservable()
             .bind(to: tableView.rx
@@ -48,7 +46,9 @@ class EventFilterTableViewController: UITableViewController {
 
         tableView.rx
             .modelSelected(Filter.self)
-            .subscribe(onNext: { value in
+            .subscribe(onNext: { [weak self] value in
+                NotificationCenter.default.post(name: Constants.Notifications.EventFilterUpdated, object: value)
+                self?.navigationController?.popViewController(animated: true)
                 print("Tapped `\(value)`")
             })
             .disposed(by: disposeBag)

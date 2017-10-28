@@ -17,6 +17,7 @@ struct Constants {
 		static let HideLoadingAnimationView = NSNotification.Name(rawValue: "HideLoadingAnimationView")
         
         static let EventFavoriteStateUpdated = NSNotification.Name(rawValue: "EventFavoriteStateUpdated")
+        static let EventFilterUpdated = NSNotification.Name(rawValue: "EventFilterUpdated")
 	}
     
     static let DefaultEventFilter = "EventFilter.All.Text"

@@ -61,7 +61,8 @@ class EventListViewController: UIViewController {
     }
 
     func setUpBindings() {
-        
+        viewModel.selectedGroup.asObservable().map { $0.name }.bind(to: changeGroupButton.rx.title()).disposed(by: disposeBag)
+        viewModel.selectedFilter.asObservable().map { $0.name }.bind(to: changeFilterButton.rx.title()).disposed(by: disposeBag)
         /*viewModel.searchBarVisible.asObservable().subscribe { [weak self] (event) in
             guard let searchBarVisible = event.element else { return }
             if searchBarVisible {
@@ -139,6 +140,7 @@ class EventListViewController: UIViewController {
             if let destination = segue.destination as? EventFilterTableViewController {
                 guard let model = sender as? [Filter] else { return }
                 destination.viewModel.items.value = model
+                destination.title = "SelectFilter.Title".localized
             }
         }
     }
@@ -217,7 +219,7 @@ extension EventListViewController {
     }
 
     @IBAction func changeFilter(_ sender: UIButton) {
-        performSegue(withIdentifier: "ShowFilterSelect", sender: nil)
+        performSegue(withIdentifier: "ShowFilterSelect", sender: viewModel.selectedGroup.value.filters)
     }
 }
 
