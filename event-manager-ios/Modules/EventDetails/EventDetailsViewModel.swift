@@ -19,7 +19,9 @@ class EventDetailsViewModel {
     var model: Event? {
         didSet {
             guard let model = model else { return }
-            sections.value = [TableViewSection(items: [EventDetailDescription(model.performer.description!)])]
+            if let performerDescription = model.performer.description {
+                sections.value = [TableViewSection(items: [EventDetailDescription(performerDescription)])]
+            }
 
             imageUrl.value = model.performer.imageUrl
             name.value = model.performer.name

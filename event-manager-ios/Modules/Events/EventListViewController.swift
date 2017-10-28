@@ -23,14 +23,20 @@ class EventListViewController: UIViewController {
     // MARK: - var variables
 
     // MARK: - Interface Builder Outlets
-
+    @IBOutlet weak var onlyGroupConstraint: NSLayoutConstraint!
+    @IBOutlet weak var groupAndFilterConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var changeGroupButton: UIButton!
+    @IBOutlet weak var changeFilterButton: UIButton!
+
 
     // MARK: - ViewController Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.tabBarController?.performSegue(withIdentifier: "ShowLoading", sender: nil)
+        //NotificationCenter.default.post(Notification(name: Constants.Notifications.ShowLoadingAnimationView))
 
         tableView.dataSource = nil
 
@@ -55,6 +61,8 @@ class EventListViewController: UIViewController {
     }
 
     func setUpBindings() {
+        viewModel.selectedGroup.asObservable().map { $0.name }.bind(to: changeGroupButton.rx.title()).disposed(by: disposeBag)
+        viewModel.selectedFilter.asObservable().map { $0.name }.bind(to: changeFilterButton.rx.title()).disposed(by: disposeBag)
         /*viewModel.searchBarVisible.asObservable().subscribe { [weak self] (event) in
             guard let searchBarVisible = event.element else { return }
             if searchBarVisible {
@@ -128,6 +136,12 @@ class EventListViewController: UIViewController {
                 guard let model = sender as? Event else { return }
                 destination.viewModel.model = model
             }
+        } else if segue.identifier == "ShowFilterSelect" {
+            if let destination = segue.destination as? EventFilterTableViewController {
+                guard let model = sender as? [Filter] else { return }
+                destination.viewModel.items.value = model
+                destination.title = "SelectFilter.Title".localized
+            }
         }
     }
 
@@ -139,6 +153,26 @@ class EventListViewController: UIViewController {
             bindableCell.bind(to: item)
         }
         return cell!
+    }
+
+    func showLoading() {
+        NotificationCenter.default.post(Notification(name: Constants.Notifications.ShowLoadingAnimationView))
+    }
+
+    func updateFilterHeight(_ isFilterHidden: Bool) {
+        self.view.layoutIfNeeded()
+
+        if isFilterHidden {
+            self.groupAndFilterConstraint.isActive = false
+            self.onlyGroupConstraint.isActive = true
+        } else {
+            self.onlyGroupConstraint.isActive = false
+            self.groupAndFilterConstraint.isActive = true
+        }
+        self.view.layoutIfNeeded()
+        /*UIView.animate(withDuration: 0.3, delay: 0.0, options: [.beginFromCurrentState, .curveEaseInOut], animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+        }, completion: nil)*/
     }
 
 }
@@ -178,6 +212,14 @@ extension EventListViewController {
         viewModel.searchBarVisible.value = !viewModel.searchBarVisible.value
         //self.searchBar.becomeFirstResponder()
 
+    }
+
+    @IBAction func changeGroup(_ sender: UIButton) {
+        performSegue(withIdentifier: "ShowFilterSelect", sender: viewModel.groups)
+    }
+
+    @IBAction func changeFilter(_ sender: UIButton) {
+        performSegue(withIdentifier: "ShowFilterSelect", sender: viewModel.selectedGroup.value.filters)
     }
 }
 

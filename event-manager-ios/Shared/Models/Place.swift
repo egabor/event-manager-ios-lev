@@ -9,13 +9,20 @@
 import Foundation
 import ObjectMapper
 
-class Place: BaseResponse {
+class Place: BaseResponse, Hashable, Equatable {
+    var hashValue: Int { get { return placeId.hashValue } }
+
+    static func == (lhs: Place, rhs: Place) -> Bool {
+         return lhs.placeId == rhs.placeId
+    }
+    
 
     // MARK: - Model Properties
     var placeId: String! = ""
     var name: String! = ""
     var type: PlaceType! = .unknown
     var location: Location! = Location()
+    var order: Int! = 0
 
     required init?(map: Map) {
         super.init(map: map)
@@ -30,5 +37,6 @@ class Place: BaseResponse {
         name <- map["name"]
         type <- map["type"]
         location <- map["location"]
+        order <- map["order"]
     }
 }
