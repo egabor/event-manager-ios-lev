@@ -283,6 +283,7 @@
 				626695BA1F8932B300AA54EA /* Events */,
 				9653EFD01F841F4200A98D68 /* Loading */,
 				96FC2BE61F8172AE005D3B54 /* LogIn */,
+				7D575DD11FA1E01900AE5BD2 /* News */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -514,9 +515,11 @@
 			files = (
 				6213B5B81F89061C00121CFF /* String+Extensions.swift in Sources */,
 				626695C21F89335600AA54EA /* EventCellViewModel.swift in Sources */,
+				7D575DD81FA1EFF100AE5BD2 /* NewsCell.swift in Sources */,
 				96FC2BEC1F817CA7005D3B54 /* RestClient.swift in Sources */,
 				6213B5BA1F89062800121CFF /* Date+Extensions.swift in Sources */,
 				625DC8231F8934FF008AE6DE /* EventListViewController.swift in Sources */,
+				7D575DDA1FA1F28D00AE5BD2 /* News.swift in Sources */,
 				625DC8241F8934FF008AE6DE /* EventListViewModel.swift in Sources */,
 				621A9AF81F99DD43000EB45F /* EventFilter.swift in Sources */,
 				62374F301F93A2CD00C9841A /* EventDetailsViewController.swift in Sources */,
@@ -525,7 +528,10 @@
 				62B2B1821FA2173300617D08 /* Filter.swift in Sources */,
 				62B2B1811FA2173300617D08 /* EventFilterCell.swift in Sources */,
 				6213B5A71F88E18500121CFF /* TableViewSection.swift in Sources */,
+				7D575DD31FA1E30600AE5BD2 /* NewsListViewController.swift in Sources */,
+				7D575DD51FA1EE4900AE5BD2 /* NewsListViewModel.swift in Sources */,
 				62374F381F93C3DE00C9841A /* EventDetailDescription.swift in Sources */,
+				7D575DDC1FA1F3DC00AE5BD2 /* NewsCellViewModel.swift in Sources */,
 				96FC2BF21F81964B005D3B54 /* Configuration.swift in Sources */,
 				6213B5B21F88E98300121CFF /* Location.swift in Sources */,
 				625DC8201F893483008AE6DE /* EventHeaderCellViewModel.swift in Sources */,
@@ -700,10 +706,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QT666FZ6Y2;
+				DEVELOPMENT_TEAM = GA726S7N59;
 				INFOPLIST_FILE = "event-manager-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gaboreszenyi.event-manager-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nestquick.event-manager-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -716,10 +722,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QT666FZ6Y2;
+				DEVELOPMENT_TEAM = GA726S7N59;
 				INFOPLIST_FILE = "event-manager-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gaboreszenyi.event-manager-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nestquick.event-manager-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -789,10 +795,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QT666FZ6Y2;
+				DEVELOPMENT_TEAM = GA726S7N59;
 				INFOPLIST_FILE = "event-manager-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gaboreszenyi.event-manager-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nestquick.event-manager-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
