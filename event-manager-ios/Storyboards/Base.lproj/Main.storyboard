@@ -228,6 +228,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ohS-pu-c89">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NIl-dS-16z" id="vfm-jx-cv7"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -903,7 +906,7 @@
         <!--Map Options Table View Controller-->
         <scene sceneID="07v-8k-vNI">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ywQ-Ib-C2v" customClass="MapOptionsTableViewController" customModule="event_manager_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MapOptionsTableViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ywQ-Ib-C2v" customClass="MapOptionsTableViewController" customModule="event_manager_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jzp-w3-jaW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

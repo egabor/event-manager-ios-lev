@@ -15,7 +15,6 @@ class Place: BaseResponse, Hashable, Equatable {
     static func == (lhs: Place, rhs: Place) -> Bool {
          return lhs.placeId == rhs.placeId
     }
-    
 
     // MARK: - Model Properties
     var placeId: String! = ""
@@ -23,6 +22,7 @@ class Place: BaseResponse, Hashable, Equatable {
     var type: PlaceType! = .unknown
     var location: Location! = Location()
     var order: Int! = 0
+    var hasDetails: Bool = false // Computed property, no mapping needed
 
     required init?(map: Map) {
         super.init(map: map)

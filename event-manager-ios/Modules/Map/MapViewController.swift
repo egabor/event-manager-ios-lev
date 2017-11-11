@@ -32,6 +32,14 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         // TODO: Do the viewmodel binding here
+
+        viewModel.annotations.asObservable().subscribe { [weak self] (event) in
+            guard let annotations = event.element else { return }
+            for annotation in annotations {
+                self?.mapView?.addAnnotation(annotation)
+            }
+            self?.zoomMapFitAnnotations()
+            }.disposed(by: disposeBag)
     }
 
     deinit {
@@ -54,17 +62,62 @@ class MapViewController: UIViewController {
     */
 
     // MARK: - Helper Methods
+    
+    func zoomMapFitAnnotations() {
+        
+        var zoomRect = MKMapRectNull
+        for annotation in mapView.annotations {
+
+            let annotationPoint = MKMapPointForCoordinate(annotation.coordinate)
+
+            let pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0)
+
+            if (MKMapRectIsNull(zoomRect)) {
+                zoomRect = pointRect
+            } else {
+                zoomRect = MKMapRectUnion(zoomRect, pointRect)
+            }
+        }
+        mapView.setVisibleMapRect(zoomRect, edgePadding: UIEdgeInsets.init(top: 50, left: 50, bottom: 50, right: 50), animated: true)
+    }
 
 }
 
 // MARK: - Interface Builder Actions
 
 extension MapViewController {
-
+    @objc func showPlaceDetails(_ sender: UIButton) {
+        print("showDetails")
+    }
 }
 
 // MARK: - Notification handlers can be placed here
 
 extension MapViewController {
 
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard let annotation = annotation as? MKPlaceAnnotaion else { return nil }
+        
+        let identifier = "marker"
+        var view: MKMarkerAnnotationView
+      
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+           
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            let accessoryView = UIButton(type: .detailDisclosure)
+            accessoryView.addTarget(self, action: #selector(showPlaceDetails(_:)), for: .touchUpInside)
+            view.rightCalloutAccessoryView = accessoryView
+        }
+        return view
+    }
 }
