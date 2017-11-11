@@ -44,6 +44,8 @@
 		62B2B1831FA2173300617D08 /* EventFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B17E1FA2173300617D08 /* EventFilterViewModel.swift */; };
 		62B2B1841FA2173300617D08 /* EventFilterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B17F1FA2173300617D08 /* EventFilterCellViewModel.swift */; };
 		62B2B1851FA2173300617D08 /* EventFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B1801FA2173300617D08 /* EventFilterTableViewController.swift */; };
+		62E06BF11FB738DD0000376C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E06BEF1FB738DD0000376C /* MapViewModel.swift */; };
+		62E06BF21FB738DD0000376C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E06BF01FB738DD0000376C /* MapViewController.swift */; };
 		7D575DD31FA1E30600AE5BD2 /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D575DD21FA1E30600AE5BD2 /* NewsListViewController.swift */; };
 		7D575DD51FA1EE4900AE5BD2 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D575DD41FA1EE4900AE5BD2 /* NewsListViewModel.swift */; };
 		7D575DD81FA1EFF100AE5BD2 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D575DD71FA1EFF100AE5BD2 /* NewsCell.swift */; };
@@ -104,6 +106,8 @@
 		62B2B17E1FA2173300617D08 /* EventFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterViewModel.swift; sourceTree = "<group>"; };
 		62B2B17F1FA2173300617D08 /* EventFilterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterCellViewModel.swift; sourceTree = "<group>"; };
 		62B2B1801FA2173300617D08 /* EventFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterTableViewController.swift; sourceTree = "<group>"; };
+		62E06BEF1FB738DD0000376C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		62E06BF01FB738DD0000376C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7D575DD21FA1E30600AE5BD2 /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
 		7D575DD41FA1EE4900AE5BD2 /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
 		7D575DD71FA1EFF100AE5BD2 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -210,7 +214,22 @@
 				62B2B17F1FA2173300617D08 /* EventFilterCellViewModel.swift */,
 			);
 			path = EventFilter;
-
+			sourceTree = "<group>";
+		};
+		62E06BEE1FB738460000376C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				62E06BF01FB738DD0000376C /* MapViewController.swift */,
+				62E06BEF1FB738DD0000376C /* MapViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		62E06BF31FB73DB30000376C /* MapOptions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapOptions;
 			sourceTree = "<group>";
 		};
 		7D575DD11FA1E01900AE5BD2 /* News */ = {
@@ -313,6 +332,8 @@
 				626695BA1F8932B300AA54EA /* Events */,
 				9653EFD01F841F4200A98D68 /* Loading */,
 				96FC2BE61F8172AE005D3B54 /* LogIn */,
+				62E06BEE1FB738460000376C /* Map */,
+				62E06BF31FB73DB30000376C /* MapOptions */,
 				7D575DD11FA1E01900AE5BD2 /* News */,
 			);
 			path = Modules;
@@ -337,7 +358,6 @@
 				62B2B17D1FA2173300617D08 /* Filter.swift */,
 				621A9AF71F99DD43000EB45F /* EventFilter.swift */,
 				621A9AFB1F99DEF9000EB45F /* EventGroup.swift */,
-
 				7D575DD91FA1F28D00AE5BD2 /* News.swift */,
 			);
 			path = Models;
@@ -568,6 +588,7 @@
 				6213B5B21F88E98300121CFF /* Location.swift in Sources */,
 				625DC8201F893483008AE6DE /* EventHeaderCellViewModel.swift in Sources */,
 				96FC2BE91F81739A005D3B54 /* LogInViewController.swift in Sources */,
+				62E06BF11FB738DD0000376C /* MapViewModel.swift in Sources */,
 				6213B5A51F88E18500121CFF /* Bindable.swift in Sources */,
 				621A9AFC1F99DEF9000EB45F /* EventGroup.swift in Sources */,
 				6213B5A61F88E18500121CFF /* ReactiveBindable.swift in Sources */,
@@ -578,6 +599,7 @@
 				96FC2BEA1F81739A005D3B54 /* LogInViewModel.swift in Sources */,
 				625DC81E1F893483008AE6DE /* EventHeader.swift in Sources */,
 				6213B59F1F88E13A00121CFF /* UIExtended.swift in Sources */,
+				62E06BF21FB738DD0000376C /* MapViewController.swift in Sources */,
 				6213B5A81F88E18500121CFF /* TitlePresentable.swift in Sources */,
 				6213B5AE1F88E85E00121CFF /* Performer.swift in Sources */,
 				96FC2BCA1F816D42005D3B54 /* AppDelegate.swift in Sources */,
