@@ -255,6 +255,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="ohS-pu-c89" id="aLU-Eu-uiK"/>
+                        <segue destination="CyI-Gk-fzk" kind="show" identifier="ShowPlaceDetails" id="2xE-lS-Te8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwZ-G7-IKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -897,6 +898,7 @@
                         <outlet property="startTimeLabel" destination="v3P-52-YwK" id="bLa-DT-Ui1"/>
                         <outlet property="tableView" destination="Qfq-hg-Npe" id="4tS-Xk-4kI"/>
                         <outlet property="ticketLabel" destination="f41-R9-HGs" id="cnS-Qj-C6d"/>
+                        <segue destination="CyI-Gk-fzk" kind="show" identifier="ShowPlaceDetails" id="nf4-f0-zbV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Row-Ae-7fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -940,6 +942,31 @@
             </objects>
             <point key="canvasLocation" x="2060" y="-118"/>
         </scene>
+        <!--Place Details View Controller-->
+        <scene sceneID="rpR-7f-WnU">
+            <objects>
+                <viewController storyboardIdentifier="PlaceDetailsViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CyI-Gk-fzk" customClass="PlaceDetailsViewController" customModule="event_manager_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wmO-dE-VfX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A5g-78-w0P">
+                                <rect key="frame" x="119" y="237" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ezN-w0-LaX"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="A5g-78-w0P" id="Oux-Pa-ttG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyx-T0-K7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3095" y="-118"/>
+        </scene>
         <!--ProfileViewController-->
         <scene sceneID="BtC-qz-bcv">
             <objects>
@@ -962,5 +989,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lrf-W2-5h5"/>
+        <segue reference="nf4-f0-zbV"/>
     </inferredMetricsTieBreakers>
 </document>

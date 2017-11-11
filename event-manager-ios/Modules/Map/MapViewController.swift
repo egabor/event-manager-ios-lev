@@ -51,15 +51,22 @@ class MapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowPlaceDetails" {
+            // TODO: type
+            // TODO: pass place
+            if let destination = segue.destination as? PlaceDetailsViewController {
+                //destination.viewModel.property = ...
+            }
+        }
     }
-    */
+    
 
     // MARK: - Helper Methods
     
@@ -80,14 +87,13 @@ class MapViewController: UIViewController {
         }
         mapView.setVisibleMapRect(zoomRect, edgePadding: UIEdgeInsets.init(top: 50, left: 50, bottom: 50, right: 50), animated: true)
     }
-
 }
 
 // MARK: - Interface Builder Actions
 
 extension MapViewController {
-    @objc func showPlaceDetails(_ sender: UIButton) {
-        print("showDetails")
+    func showPlaceDetails(_ sender: Place) {
+        performSegue(withIdentifier: "ShowPlaceDetails", sender: sender)
     }
 }
 
@@ -115,9 +121,13 @@ extension MapViewController: MKMapViewDelegate {
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             let accessoryView = UIButton(type: .detailDisclosure)
-            accessoryView.addTarget(self, action: #selector(showPlaceDetails(_:)), for: .touchUpInside)
             view.rightCalloutAccessoryView = accessoryView
         }
         return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation as? MKPlaceAnnotaion else { return }
+        showPlaceDetails(annotation.place)
     }
 }
