@@ -900,10 +900,10 @@
             </objects>
             <point key="canvasLocation" x="2060" y="-940"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Map Options Table View Controller-->
         <scene sceneID="07v-8k-vNI">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="ywQ-Ib-C2v" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ywQ-Ib-C2v" customClass="MapOptionsTableViewController" customModule="event_manager_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jzp-w3-jaW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
