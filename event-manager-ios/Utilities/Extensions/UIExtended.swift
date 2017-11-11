@@ -40,7 +40,7 @@ extension UINavigationItem {
     }
 }
 
-extension UIBarButtonItem {
+extension UIBarItem {
     @IBInspectable var localizedTitle: String {
         get {
             return title ?? ""
