@@ -27,6 +27,9 @@ class PlaceDetailsViewController: UIViewController {
 
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var imageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewInvisibleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var placeImageView: UIImageView!
+    @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: - ViewController Lifecycle Methods
@@ -49,6 +52,8 @@ class PlaceDetailsViewController: UIViewController {
         tableView.estimatedSectionFooterHeight = 1
         */
 
+        gradientView.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: gradientView.bounds, andColors: [UIColor.clear, UIColor.black])
+
         setUpBindings()
     }
 
@@ -60,10 +65,20 @@ class PlaceDetailsViewController: UIViewController {
 
         viewModel.place.asObservable().map { $0.name }.bind(to: rx.title).disposed(by: disposeBag)
         viewModel.place.asObservable().map { $0.location.address }.bind(to: addressLabel.rx.text).disposed(by: disposeBag)
+        viewModel.place.asObservable().map { $0.imageUrl == nil || $0.imageUrl!.isEmpty }.subscribe({ [weak self] (event) in
+            guard let active = event.element else { return }
+            self?.view.layoutIfNeeded()
+            self?.imageViewInvisibleConstraint.isActive = active
+        }).disposed(by: disposeBag)
+        viewModel.place.asObservable().map { $0.imageUrl }.subscribe({ [weak self] (event) in
+            guard let imageUrl = event.element, imageUrl != nil else { return }
+            self?.placeImageView.sd_setImage(with: URL(string: imageUrl!), placeholderImage: UIImage(named: "favorite"))
+        }).disposed(by: disposeBag)
 
         tableView
             .rx.observe(CGPoint.self, "contentOffset")
             .subscribe(onNext: { [weak self] contentOffset in
+                //guard self?.viewModel.place.value.imageUrl?.isEmpty == false else { return }
                 if contentOffset != nil {
                     self?.imageViewBottomConstraint.constant = min(contentOffset?.y ?? 0.0, 0.0)
                 }

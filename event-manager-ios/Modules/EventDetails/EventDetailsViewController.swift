@@ -21,7 +21,6 @@ class EventDetailsViewController: UIViewController {
     // The viewmodel must be let!
     // To prevent memory leaks change the model inside the viewmodel instead of changing the viewmodel object.
     let viewModel = EventDetailsViewModel()
-    let imageViewGradientLayer = CAGradientLayer()
 
     // MARK: - var variables
 
