@@ -15,7 +15,7 @@ class EventListViewModel {
 
     // MARK: - let constants
     let disposeBag = DisposeBag()
-    
+
     // MARK: - var variables
     var searchBarVisible = Variable(false)
 
@@ -23,9 +23,9 @@ class EventListViewModel {
     var sections = Variable([TableViewSection]())
     var dataSource = RxTableViewSectionedReloadDataSource<TableViewSection>()
     var events = Variable([Event]())
-    
+
     var groups = [ EventGroup(name: "A-Z", option: .alphabetical, filters: []),
-                   EventGroup(name: "Places", option: .places, filters: []),
+                   EventGroup(name: "Places", option: .places, filters: [])
                    //EventGroup(name: "Dates", option: .dates, filters: []),
                    //EventGroup(name: "Favorites", option: .favorites, filters: []),
                    //EventGroup(name: "Live", option: .live, filters: [])
@@ -103,7 +103,7 @@ class EventListViewModel {
         var data = [TableViewSection]()
         switch group.option {
         case .alphabetical:
-            filteredEvents.group { $0.performer.name.uppercased().characters.first! }.forEach { (key, element) in
+            filteredEvents.group { $0.performer.name.uppercased().first! }.forEach { (key, element) in
                 data.append(TableViewSection(header: EventHeader(with: "\(key)"), items: element))
             }
             data = data.sorted { ($0.header?.title ?? "") < ($1.header?.title ?? "") }

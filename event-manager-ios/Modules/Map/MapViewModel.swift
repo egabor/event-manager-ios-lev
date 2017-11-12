@@ -31,25 +31,15 @@ class MapViewModel {
             guard let placeList = event.element else { return }
             self?.places.value = placeList.sorted { $0.order < $1.order }
         }
+
         Observable.combineLatest(places.asObservable(), placeTypesToFilter.asObservable()) { [weak self] (places, placeTypesToFilter) in
             self?.annotations.value = places.filter { place in !placeTypesToFilter.contains(place.type)}.map { place in
                 let location = CLLocationCoordinate2DMake(place.location.latitude, place.location.longitude)
                 let annotation = MKPlaceAnnotaion(title: place.name, locationName: place.type.rawValue, discipline: place.type.rawValue, coordinate: location, place: place)
                 return annotation
             }
-        
         }.subscribe().disposed(by: disposeBag)
-        
-        // TODO: combine places and placeTypesToFilter
-       /* places.asObservable().subscribe { [weak self] (event) in
-            guard let places = event.element else { return }
-            
-            self?.annotations.value = places.map { place in
-                let location = CLLocationCoordinate2DMake(place.location.latitude, place.location.longitude)
-                let annotation = MKPlaceAnnotaion(title: place.name, locationName: place.type.rawValue, discipline: place.type.rawValue, coordinate: location, place: place)
-                return annotation
-            }
-        }.disposed(by: disposeBag)*/
+
     }
 
     deinit {
@@ -57,7 +47,7 @@ class MapViewModel {
     }
 
     // MARK: - Business Logic
-    
+
     @objc func updatePlaceTypesToFilter(_ notification: Notification) {
         guard let typesToFilter = notification.object as? [PlaceType] else { return }
         self.placeTypesToFilter.value = typesToFilter

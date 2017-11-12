@@ -12,22 +12,22 @@ import RxSwift
 import SDWebImage
 
 class NewsCell: UITableViewCell {
-    
+
     // MARK: - let constants
-    
+
     let disposeBag = DisposeBag()
     let viewModel = NewsCellViewModel()
-    
+
     // MARK: - var variables
-    
+
     // MARK: - Interface Builder Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var newsImageWrapperView: UIView!
     @IBOutlet weak var newsImageView: UIImageView!
-    
+
     // MARK: - UITableViewCell Lifecycle Methods
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,21 +35,20 @@ class NewsCell: UITableViewCell {
         newsImageWrapperView.layer.borderColor = UIColor.black.cgColor
        setUpBindings()
     }
-    
+
     // MARK: - Helper Methods
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         newsImageWrapperView.layer.cornerRadius = newsImageWrapperView.bounds.height / 2.0
         newsImageView.layer.cornerRadius = newsImageView.bounds.height / 2.0
     }
-    
 }
 
 // MARK: - Reacive Bindable Implementation
 
 extension NewsCell: ReactiveBindable {
-    
+
     func setUpBindings() {
         viewModel.imageUrl.asObservable().subscribe { [weak self] (event) in
             guard let imageUrl = event.element else { return }
@@ -58,10 +57,10 @@ extension NewsCell: ReactiveBindable {
         viewModel.title.asObservable().bind(to: titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.showOnDate.asObservable().bind(to: dateLabel.rx.text).disposed(by: disposeBag)
     }
-    
+
     func bind(to model: Bindable?) {
         guard let model = model as? News else { return }
         viewModel.model = model
     }
-    
+
 }

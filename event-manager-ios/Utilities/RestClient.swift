@@ -20,7 +20,7 @@ class RestClient {
     var news = Variable([News]())
 
     private init() {}
-    
+
     public func getEvents(complitionBlock: (([Event], String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/events")!
 
@@ -36,7 +36,7 @@ class RestClient {
 
     public func getPlaces(complitionBlock: (([Place], String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/places")!
-        
+
         // TODO: send the correct headers
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[Place]>) in
             if response.result.isSuccess {
@@ -49,7 +49,7 @@ class RestClient {
 
     public func getNews(complitionBlock: (([News], String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/news")!
-        
+
         // TODO: send the correct heders
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[News]>) in
             if response.result.isSuccess {

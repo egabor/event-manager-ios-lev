@@ -9,7 +9,7 @@
 import Foundation
 
 class EventFilter: Filter {
-    
+
     // MARK: - Model Properties
     var identifier: String
 

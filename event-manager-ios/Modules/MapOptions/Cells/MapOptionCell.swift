@@ -56,7 +56,7 @@ extension MapOptionCell: ReactiveBindable {
         viewModel.isSelected.asObservable().subscribe({ [weak self] (event) in
             guard self != nil else { return }
             guard let isSelected = event.element else { return }
-            
+
             if isSelected {
                 self!.accessoryType = .checkmark
             } else {

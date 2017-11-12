@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class Place: BaseResponse, Hashable, Equatable {
-    var hashValue: Int { get { return placeId.hashValue } }
+    var hashValue: Int { return placeId.hashValue }
 
     static func == (lhs: Place, rhs: Place) -> Bool {
          return lhs.placeId == rhs.placeId

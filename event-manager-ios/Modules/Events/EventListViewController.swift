@@ -30,7 +30,6 @@ class EventListViewController: UIViewController {
     @IBOutlet weak var changeGroupButton: UIButton!
     @IBOutlet weak var changeFilterButton: UIButton!
 
-
     // MARK: - ViewController Lifecycle Methods
 
     override func viewDidLoad() {

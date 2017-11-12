@@ -42,23 +42,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zZj-mf-pdc">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zZj-mf-pdc" id="Y3S-tC-9Jo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="M93-fI-B1L" id="raE-Lz-NpD"/>
                             <outlet property="delegate" destination="M93-fI-B1L" id="v53-C3-Yae"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Friends" id="zxP-i6-dHS">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="profile" id="2Ce-Kp-DJz"/>
+                        <barButtonItem key="rightBarButtonItem" image="profile" id="2Ce-Kp-DJz"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="Friends.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -142,7 +132,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News" id="w0e-0X-tu3">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="profile" id="Qah-d1-D8W"/>
+                        <barButtonItem key="rightBarButtonItem" image="profile" id="Qah-d1-D8W"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="News.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -152,11 +142,11 @@
             </objects>
             <point key="canvasLocation" x="472.80000000000001" y="1527.8860569715143"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="VU4-Xg-tG6">
             <objects>
                 <navigationController id="FBJ-x6-YUw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="7a2-K8-vxa">
+                    <tabBarItem key="tabBarItem" title="" id="7a2-K8-vxa">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="News.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -174,11 +164,11 @@
             </objects>
             <point key="canvasLocation" x="-474" y="1528"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="hEw-uj-ElE">
             <objects>
                 <navigationController id="M8k-yD-Ikc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uUC-qK-bNC">
+                    <tabBarItem key="tabBarItem" title="" id="uUC-qK-bNC">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="Friends.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -196,11 +186,11 @@
             </objects>
             <point key="canvasLocation" x="-474" y="700"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="aDe-sV-tZ0">
             <objects>
                 <navigationController id="bRl-M3-DPW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rk4-lz-Ajb">
+                    <tabBarItem key="tabBarItem" title="" id="rk4-lz-Ajb">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="Map.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -248,7 +238,7 @@
                                 <segue destination="ywQ-Ib-C2v" kind="show" identifier="ShowMapOptions" id="LIM-85-6zR"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="profile" id="NAS-bO-Vxi"/>
+                        <barButtonItem key="rightBarButtonItem" image="profile" id="NAS-bO-Vxi"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="Map.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -262,11 +252,11 @@
             </objects>
             <point key="canvasLocation" x="508" y="-118"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="hcz-Gg-KMD">
             <objects>
                 <navigationController id="mvm-G7-c4P" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="r8Q-Ur-b8y">
+                    <tabBarItem key="tabBarItem" title="" id="r8Q-Ur-b8y">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="Events.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -883,7 +873,7 @@
                         <viewLayoutGuide key="safeArea" id="0mZ-IP-4gs"/>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="P6B-eg-ncY">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="favorite" id="Wa1-Ea-qhT"/>
+                        <barButtonItem key="rightBarButtonItem" image="favorite" id="Wa1-Ea-qhT"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="EventDetails.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -989,6 +979,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lrf-W2-5h5"/>
-        <segue reference="2xE-lS-Te8"/>
+        <segue reference="nf4-f0-zbV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,11 +9,11 @@
 import Foundation
 
 class EventGroup: Filter {
-    
+
     // MARK: - Model Properties
     var option: EventGroupOption
     var filters: [EventFilter]
-    
+
     init (name: String, option: EventGroupOption, filters: [EventFilter]) {
         self.option = option
         self.filters = filters

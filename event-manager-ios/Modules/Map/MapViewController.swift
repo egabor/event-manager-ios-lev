@@ -30,9 +30,6 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // TODO: Do the viewmodel binding here
-
         viewModel.annotations.asObservable().subscribe { [weak self] (event) in
             self?.mapView.removeAnnotations(self?.mapView.annotations ?? [])
             guard let annotations = event.element else { return }
@@ -52,9 +49,8 @@ class MapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    
     // MARK: - Navigation
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -71,20 +67,15 @@ class MapViewController: UIViewController {
             }
         }
     }
-    
 
     // MARK: - Helper Methods
-    
+
     func zoomMapFitAnnotations() {
-        
         var zoomRect = MKMapRectNull
         for annotation in mapView.annotations {
-
             let annotationPoint = MKMapPointForCoordinate(annotation.coordinate)
-
             let pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0)
-
-            if (MKMapRectIsNull(zoomRect)) {
+            if MKMapRectIsNull(zoomRect) {
                 zoomRect = pointRect
             } else {
                 zoomRect = MKMapRectUnion(zoomRect, pointRect)
@@ -114,28 +105,25 @@ extension MapViewController {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         guard let annotation = annotation as? MKPlaceAnnotaion else { return nil }
-        
+
         let identifier = "marker"
         var view: MKMarkerAnnotationView
-      
+
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             as? MKMarkerAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
-           
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: 0, y: 5)
-            // TODO: check hasDetails property
             let accessoryView = UIButton(type: .detailDisclosure)
             view.rightCalloutAccessoryView = accessoryView
         }
         return view
     }
-    
+
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = view.annotation as? MKPlaceAnnotaion else { return }
         showPlaceDetails(annotation.place, view)

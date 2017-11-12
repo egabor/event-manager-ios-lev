@@ -20,7 +20,7 @@ class MapOptionsViewModel {
     // Change the sections variable to update the TableView
     var sections = Variable([TableViewSection]())
     var dataSource = RxTableViewSectionedReloadDataSource<TableViewSection>()
-    
+
     var places = Variable([Place]())
     var placeTypesToFilter = Variable([PlaceType]())
 
@@ -30,15 +30,6 @@ class MapOptionsViewModel {
         Observable.combineLatest(places.asObservable(), placeTypesToFilter.asObservable()) { [weak self] (places, placeTypesToFilter) in
             self?.sections.value = [TableViewSection(items: places.map { $0.type }.uniqueElements.map { MapOption($0, !placeTypesToFilter.contains($0)) })]
         }.subscribe().disposed(by: disposeBag)
-        
-
-       /* places.asObservable().subscribe { [weak self] (event) in
-            guard let places = event.element else { return }
-            guard let placeTypesToFilter = self?.placeTypesToFilter.value else { return }
-            print("places received \(places.count)")
-            self?.sections.value = [TableViewSection(items: places.map { $0.type }.uniqueElements.map { MapOption($0, !placeTypesToFilter.contains($0)) })]
-            // TODO: map places to types, combine types and placeTypesToFilter
-        }.disposed(by: disposeBag)*/
     }
 
     deinit {

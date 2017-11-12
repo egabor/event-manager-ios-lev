@@ -15,17 +15,14 @@ struct Constants {
 		static let StopLoadingIndicatorAnimation = NSNotification.Name(rawValue: "StopLoadingIndicatorAnimation")
 		static let ShowLoadingAnimationView = NSNotification.Name(rawValue: "ShowLoadingAnimationView")
 		static let HideLoadingAnimationView = NSNotification.Name(rawValue: "HideLoadingAnimationView")
-        
         static let EventFavoriteStateUpdated = NSNotification.Name(rawValue: "EventFavoriteStateUpdated")
         static let EventFilterUpdated = NSNotification.Name(rawValue: "EventFilterUpdated")
         static let PlaceTypesUpdated = NSNotification.Name(rawValue: "PlaceTypesUpdated")
-        
         static let MapContextAction = NSNotification.Name(rawValue: "MapContextAction")
         static let MapStartNavigation = NSNotification.Name(rawValue: "MapStartNavigation")
         static let MapShowPlaceDetails = NSNotification.Name(rawValue: "MapShowPlaceDetails")
 	}
-    
+
     static let DefaultEventFilter = "EventFilter.All.Text"
 
-    
 }
