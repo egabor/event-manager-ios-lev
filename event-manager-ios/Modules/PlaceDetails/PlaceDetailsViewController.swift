@@ -30,6 +30,7 @@ class PlaceDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.place.asObservable().map { $0.name }.bind(to: rx.title).disposed(by: disposeBag)
 
         tableView.dataSource = nil
 

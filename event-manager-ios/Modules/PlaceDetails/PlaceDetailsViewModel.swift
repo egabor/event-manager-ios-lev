@@ -16,6 +16,7 @@ class PlaceDetailsViewModel {
     // MARK: - let constants
 
     // MARK: - var variables
+    var place = Variable(Place())
 
     // Change the sections variable to update the TableView
     var sections = Variable([TableViewSection]())

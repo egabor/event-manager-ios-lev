@@ -30,6 +30,9 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(showPlaceDetails(_:)), name: Constants.Notifications.MapShowPlaceDetails, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getDirections(_:)), name: Constants.Notifications.MapGetDirections, object: nil)
+
         viewModel.annotations.asObservable().subscribe { [weak self] (event) in
             self?.mapView.removeAnnotations(self?.mapView.annotations ?? [])
             guard let annotations = event.element else { return }
@@ -56,9 +59,10 @@ class MapViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "ShowPlaceDetails" {
-            // TODO: pass place
             if let destination = segue.destination as? PlaceDetailsViewController {
-                //destination.viewModel.property = ...
+                if let place = sender as? Place {
+                    destination.viewModel.place.value = place
+                }
             }
         } else if segue.identifier == "ShowMapOptions" {
             if let destination = segue.destination as? MapOptionsTableViewController {
@@ -88,7 +92,7 @@ class MapViewController: UIViewController {
 // MARK: - Interface Builder Actions
 
 extension MapViewController {
-    func showPlaceDetails(_ place: Place, _ view: MKAnnotationView) {
+    func showPlaceMenu(_ place: Place, _ view: MKAnnotationView) {
         let actionSheetController = MapMenuViewController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheetController.place = place
         actionSheetController.popoverPresentationController?.sourceView = view
@@ -100,7 +104,28 @@ extension MapViewController {
 // MARK: - Notification handlers can be placed here
 
 extension MapViewController {
+    @objc func showPlaceDetails(_ notification: Notification) {
+        guard let place = notification.object as? Place else { return }
+        performSegue(withIdentifier: "ShowPlaceDetails", sender: place)
+    }
 
+    @objc func getDirections(_ notification: Notification) {
+        guard let place = notification.object as? Place else { return }
+
+        let latitude: CLLocationDegrees = place.location.latitude
+        let longitude: CLLocationDegrees = place.location.longitude
+        let regionDistance: CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = place.name
+        mapItem.openInMaps(launchOptions: options)
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -126,6 +151,6 @@ extension MapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = view.annotation as? MKPlaceAnnotaion else { return }
-        showPlaceDetails(annotation.place, view)
+        showPlaceMenu(annotation.place, view)
     }
 }

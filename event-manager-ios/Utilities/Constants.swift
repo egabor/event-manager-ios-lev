@@ -19,7 +19,7 @@ struct Constants {
         static let EventFilterUpdated = NSNotification.Name(rawValue: "EventFilterUpdated")
         static let PlaceTypesUpdated = NSNotification.Name(rawValue: "PlaceTypesUpdated")
         static let MapContextAction = NSNotification.Name(rawValue: "MapContextAction")
-        static let MapStartNavigation = NSNotification.Name(rawValue: "MapStartNavigation")
+        static let MapGetDirections = NSNotification.Name(rawValue: "MapGetDirections")
         static let MapShowPlaceDetails = NSNotification.Name(rawValue: "MapShowPlaceDetails")
 	}
 

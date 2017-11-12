@@ -19,7 +19,7 @@ class MapMenuViewController: UIAlertController {
     }
 
     fileprivate let getDirectionsActionButton = UIAlertAction(title: "Map.ContextMenu.GetDirections".localized, style: .default) { _ -> Void in
-        NotificationCenter.default.post(name: Constants.Notifications.MapContextAction, object: Constants.Notifications.MapStartNavigation)
+        NotificationCenter.default.post(name: Constants.Notifications.MapContextAction, object: Constants.Notifications.MapGetDirections)
     }
 
     override func viewDidLoad() {
