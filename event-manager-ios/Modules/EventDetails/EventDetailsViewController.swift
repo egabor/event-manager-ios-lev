@@ -127,15 +127,20 @@ class EventDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowPlaceDetails" {
+            if let destination = segue.destination as? PlaceDetailsViewController {
+                if let place = sender as? Place {
+                    destination.viewModel.place.value = place
+                }
+            }
+        }
     }
-    */
 
     // MARK: - Helper Methods
 
@@ -161,6 +166,8 @@ extension EventDetailsViewController {
 
     @IBAction func seeAllForThisPlace(_ sender: UIButton) {
         print("See All")
+        guard let event = viewModel.model else { return }
+        performSegue(withIdentifier: "ShowPlaceDetails", sender: event.place)
     }
 
     @IBAction func showRelatedEvents(_ sender: UIButton) {

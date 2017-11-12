@@ -24,13 +24,14 @@ class PlaceDetailsViewController: UIViewController {
 
     // MARK: - Interface Builder Outlets
 
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var imageViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: - ViewController Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.place.asObservable().map { $0.name }.bind(to: rx.title).disposed(by: disposeBag)
 
         tableView.dataSource = nil
 
@@ -54,6 +55,19 @@ class PlaceDetailsViewController: UIViewController {
     }
 
     func setUpBindings() {
+
+        viewModel.place.asObservable().map { $0.name }.bind(to: rx.title).disposed(by: disposeBag)
+        viewModel.place.asObservable().map { $0.location.address }.bind(to: addressLabel.rx.text).disposed(by: disposeBag)
+
+        tableView
+            .rx.observe(CGPoint.self, "contentOffset")
+            .subscribe(onNext: { [weak self] contentOffset in
+                if contentOffset != nil {
+                    self?.imageViewBottomConstraint.constant = min(contentOffset?.y ?? 0.0, 0.0)
+                }
+        }).disposed(by: disposeBag)
+
+        viewModel.bottomConstraintOffset.asObservable().bind(to: imageViewBottomConstraint.rx.constant).disposed(by: disposeBag)
 
         tableView.rx.setDelegate(self)
             .addDisposableTo(disposeBag)
@@ -84,8 +98,11 @@ class PlaceDetailsViewController: UIViewController {
 
         tableView.rx
             .modelSelected(Bindable.self)
-            .subscribe(onNext: { value in
-                print("Tapped `\(value)`")
+            .subscribe(onNext: { [weak self] value in
+                if let selectedIndexPath = self?.tableView.indexPathForSelectedRow {
+                    self?.tableView.deselectRow(at: selectedIndexPath, animated: true)
+                }
+                self?.performSegue(withIdentifier: "ShowEventDetails", sender: value)
             })
             .disposed(by: disposeBag)
 
@@ -105,15 +122,19 @@ class PlaceDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowEventDetails" {
+            if let destination = segue.destination as? EventDetailsViewController {
+                guard let model = sender as? Event else { return }
+                destination.viewModel.model = model
+            }
+        }
     }
-    */
 
     // MARK: - Helper Methods
 

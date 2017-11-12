@@ -14,6 +14,7 @@ class Location: BaseResponse {
     // MARK: - Model Properties
     var longitude: Double! = 0.0
     var latitude: Double! = 0.0
+    var address: String?
 
     required init?(map: Map) {
         super.init(map: map)
@@ -26,5 +27,6 @@ class Location: BaseResponse {
     override func mapping(map: Map) {
         longitude <- map["longitude"]
         latitude <- map["latitude"]
+        address <- map["address"]
     }
 }

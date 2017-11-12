@@ -35,7 +35,7 @@ class MapViewModel {
         Observable.combineLatest(places.asObservable(), placeTypesToFilter.asObservable()) { [weak self] (places, placeTypesToFilter) in
             self?.annotations.value = places.filter { place in !placeTypesToFilter.contains(place.type)}.map { place in
                 let location = CLLocationCoordinate2DMake(place.location.latitude, place.location.longitude)
-                let annotation = MKPlaceAnnotaion(title: place.name, locationName: place.type.rawValue, discipline: place.type.rawValue, coordinate: location, place: place)
+                let annotation = MKPlaceAnnotaion(title: place.name, locationName: place.type.rawValue.camelCaseToWords.firstUppercased, discipline: place.type.rawValue, coordinate: location, place: place)
                 return annotation
             }
         }.subscribe().disposed(by: disposeBag)

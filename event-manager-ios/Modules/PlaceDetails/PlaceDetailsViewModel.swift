@@ -14,9 +14,11 @@ import RxDataSources
 class PlaceDetailsViewModel {
 
     // MARK: - let constants
+    let disposeBag = DisposeBag()
 
     // MARK: - var variables
     var place = Variable(Place())
+    var bottomConstraintOffset = Variable(CGFloat(0.0))
 
     // Change the sections variable to update the TableView
     var sections = Variable([TableViewSection]())
@@ -25,7 +27,11 @@ class PlaceDetailsViewModel {
     // MARK: - Lifecycle Methods
 
     init () {
-
+        Observable.combineLatest(place.asObservable(), RestClient.shared.events.asObservable()) { [weak self] (place, events) in
+            guard place.placeId.isEmpty == false else { return }
+            let eventsForPlace = events.filter { $0.place.placeId == place.placeId }
+            self?.sections.value = [TableViewSection(items: eventsForPlace)]
+        }.subscribe().disposed(by: disposeBag)
     }
 
     deinit {
