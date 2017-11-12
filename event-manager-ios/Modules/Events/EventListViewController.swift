@@ -157,23 +157,6 @@ class EventListViewController: UIViewController {
     func showLoading() {
         NotificationCenter.default.post(Notification(name: Constants.Notifications.ShowLoadingAnimationView))
     }
-
-    func updateFilterHeight(_ isFilterHidden: Bool) {
-        self.view.layoutIfNeeded()
-
-        if isFilterHidden {
-            self.groupAndFilterConstraint.isActive = false
-            self.onlyGroupConstraint.isActive = true
-        } else {
-            self.onlyGroupConstraint.isActive = false
-            self.groupAndFilterConstraint.isActive = true
-        }
-        self.view.layoutIfNeeded()
-        /*UIView.animate(withDuration: 0.3, delay: 0.0, options: [.beginFromCurrentState, .curveEaseInOut], animations: { [weak self] in
-            self?.view.layoutIfNeeded()
-        }, completion: nil)*/
-    }
-
 }
 
 // MARK: - TableView Delegate Methods
