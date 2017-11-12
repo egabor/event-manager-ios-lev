@@ -21,7 +21,7 @@ class MapOptionCellViewModel {
     var model: MapOption? {
         didSet {
             guard let model = model else { return }
-            title.value = model.placeType.rawValue
+            title.value = model.placeType.rawValue.camelCaseToWords.firstUppercased
             isSelected.value = model.isVisible
         }
     }

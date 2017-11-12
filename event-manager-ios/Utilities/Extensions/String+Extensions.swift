@@ -39,3 +39,23 @@ extension String {
         return String(format: self.localized, locale: local as Locale?, arguments: args)
     }
 }
+
+// MARK: - Manipulate Strings
+
+extension String {
+    var firstUppercased: String {
+        guard let first = first else { return "" }
+        return String(first).uppercased() + dropFirst()
+    }
+
+    var camelCaseToWords: String {
+        return unicodeScalars.reduce("") {
+            if CharacterSet.uppercaseLetters.contains($1) {
+                if $0.count > 0 {
+                    return ($0 + " " + String($1))
+                }
+            }
+            return $0 + String($1)
+        }
+    }
+}
