@@ -37,3 +37,6 @@
 "Tickets.Title" = "Tickets";
 
 "TicketDetails.Title" = "Details";
+
+"PlaceDetails.ContextMenu.Cancel" = "Cancel";
+"PlaceDetails.ContextMenu.GetDirections" = "Get Directions";

@@ -22,7 +22,8 @@ class Place: BaseResponse, Hashable, Equatable {
     var type: PlaceType! = .unknown
     var location: Location! = Location()
     var order: Int! = 0
-    var hasDetails: Bool = true // Computed property, no mapping needed
+    var imageUrl: String?
+    var detailsAvailable: Bool! = false
 
     required init?(map: Map) {
         super.init(map: map)
@@ -38,5 +39,7 @@ class Place: BaseResponse, Hashable, Equatable {
         type <- map["type"]
         location <- map["location"]
         order <- map["order"]
+        imageUrl <- map["imageUrl"]
+        detailsAvailable <- map["detailsAvailable"]
     }
 }

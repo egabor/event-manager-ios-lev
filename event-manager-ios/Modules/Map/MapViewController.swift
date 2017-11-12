@@ -44,7 +44,7 @@ class MapViewController: UIViewController {
     }
 
     deinit {
-        // Don't forget to remove the observers here
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,7 +97,6 @@ extension MapViewController {
         actionSheetController.place = place
         actionSheetController.popoverPresentationController?.sourceView = view
         self.present(actionSheetController, animated: true, completion: nil)
-        //performSegue(withIdentifier: "ShowPlaceDetails", sender: sender)
     }
 }
 

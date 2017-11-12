@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import MapKit
 
 class PlaceDetailsViewController: UIViewController {
 
@@ -32,6 +33,7 @@ class PlaceDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(getDirections(_:)), name: Constants.Notifications.PlaceDetailsGetDirections, object: nil)
 
         tableView.dataSource = nil
 
@@ -51,7 +53,7 @@ class PlaceDetailsViewController: UIViewController {
     }
 
     deinit {
-        // Don't forget to remove the observers here
+        NotificationCenter.default.removeObserver(self)
     }
 
     func setUpBindings() {
@@ -105,15 +107,6 @@ class PlaceDetailsViewController: UIViewController {
                 self?.performSegue(withIdentifier: "ShowEventDetails", sender: value)
             })
             .disposed(by: disposeBag)
-
-        /*
-        tableView.rx
-            .itemAccessoryButtonTapped
-            .subscribe(onNext: { indexPath in
-                print("Tapped Detail @ \(indexPath.section),\(indexPath.row)")
-            })
-            .disposed(by: disposeBag)
-        */
 
     }
 
@@ -179,11 +172,32 @@ extension PlaceDetailsViewController: UITableViewDelegate {
 // MARK: - Interface Builder Actions
 
 extension PlaceDetailsViewController {
-
+    @IBAction func showContextMenu(_ sender: UIBarButtonItem) {
+        let actionSheetController = PlaceDetailsMenuViewController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheetController.place = viewModel.place.value
+        actionSheetController.popoverPresentationController?.sourceView = view
+        self.present(actionSheetController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Notification handlers can be placed here
 
 extension PlaceDetailsViewController {
+    @objc func getDirections(_ notification: Notification) {
+        guard let place = notification.object as? Place else { return }
 
+        let latitude: CLLocationDegrees = place.location.latitude
+        let longitude: CLLocationDegrees = place.location.longitude
+        let regionDistance: CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = place.name
+        mapItem.openInMaps(launchOptions: options)
+    }
 }

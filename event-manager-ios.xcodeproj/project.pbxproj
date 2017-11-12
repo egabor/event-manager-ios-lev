@@ -44,6 +44,7 @@
 		627E311B1FB769E300BAB196 /* MapOptionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E31181FB769E300BAB196 /* MapOptionCellViewModel.swift */; };
 		62A1DB1C1FB8B96E009148A3 /* MapMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A1DB1B1FB8B96E009148A3 /* MapMenuViewController.swift */; };
 		62A1DB211FB8CD2B009148A3 /* MapOptionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A1DB1E1FB8CD2B009148A3 /* MapOptionHeader.swift */; };
+		62A1DB251FB8DC0E009148A3 /* PlaceDetailsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A1DB241FB8DC0E009148A3 /* PlaceDetailsMenuViewController.swift */; };
 		62B2B1811FA2173300617D08 /* EventFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B17C1FA2173300617D08 /* EventFilterCell.swift */; };
 		62B2B1821FA2173300617D08 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B17D1FA2173300617D08 /* Filter.swift */; };
 		62B2B1831FA2173300617D08 /* EventFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B17E1FA2173300617D08 /* EventFilterViewModel.swift */; };
@@ -114,6 +115,7 @@
 		627E31181FB769E300BAB196 /* MapOptionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOptionCellViewModel.swift; sourceTree = "<group>"; };
 		62A1DB1B1FB8B96E009148A3 /* MapMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMenuViewController.swift; sourceTree = "<group>"; };
 		62A1DB1E1FB8CD2B009148A3 /* MapOptionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOptionHeader.swift; sourceTree = "<group>"; };
+		62A1DB241FB8DC0E009148A3 /* PlaceDetailsMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsMenuViewController.swift; sourceTree = "<group>"; };
 		62B2B17C1FA2173300617D08 /* EventFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterCell.swift; sourceTree = "<group>"; };
 		62B2B17D1FA2173300617D08 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		62B2B17E1FA2173300617D08 /* EventFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterViewModel.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				627E31121FB762CF00BAB196 /* PlaceDetailsViewController.swift */,
 				627E31111FB762CF00BAB196 /* PlaceDetailsViewModel.swift */,
+				62A1DB241FB8DC0E009148A3 /* PlaceDetailsMenuViewController.swift */,
 			);
 			path = PlaceDetails;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				6213B5A81F88E18500121CFF /* TitlePresentable.swift in Sources */,
 				6213B5AE1F88E85E00121CFF /* Performer.swift in Sources */,
 				627E31191FB769E300BAB196 /* MapOption.swift in Sources */,
+				62A1DB251FB8DC0E009148A3 /* PlaceDetailsMenuViewController.swift in Sources */,
 				96FC2BCA1F816D42005D3B54 /* AppDelegate.swift in Sources */,
 				62A1DB211FB8CD2B009148A3 /* MapOptionHeader.swift in Sources */,
 				627E31141FB762CF00BAB196 /* PlaceDetailsViewController.swift in Sources */,

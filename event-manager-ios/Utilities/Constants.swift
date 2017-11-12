@@ -21,6 +21,8 @@ struct Constants {
         static let MapContextAction = NSNotification.Name(rawValue: "MapContextAction")
         static let MapGetDirections = NSNotification.Name(rawValue: "MapGetDirections")
         static let MapShowPlaceDetails = NSNotification.Name(rawValue: "MapShowPlaceDetails")
+        static let PlaceDetailsContextAction = NSNotification.Name(rawValue: "PlaceDetailsContextAction")
+        static let PlaceDetailsGetDirections = NSNotification.Name(rawValue: "PlaceDetailsGetDirections")
 	}
 
     static let DefaultEventFilter = "EventFilter.All.Text"
