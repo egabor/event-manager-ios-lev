@@ -22,7 +22,7 @@ class Place: BaseResponse, Hashable, Equatable {
     var type: PlaceType! = .unknown
     var location: Location! = Location()
     var order: Int! = 0
-    var hasDetails: Bool = false // Computed property, no mapping needed
+    var hasDetails: Bool = true // Computed property, no mapping needed
 
     required init?(map: Map) {
         super.init(map: map)

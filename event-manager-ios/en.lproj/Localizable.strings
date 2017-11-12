@@ -20,6 +20,9 @@
 "SelectFilter.Title" = "Select Filter";
 
 "Map.Title" = "Map";
+"Map.ContextMenu.Cancel" = "Cancel";
+"Map.ContextMenu.GetDirections" = "Get Directions";
+"Map.ContextMenu.PlaceDetails" = "Place Details";
 
 "Friends.Title" = "Friends";
 

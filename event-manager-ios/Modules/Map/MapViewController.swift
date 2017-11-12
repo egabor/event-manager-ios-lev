@@ -97,8 +97,12 @@ class MapViewController: UIViewController {
 // MARK: - Interface Builder Actions
 
 extension MapViewController {
-    func showPlaceDetails(_ sender: Place) {
-        performSegue(withIdentifier: "ShowPlaceDetails", sender: sender)
+    func showPlaceDetails(_ place: Place, _ view: MKAnnotationView) {
+        let actionSheetController = MapMenuViewController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheetController.place = place
+        actionSheetController.popoverPresentationController?.sourceView = view
+        self.present(actionSheetController, animated: true, completion: nil)
+        //performSegue(withIdentifier: "ShowPlaceDetails", sender: sender)
     }
 }
 
@@ -134,6 +138,6 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = view.annotation as? MKPlaceAnnotaion else { return }
-        showPlaceDetails(annotation.place)
+        showPlaceDetails(annotation.place, view)
     }
 }
