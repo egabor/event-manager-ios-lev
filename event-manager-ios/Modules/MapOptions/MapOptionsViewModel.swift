@@ -28,7 +28,7 @@ class MapOptionsViewModel {
 
     init () {
         Observable.combineLatest(places.asObservable(), placeTypesToFilter.asObservable()) { [weak self] (places, placeTypesToFilter) in
-            self?.sections.value = [TableViewSection(items: places.map { $0.type }.uniqueElements.map { MapOption($0, !placeTypesToFilter.contains($0)) })]
+            self?.sections.value = [TableViewSection(header: MapOptionHeader(with: "MapOptions.Header.HideShowPlacesByType.Title".localized), items: places.map { $0.type }.uniqueElements.map { MapOption($0, !placeTypesToFilter.contains($0)) })]
         }.subscribe().disposed(by: disposeBag)
     }
 

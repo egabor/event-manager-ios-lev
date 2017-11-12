@@ -940,13 +940,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A5g-78-w0P">
-                                <rect key="frame" x="119" y="237" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A5g-78-w0P">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="A5g-78-w0P" firstAttribute="centerX" secondItem="ezN-w0-LaX" secondAttribute="centerX" id="0Uh-15-X4V"/>
+                            <constraint firstItem="ezN-w0-LaX" firstAttribute="bottom" secondItem="A5g-78-w0P" secondAttribute="bottom" id="62e-8k-XwN"/>
+                            <constraint firstItem="A5g-78-w0P" firstAttribute="width" secondItem="wmO-dE-VfX" secondAttribute="width" id="OWT-ov-SAz"/>
+                            <constraint firstItem="A5g-78-w0P" firstAttribute="top" secondItem="ezN-w0-LaX" secondAttribute="top" id="byK-Y8-Nei"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ezN-w0-LaX"/>
                     </view>
                     <connections>
