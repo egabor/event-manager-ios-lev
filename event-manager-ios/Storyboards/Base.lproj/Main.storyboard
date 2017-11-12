@@ -914,7 +914,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" textLabel="4mk-XK-10Q" style="IBUITableViewCellStyleDefault" id="ErM-mX-GCS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="MapOptionCell" textLabel="4mk-XK-10Q" style="IBUITableViewCellStyleDefault" id="ErM-mX-GCS" customClass="MapOptionCell" customModule="event_manager_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ErM-mX-GCS" id="trg-aE-f0W">
@@ -989,6 +989,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lrf-W2-5h5"/>
-        <segue reference="nf4-f0-zbV"/>
+        <segue reference="2xE-lS-Te8"/>
     </inferredMetricsTieBreakers>
 </document>

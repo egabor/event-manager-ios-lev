@@ -81,17 +81,16 @@ class MapOptionsTableViewController: UITableViewController {
             .modelSelected(Bindable.self)
             .subscribe(onNext: { value in
                 print("Tapped `\(value)`")
-            })
-            .disposed(by: disposeBag)
-
-        /*
-        tableView.rx
-            .itemAccessoryButtonTapped
-            .subscribe(onNext: { indexPath in
-                print("Tapped Detail @ \(indexPath.section),\(indexPath.row)")
-            })
-            .disposed(by: disposeBag)
-        */
+                guard let mapOption = value as? MapOption else { return }
+                if self.viewModel.placeTypesToFilter.value.contains(mapOption.placeType) {
+                    if let index = self.viewModel.placeTypesToFilter.value.index(of: mapOption.placeType) {
+                        self.viewModel.placeTypesToFilter.value.remove(at: index)
+                    }
+                } else {
+                    self.viewModel.placeTypesToFilter.value.append(mapOption.placeType)
+                }
+                NotificationCenter.default.post(name: Constants.Notifications.PlaceTypesUpdated, object: self.viewModel.placeTypesToFilter.value)
+            }).disposed(by: disposeBag)
 
     }
 

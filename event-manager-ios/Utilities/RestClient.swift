@@ -16,6 +16,7 @@ class RestClient {
     static let shared = RestClient()
 
     var events = Variable([Event]())
+    var places = Variable([Place]())
     var news = Variable([News]())
 
     private init() {}
@@ -32,7 +33,20 @@ class RestClient {
             }
         }
     }
-    
+
+    public func getPlaces(complitionBlock: (([Place], String?) -> Void)?) {
+        let url = URL(string: configuration.environment.baseURL + "/places")!
+        
+        // TODO: send the correct headers
+        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[Place]>) in
+            if response.result.isSuccess {
+                guard let result = response.result.value else { return }
+                self?.places.value = result
+                complitionBlock?(result, nil)
+            }
+        }
+    }
+
     public func getNews(complitionBlock: (([News], String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/news")!
         

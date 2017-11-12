@@ -34,6 +34,7 @@ class MapViewController: UIViewController {
         // TODO: Do the viewmodel binding here
 
         viewModel.annotations.asObservable().subscribe { [weak self] (event) in
+            self?.mapView.removeAnnotations(self?.mapView.annotations ?? [])
             guard let annotations = event.element else { return }
             for annotation in annotations {
                 self?.mapView?.addAnnotation(annotation)
@@ -59,10 +60,14 @@ class MapViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "ShowPlaceDetails" {
-            // TODO: type
             // TODO: pass place
             if let destination = segue.destination as? PlaceDetailsViewController {
                 //destination.viewModel.property = ...
+            }
+        } else if segue.identifier == "ShowMapOptions" {
+            if let destination = segue.destination as? MapOptionsTableViewController {
+                destination.viewModel.places.value = viewModel.places.value
+                destination.viewModel.placeTypesToFilter.value = viewModel.placeTypesToFilter.value
             }
         }
     }
@@ -85,7 +90,7 @@ class MapViewController: UIViewController {
                 zoomRect = MKMapRectUnion(zoomRect, pointRect)
             }
         }
-        mapView.setVisibleMapRect(zoomRect, edgePadding: UIEdgeInsets.init(top: 50, left: 50, bottom: 50, right: 50), animated: true)
+        mapView.setVisibleMapRect(zoomRect, edgePadding: UIEdgeInsets.init(top: 80, left: 50, bottom: 60, right: 50), animated: true)
     }
 }
 
@@ -119,7 +124,8 @@ extension MapViewController: MKMapViewDelegate {
            
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.calloutOffset = CGPoint(x: 0, y: 5)
+            // TODO: check hasDetails property
             let accessoryView = UIButton(type: .detailDisclosure)
             view.rightCalloutAccessoryView = accessoryView
         }

@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var configuration = Configuration()
         print(configuration.environment.baseURL)
         RestClient.shared.getEvents(complitionBlock: nil)
+        RestClient.shared.getPlaces(complitionBlock: nil)
 
 		return true
 	}
