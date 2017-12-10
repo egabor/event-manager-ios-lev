@@ -1,8 +1,8 @@
 # event-manager-ios
 
 # Development state
-[flow]
-[flow]: https://i.imgur.com/f8ZKapm.png "Development state"
+
+![picture](https://i.imgur.com/f8ZKapm.png)
 
 ## Meaning of emojis used in commit messages
 Commit Type | Emoji
