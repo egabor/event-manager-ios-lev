@@ -59,7 +59,7 @@ class EventDetailsViewController: UIViewController {
     func setUpBindings() {
         viewModel.imageUrl.asObservable().subscribe { [weak self] (event) in
             guard let imageUrl = event.element else { return }
-            self?.performerImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "favorite"))
+            self?.performerImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder"))
             }.disposed(by: disposeBag)
         viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
         viewModel.isFavorite.asObservable().subscribe { [weak self] (event) in

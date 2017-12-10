@@ -16,4 +16,13 @@ extension Date {
         let string = dateFormatter.string(from: self)
         return string
     }
+    
+    func longDate() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        let string = dateFormatter.string(from: self)
+        return string
+    }
 }

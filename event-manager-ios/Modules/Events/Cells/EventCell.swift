@@ -67,7 +67,7 @@ extension EventCell: ReactiveBindable {
     func setUpBindings() {
         viewModel.imageUrl.asObservable().subscribe { [weak self] (event) in
             guard let imageUrl = event.element else { return }
-            self?.performerImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "favorite"))
+            self?.performerImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "plceholder"))
         }.disposed(by: disposeBag)
         viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
         viewModel.info.asObservable().bind(to: infoLabel.rx.text).disposed(by: disposeBag)

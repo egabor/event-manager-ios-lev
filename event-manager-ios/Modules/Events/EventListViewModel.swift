@@ -25,9 +25,10 @@ class EventListViewModel {
     var events = Variable([Event]())
 
     var groups = [ EventGroup(name: "A-Z", option: .alphabetical, filters: []),
-                   EventGroup(name: "Places", option: .places, filters: [])
-                   //EventGroup(name: "Dates", option: .dates, filters: []),
-                   //EventGroup(name: "Favorites", option: .favorites, filters: []),
+                   EventGroup(name: "Places", option: .places, filters: []),
+                   EventGroup(name: "Days", option: .days, filters: []),
+                   EventGroup(name: "Months", option: .months, filters: []),
+                   EventGroup(name: "Favorites", option: .favorites, filters: [])
                    //EventGroup(name: "Live", option: .live, filters: [])
     ]
 
@@ -56,16 +57,18 @@ class EventListViewModel {
                     let group = self!.groups[i]
                     group.filters.removeAll()
                     switch group.option {
-                    case .alphabetical:
-                        self!.groups[i].filters.insert(EventFilter(name: "Events.Filter.All.Text".localized, identifier: "Events.Filter.All.Text"), at: 0)
                     case .places, .live:
                         self!.groups[i].filters = eventsToFilter.map { $0.place }.uniqueElements.sorted { $0.order < $1.order }.map { EventFilter(name: $0.name, identifier: $0.placeId) }
-                        self!.groups[i].filters.insert(EventFilter(name: "Events.Filter.All.Text".localized, identifier: "Events.Filter.All.Text"), at: 0)
-                    case .dates:
-                        break
+                    case .days:
+                        self!.groups[i].filters = eventsToFilter.map { $0.showOnDate }.uniqueElements.sorted { $0 < $1 }.map { EventFilter(name: $0.longDate()!, identifier: $0.toString()!) }
                     case .favorites:
+                        self!.groups[i].filters = eventsToFilter.map { $0.showOnDate }.uniqueElements.sorted { $0 < $1 }.map { EventFilter(name: $0.longDate()!, identifier: $0.toString()!) }
+                    case .months:
+                        self!.groups[i].filters = eventsToFilter.map { $0.showOnDate.toString(format: "yyyy. MMMM")! }.uniqueElements.sorted { $0 < $1 }.map { EventFilter(name: $0, identifier: $0) }
+                    default:
                         break
                     }
+                    self!.groups[i].filters.insert(EventFilter(name: "Events.Filter.All.Text".localized, identifier: "Events.Filter.All.Text"), at: 0)
                 }
             }
         }.disposed(by: disposeBag)
@@ -109,6 +112,10 @@ class EventListViewModel {
             data = data.sorted { ($0.header?.title ?? "") < ($1.header?.title ?? "") }
         case .places, .live:
             filteredEvents.group { $0.place.name }.forEach { (key, element) in
+                data.append(TableViewSection(header: EventHeader(with: key), items: element))
+            }
+        case .days:
+            filteredEvents.group { $0.showOnDate.longDate()! }.forEach { (key, element) in
                 data.append(TableViewSection(header: EventHeader(with: key), items: element))
             }
         default:

@@ -52,7 +52,7 @@ extension NewsCell: ReactiveBindable {
     func setUpBindings() {
         viewModel.imageUrl.asObservable().subscribe { [weak self] (event) in
             guard let imageUrl = event.element else { return }
-            self?.newsImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "favorite"))
+            self?.newsImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder"))
             }.disposed(by: disposeBag)
         viewModel.title.asObservable().bind(to: titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.showOnDate.asObservable().bind(to: dateLabel.rx.text).disposed(by: disposeBag)

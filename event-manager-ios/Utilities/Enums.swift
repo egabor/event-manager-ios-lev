@@ -15,5 +15,5 @@ enum PlaceType: String {
 }
 
 enum EventGroupOption: Int {
-    case alphabetical, places, dates, favorites, live
+    case alphabetical, places, days, months, years, favorites, live
 }

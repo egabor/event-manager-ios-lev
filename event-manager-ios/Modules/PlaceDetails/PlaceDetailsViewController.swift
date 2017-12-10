@@ -72,7 +72,7 @@ class PlaceDetailsViewController: UIViewController {
         }).disposed(by: disposeBag)
         viewModel.place.asObservable().map { $0.imageUrl }.subscribe({ [weak self] (event) in
             guard let imageUrl = event.element, imageUrl != nil else { return }
-            self?.placeImageView.sd_setImage(with: URL(string: imageUrl!), placeholderImage: UIImage(named: "favorite"))
+            self?.placeImageView.sd_setImage(with: URL(string: imageUrl!), placeholderImage: UIImage(named: "placeholder"))
         }).disposed(by: disposeBag)
 
         tableView
