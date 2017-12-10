@@ -52,6 +52,15 @@ extension EventFilterCell: ReactiveBindable {
 
     func setUpBindings() {
         viewModel.title.asObservable().bind(to: textLabel!.rx.text).disposed(by: disposeBag)
+        viewModel.highlighted.asObservable().subscribe { [weak self] (event) in
+            guard let strongSelf = self else { return }
+            guard let highlighted = event.element else { return }
+            if highlighted {
+                strongSelf.textLabel?.font = .boldSystemFont(ofSize: 17.0)
+            } else {
+                strongSelf.textLabel?.font = .systemFont(ofSize: 17.0)
+            }
+        }.disposed(by: disposeBag)
     }
 
     func bind(to model: Bindable?) {

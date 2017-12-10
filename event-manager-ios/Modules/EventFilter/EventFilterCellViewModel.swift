@@ -16,11 +16,13 @@ class EventFilterCellViewModel {
 
     // MARK: - var variables
     var title = Variable("")
+    var highlighted = Variable(false)
 
     var model: Filter? {
         didSet {
             guard let model = model else { return }
             title.value = model.name
+            highlighted.value = model.selected
         }
     }
 

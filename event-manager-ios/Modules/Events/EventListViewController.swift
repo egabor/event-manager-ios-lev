@@ -137,8 +137,15 @@ class EventListViewController: UIViewController {
             }
         } else if segue.identifier == "ShowFilterSelect" {
             if let destination = segue.destination as? EventFilterTableViewController {
-                guard let model = sender as? [Filter] else { return }
-                destination.viewModel.items.value = model
+                guard let model = sender as? ([Filter], Filter) else { return }
+                guard let index = model.0.index(where: { (filter) -> Bool in
+                    filter.name == model.1.name
+                }) else { return }
+                model.0.forEach { $0.selected = false }
+
+                model.0[index].selected = true
+                destination.viewModel.items.value = model.0
+
                 destination.title = "SelectFilter.Title".localized
             }
         }
@@ -197,11 +204,11 @@ extension EventListViewController {
     }
 
     @IBAction func changeGroup(_ sender: UIButton) {
-        performSegue(withIdentifier: "ShowFilterSelect", sender: viewModel.groups)
+        performSegue(withIdentifier: "ShowFilterSelect", sender: (viewModel.groups, viewModel.selectedGroup.value))
     }
 
     @IBAction func changeFilter(_ sender: UIButton) {
-        performSegue(withIdentifier: "ShowFilterSelect", sender: viewModel.selectedGroup.value.filters)
+        performSegue(withIdentifier: "ShowFilterSelect", sender: (viewModel.selectedGroup.value.filters, viewModel.selectedFilter.value))
     }
 }
 
