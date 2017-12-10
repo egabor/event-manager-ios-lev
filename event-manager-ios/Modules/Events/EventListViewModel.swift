@@ -91,6 +91,7 @@ class EventListViewModel {
     func mapEvents(_ eventsList: [Event], _ group: EventGroup?, _ filter: EventFilter?) {
         guard let group = group else { print("ERROR: No group"); return }
         guard let filter = filter else { print("ERROR: No filter"); return }
+        eventsList.forEach { $0.displayPriority = group.option }
         var filteredEvents = [Event]()
 
         if filter.identifier == "Events.Filter.All.Text" {

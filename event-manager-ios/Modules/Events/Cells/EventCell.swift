@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SDWebImage
+import SwiftyAttributes
 
 class EventCell: UITableViewCell {
 
@@ -70,7 +71,18 @@ extension EventCell: ReactiveBindable {
             self?.performerImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "plceholder"))
         }.disposed(by: disposeBag)
         viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
-        viewModel.info.asObservable().bind(to: infoLabel.rx.text).disposed(by: disposeBag)
+        Observable.combineLatest(viewModel.displayPriority.asObservable(), viewModel.startDate.asObservable(), viewModel.placeName.asObservable()) { [weak self] (displayPriority, startDate, placeName) in
+            guard let strongSelf = self else { return }
+            if displayPriority == EventGroupOption.places {
+                if var dateString = startDate.toString(format: "yyyy. MM. dd."),
+                    let timeString = startDate.toString(format: "hh:mm") {
+                    dateString.append(" - ")
+                    strongSelf.infoLabel.attributedText = dateString.withTextColor(strongSelf.infoLabel.textColor) + timeString.withFont(.boldSystemFont(ofSize: strongSelf.infoLabel.font.pointSize))
+                }
+            } else {
+                strongSelf.infoLabel.text = placeName
+            }
+        }.subscribe().disposed(by: disposeBag)
         viewModel.isFavorite.asObservable().bind(to: toggleFavoriteButton.rx.isSelected).disposed(by: disposeBag)
     }
 

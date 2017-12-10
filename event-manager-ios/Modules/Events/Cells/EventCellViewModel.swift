@@ -17,16 +17,21 @@ class EventCellViewModel {
     // MARK: - var variables
     var imageUrl = Variable("")
     var name = Variable("")
-    var info = Variable("")
     var isFavorite = Variable(false)
+    var displayPriority = Variable(EventGroupOption.alphabetical)
+    var startDate = Variable(Date())
+    var placeName = Variable("")
 
     var model: Event? {
         didSet {
             guard let model = model else { return }
             imageUrl.value = model.performer.imageUrl
             name.value = model.performer.name
-            info.value = model.place.name
             isFavorite.value = model.isFavorite
+            displayPriority.value = model.displayPriority!
+            startDate.value = model.startDate
+            placeName.value = model.place.name
+
         }
     }
 
