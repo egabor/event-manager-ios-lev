@@ -21,11 +21,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="mvm-G7-c4P" kind="relationship" relationship="viewControllers" id="eo8-z3-Ycx"/>
                         <segue destination="bRl-M3-DPW" kind="relationship" relationship="viewControllers" id="aru-ez-XbE"/>
-                        <segue destination="M8k-yD-Ikc" kind="relationship" relationship="viewControllers" id="d2S-xm-L2q"/>
                         <segue destination="FBJ-x6-YUw" kind="relationship" relationship="viewControllers" id="SFn-ed-LBr"/>
                         <segue destination="0hO-uJ-jUt" kind="presentation" identifier="ShowLoading" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="StV-mp-VEf"/>
                     </connections>
@@ -146,7 +146,8 @@
         <scene sceneID="VU4-Xg-tG6">
             <objects>
                 <navigationController id="FBJ-x6-YUw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="7a2-K8-vxa">
+                    <tabBarItem key="tabBarItem" title="" image="news" id="7a2-K8-vxa">
+                        <color key="badgeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="News.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -190,7 +191,8 @@
         <scene sceneID="aDe-sV-tZ0">
             <objects>
                 <navigationController id="bRl-M3-DPW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="rk4-lz-Ajb">
+                    <tabBarItem key="tabBarItem" title="" image="places" id="rk4-lz-Ajb">
+                        <color key="badgeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="Map.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -256,7 +258,8 @@
         <scene sceneID="hcz-Gg-KMD">
             <objects>
                 <navigationController id="mvm-G7-c4P" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="r8Q-Ur-b8y">
+                    <tabBarItem key="tabBarItem" title="" image="events" id="r8Q-Ur-b8y">
+                        <color key="badgeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="Events.Title"/>
                         </userDefinedRuntimeAttributes>
@@ -1125,11 +1128,14 @@
     <resources>
         <image name="Button" width="10" height="12"/>
         <image name="MapSettings" width="22" height="22"/>
+        <image name="events" width="23" height="23"/>
         <image name="facebook_f" width="30" height="30"/>
         <image name="favorite" width="25" height="25"/>
         <image name="favorite_filled" width="25" height="25"/>
         <image name="more" width="22" height="22"/>
+        <image name="news" width="23" height="23"/>
         <image name="place" width="30" height="30"/>
+        <image name="places" width="23" height="23"/>
         <image name="profile" width="25" height="25"/>
         <image name="ticket" width="25" height="25"/>
         <image name="time" width="30" height="30"/>
