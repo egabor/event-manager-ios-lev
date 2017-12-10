@@ -1,6 +1,6 @@
 # event-manager-ios
 
-# Development state
+## Development state
 
 ![picture](https://i.imgur.com/f8ZKapm.png)
 
