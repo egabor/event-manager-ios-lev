@@ -7,11 +7,11 @@
 //
 
 enum EventType: String {
-    case music, cinema, standUp, other, unknown
+    case music, meetup, show, cinema, standUp, other, unknown
 }
 
 enum PlaceType: String {
-    case stage, wc, luggage, bicycle, information, shower, camping, adrenaline, coffee, alcohol, taxi, tobacco, water, food, ticket, atm, metapay, firstAid, electric, carPark, interestingPlace, wasteCollector, other, unknown
+    case club, stage, wc, luggage, bicycle, information, shower, camping, adrenaline, coffee, alcohol, taxi, tobacco, water, food, ticket, atm, metapay, firstAid, electric, carPark, interestingPlace, wasteCollector, other, unknown
 }
 
 enum EventGroupOption: Int {
