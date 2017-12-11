@@ -5,27 +5,189 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Profile-->
         <scene sceneID="ebb-1f-mtd">
             <objects>
-                <tableViewController storyboardIdentifier="ProfileViewController" hidesBottomBarWhenPushed="YES" id="N80-eF-87i" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gwm-Nl-8Wj">
+                <tableViewController storyboardIdentifier="ProfileViewController" hidesBottomBarWhenPushed="YES" id="N80-eF-87i" customClass="ProfileViewController" customModule="event_manager_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="gwm-Nl-8Wj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RQS-hz-qnt">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RQS-hz-qnt" id="Xsf-kR-DRS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="Mv8-Uv-dzq">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="154" id="RQS-hz-qnt">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="154"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RQS-hz-qnt" id="Xsf-kR-DRS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="153.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlg-go-4wA">
+                                                    <rect key="frame" x="16" y="11" width="94.5" height="94.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="egabor" translatesAutoresizingMaskIntoConstraints="NO" id="7V1-d5-R44">
+                                                            <rect key="frame" x="3" y="3" width="88.5" height="88.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="7V1-d5-R44" secondAttribute="height" multiplier="1:1" id="0Qs-0c-ZqQ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="7V1-d5-R44" firstAttribute="width" secondItem="Wlg-go-4wA" secondAttribute="width" constant="-6" id="8Aq-wp-Ygn"/>
+                                                        <constraint firstItem="7V1-d5-R44" firstAttribute="centerY" secondItem="Wlg-go-4wA" secondAttribute="centerY" id="Q8k-kG-F6u"/>
+                                                        <constraint firstItem="7V1-d5-R44" firstAttribute="centerX" secondItem="Wlg-go-4wA" secondAttribute="centerX" id="beF-TF-adq"/>
+                                                        <constraint firstAttribute="width" secondItem="Wlg-go-4wA" secondAttribute="height" multiplier="1:1" id="spP-Ds-tpd"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thE-rq-LKQ">
+                                                    <rect key="frame" x="16" y="113.5" width="343" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="6DW-q6-g4x"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="Profile.Email"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eszenyi Gábor" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhi-xe-bt3">
+                                                    <rect key="frame" x="118.5" y="11.5" width="240.5" height="94.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Wlg-go-4wA" firstAttribute="width" secondItem="Wlg-go-4wA" secondAttribute="height" multiplier="1:1" id="36d-Pt-gBv"/>
+                                                <constraint firstItem="thE-rq-LKQ" firstAttribute="top" secondItem="Wlg-go-4wA" secondAttribute="bottom" constant="8" id="CE7-0Y-lfy"/>
+                                                <constraint firstItem="lhi-xe-bt3" firstAttribute="height" secondItem="Wlg-go-4wA" secondAttribute="height" id="NpD-o9-cla"/>
+                                                <constraint firstAttribute="bottom" secondItem="thE-rq-LKQ" secondAttribute="bottom" constant="8" id="Pi7-fX-Pv2"/>
+                                                <constraint firstAttribute="trailing" secondItem="thE-rq-LKQ" secondAttribute="trailing" constant="16" id="WVN-QW-0mj"/>
+                                                <constraint firstItem="Wlg-go-4wA" firstAttribute="leading" secondItem="Xsf-kR-DRS" secondAttribute="leading" constant="16" id="bPG-mf-CjM"/>
+                                                <constraint firstItem="Wlg-go-4wA" firstAttribute="top" secondItem="Xsf-kR-DRS" secondAttribute="top" constant="11" id="cRM-3l-hJ8"/>
+                                                <constraint firstItem="thE-rq-LKQ" firstAttribute="leading" secondItem="Xsf-kR-DRS" secondAttribute="leading" constant="16" id="gNl-lO-KnR"/>
+                                                <constraint firstItem="lhi-xe-bt3" firstAttribute="centerY" secondItem="Wlg-go-4wA" secondAttribute="centerY" id="kFk-Ir-RdT"/>
+                                                <constraint firstItem="lhi-xe-bt3" firstAttribute="leading" secondItem="Wlg-go-4wA" secondAttribute="trailing" constant="8" id="kXt-0A-amT"/>
+                                                <constraint firstAttribute="trailing" secondItem="lhi-xe-bt3" secondAttribute="trailing" constant="16" id="w5s-4h-Z1C"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Tickets" id="JLU-O1-39w">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="y7q-sC-kgc" rowHeight="44" style="IBUITableViewCellStyleDefault" id="lRF-c9-Cck">
+                                        <rect key="frame" x="0.0" y="245" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lRF-c9-Cck" id="YQI-Su-IpW">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Profile.PurchasedTickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y7q-sC-kgc">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="Profile.PurchasedTickets"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="PM2-F4-bJR" kind="show" identifier="ShowPurchasedTickets" id="xJR-9j-xli"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="cgQ-B4-jih" rowHeight="44" style="IBUITableViewCellStyleDefault" id="xge-Kb-dfq">
+                                        <rect key="frame" x="0.0" y="289" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xge-Kb-dfq" id="cfF-q1-Rgw">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Profile.BuyTickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cgQ-B4-jih">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="Profile.BuyTickets"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Billing Info" id="hK6-Cy-cLK">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="64o-IY-PQa" detailTextLabel="jMn-da-Rvd" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="E0A-Q4-ZOU">
+                                        <rect key="frame" x="0.0" y="389" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E0A-Q4-ZOU" id="VUg-zY-cBN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="64o-IY-PQa">
+                                                    <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Profile.BillingInfo.Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jMn-da-Rvd">
+                                                    <rect key="frame" x="16" y="25.5" width="132" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="Profile.BillingInfo.Name"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="dal-Ro-ghO" detailTextLabel="qNV-CN-pyo" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="ra2-p1-xZo">
+                                        <rect key="frame" x="0.0" y="433" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ra2-p1-xZo" id="OfE-vT-lD1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dal-Ro-ghO">
+                                                    <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Profile.BillingInfo.Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qNV-CN-pyo">
+                                                    <rect key="frame" x="16" y="25.5" width="145" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="Profile.BillingInfo.Address"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="N80-eF-87i" id="yRg-TP-bSh"/>
                             <outlet property="delegate" destination="N80-eF-87i" id="3PZ-ne-bt0"/>
@@ -44,13 +206,18 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="PM2-F4-bJR" kind="show" id="4cY-uw-a2b"/>
+                        <outlet property="billingAddressLabel" destination="dal-Ro-ghO" id="QKX-Re-u3o"/>
+                        <outlet property="billingNameLabel" destination="64o-IY-PQa" id="h2w-u8-Pbh"/>
+                        <outlet property="emailLabel" destination="thE-rq-LKQ" id="nxc-8I-Ygf"/>
+                        <outlet property="nameLabel" destination="lhi-xe-bt3" id="kAI-sC-Zcz"/>
+                        <outlet property="profileImageView" destination="7V1-d5-R44" id="fgz-0i-cpx"/>
+                        <outlet property="profileImageWrapperView" destination="Wlg-go-4wA" id="URD-ia-DgJ"/>
                         <segue destination="6gm-Tp-5hy" kind="show" id="WBG-XO-xFw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="226-t7-8dz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1452" y="4"/>
+            <point key="canvasLocation" x="-1452" y="3.1484257871064472"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="lOS-G1-fI7">
@@ -97,11 +264,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="414-9z-HjM">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="163" id="414-9z-HjM">
+                                <rect key="frame" x="0.0" y="28" width="375" height="163"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="414-9z-HjM" id="u4K-g0-ebn">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="162.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -122,7 +289,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yK6-6k-Ao9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-614" y="323"/>
+            <point key="canvasLocation" x="-615.20000000000005" y="322.48875562218893"/>
         </scene>
         <!--Details-->
         <scene sceneID="rEw-CU-5lt">
@@ -161,6 +328,9 @@
             <point key="canvasLocation" x="215" y="322"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="egabor" width="460" height="460"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ByA-9R-LDm"/>
     </inferredMetricsTieBreakers>

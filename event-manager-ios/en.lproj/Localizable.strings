@@ -40,3 +40,11 @@
 
 "PlaceDetails.ContextMenu.Cancel" = "Cancel";
 "PlaceDetails.ContextMenu.GetDirections" = "Get Directions";
+
+"Profile.Section.Tickets" = "Tickets";
+"Profile.PurchasedTickets" = "Purchased Tickets";
+"Profile.BuyTickets" = "Buy Tickets";
+"Profile.Section.BillingInfo" = "Billing Info";
+"Profile.BillingInfo.Name" = "Name";
+"Profile.BillingInfo.Address" = "Address";
+"Profile.Email" = "email: ";

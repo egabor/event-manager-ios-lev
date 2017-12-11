@@ -42,6 +42,8 @@
 		627E31191FB769E300BAB196 /* MapOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E31161FB769E300BAB196 /* MapOption.swift */; };
 		627E311A1FB769E300BAB196 /* MapOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E31171FB769E300BAB196 /* MapOptionCell.swift */; };
 		627E311B1FB769E300BAB196 /* MapOptionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627E31181FB769E300BAB196 /* MapOptionCellViewModel.swift */; };
+		628A9B3D1FDF41A6008F9853 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628A9B3B1FDF41A6008F9853 /* ProfileViewModel.swift */; };
+		628A9B3E1FDF41A6008F9853 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628A9B3C1FDF41A6008F9853 /* ProfileViewController.swift */; };
 		62A1DB1C1FB8B96E009148A3 /* MapMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A1DB1B1FB8B96E009148A3 /* MapMenuViewController.swift */; };
 		62A1DB211FB8CD2B009148A3 /* MapOptionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A1DB1E1FB8CD2B009148A3 /* MapOptionHeader.swift */; };
 		62A1DB251FB8DC0E009148A3 /* PlaceDetailsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A1DB241FB8DC0E009148A3 /* PlaceDetailsMenuViewController.swift */; };
@@ -113,6 +115,8 @@
 		627E31161FB769E300BAB196 /* MapOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOption.swift; sourceTree = "<group>"; };
 		627E31171FB769E300BAB196 /* MapOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOptionCell.swift; sourceTree = "<group>"; };
 		627E31181FB769E300BAB196 /* MapOptionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOptionCellViewModel.swift; sourceTree = "<group>"; };
+		628A9B3B1FDF41A6008F9853 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		628A9B3C1FDF41A6008F9853 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		62A1DB1B1FB8B96E009148A3 /* MapMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMenuViewController.swift; sourceTree = "<group>"; };
 		62A1DB1E1FB8CD2B009148A3 /* MapOptionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOptionHeader.swift; sourceTree = "<group>"; };
 		62A1DB241FB8DC0E009148A3 /* PlaceDetailsMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsMenuViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +242,22 @@
 				627E31181FB769E300BAB196 /* MapOptionCellViewModel.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		628A9B391FDF3C96008F9853 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				628A9B3C1FDF41A6008F9853 /* ProfileViewController.swift */,
+				628A9B3B1FDF41A6008F9853 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		628A9B3A1FDF3CD2008F9853 /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tickets;
 			sourceTree = "<group>";
 		};
 		62A1DB1D1FB8CD14009148A3 /* Headers */ = {
@@ -393,6 +413,8 @@
 				62E06BF31FB73DB30000376C /* MapOptions */,
 				7D575DD11FA1E01900AE5BD2 /* News */,
 				627E31101FB7625900BAB196 /* PlaceDetails */,
+				628A9B391FDF3C96008F9853 /* Profile */,
+				628A9B3A1FDF3CD2008F9853 /* Tickets */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -640,6 +662,7 @@
 				627E31131FB762CF00BAB196 /* PlaceDetailsViewModel.swift in Sources */,
 				62374F351F93A2FC00C9841A /* EventDetailDescriptionCell.swift in Sources */,
 				62B2B1821FA2173300617D08 /* Filter.swift in Sources */,
+				628A9B3D1FDF41A6008F9853 /* ProfileViewModel.swift in Sources */,
 				62B2B1811FA2173300617D08 /* EventFilterCell.swift in Sources */,
 				6213B5A71F88E18500121CFF /* TableViewSection.swift in Sources */,
 				7D575DD31FA1E30600AE5BD2 /* NewsListViewController.swift in Sources */,
@@ -667,6 +690,7 @@
 				625DC81E1F893483008AE6DE /* EventHeader.swift in Sources */,
 				6213B59F1F88E13A00121CFF /* UIExtended.swift in Sources */,
 				62E06BF21FB738DD0000376C /* MapViewController.swift in Sources */,
+				628A9B3E1FDF41A6008F9853 /* ProfileViewController.swift in Sources */,
 				6213B5A81F88E18500121CFF /* TitlePresentable.swift in Sources */,
 				6213B5AE1F88E85E00121CFF /* Performer.swift in Sources */,
 				627E31191FB769E300BAB196 /* MapOption.swift in Sources */,
