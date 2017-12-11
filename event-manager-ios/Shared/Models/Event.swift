@@ -27,9 +27,9 @@ class Event: BaseResponse, Hashable, Equatable {
     var performingMinutes: Int = 0
     var isFavorite: Bool = false
     var facebookEventUrl: String?
+    var imageUrl: String?
     
     var displayPriority: EventGroupOption?
-
 
     required init?(map: Map) {
         super.init(map: map)
@@ -50,6 +50,7 @@ class Event: BaseResponse, Hashable, Equatable {
         performingMinutes <- map["performingMinutes"]
         isFavorite <- map["isFavorite"]
         facebookEventUrl <- map["facebookEventUrl"]
+        imageUrl <- map["imageUrl"]
     }
 
     func description() -> String! {
