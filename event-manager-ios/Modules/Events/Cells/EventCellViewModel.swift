@@ -25,7 +25,11 @@ class EventCellViewModel {
     var model: Event? {
         didSet {
             guard let model = model else { return }
-            imageUrl.value = model.performer.imageUrl
+            if let imgUrl = model.imageUrl {
+                imageUrl.value = imgUrl
+            } else {
+                imageUrl.value = model.performer.imageUrl
+            }
             name.value = model.performer.name
             isFavorite.value = model.isFavorite
             displayPriority.value = model.displayPriority!

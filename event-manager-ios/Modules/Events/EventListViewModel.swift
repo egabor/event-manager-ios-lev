@@ -119,6 +119,16 @@ class EventListViewModel {
             filteredEvents.group { $0.showOnDate.longDate()! }.forEach { (key, element) in
                 data.append(TableViewSection(header: EventHeader(with: key), items: element))
             }
+            data = data.sorted { (section1, section2) in
+                return ((section1.header?.title ?? "").toDate(format: "yyyy. MMMM dd."))! > ((section2.header?.title ?? "").toDate(format: "yyyy. MMMM dd."))!
+            }
+        case .months:
+            filteredEvents.group { $0.showOnDate.toString(format: "yyyy. MMMM")! }.forEach { (key, element) in
+                data.append(TableViewSection(header: EventHeader(with: key), items: element))
+            }
+            data = data.sorted { (section1, section2) in
+                return ((section1.header?.title ?? "").toDate(format: "yyyy. MMMM"))! > ((section2.header?.title ?? "").toDate(format: "yyyy. MMMM"))!
+            }
         default:
             break
         }

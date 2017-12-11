@@ -26,7 +26,7 @@ class EventDetailsViewModel {
             imageUrl.value = model.performer.imageUrl
             name.value = model.performer.name
             isFavorite.value = model.isFavorite
-            startTimeInfo.value = model.startDate.toString(format: "MMM dd, EEEE")!
+            startTimeInfo.value = model.startDate.toString(format: "MMM dd, EEEE - hh:mm")!
             placeInfo.value = model.place.name
             facebookEventInfo.value = model.facebookEventUrl ?? facebookEventInfo.value
         }

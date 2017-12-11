@@ -68,14 +68,20 @@ extension EventCell: ReactiveBindable {
     func setUpBindings() {
         viewModel.imageUrl.asObservable().subscribe { [weak self] (event) in
             guard let imageUrl = event.element else { return }
-            self?.performerImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "plceholder"))
+            self?.performerImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder"))
         }.disposed(by: disposeBag)
         viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
         Observable.combineLatest(viewModel.displayPriority.asObservable(), viewModel.startDate.asObservable(), viewModel.placeName.asObservable()) { [weak self] (displayPriority, startDate, placeName) in
             guard let strongSelf = self else { return }
             if displayPriority == EventGroupOption.places {
                 if var dateString = startDate.toString(format: "yyyy. MM. dd."),
-                    let timeString = startDate.toString(format: "hh:mm") {
+                    let timeString = startDate.toString(format: "hh:mm a") {
+                    dateString.append(" - ")
+                    strongSelf.infoLabel.attributedText = dateString.withTextColor(strongSelf.infoLabel.textColor) + timeString.withFont(.boldSystemFont(ofSize: strongSelf.infoLabel.font.pointSize))
+                }
+            } else if displayPriority == EventGroupOption.months {
+                if var dateString = startDate.toString(format: "yyyy. MM. dd."),
+                    let timeString = startDate.toString(format: "hh:mm a") {
                     dateString.append(" - ")
                     strongSelf.infoLabel.attributedText = dateString.withTextColor(strongSelf.infoLabel.textColor) + timeString.withFont(.boldSystemFont(ofSize: strongSelf.infoLabel.font.pointSize))
                 }
