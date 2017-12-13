@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserData.swift
 //  event-manager-ios
 //
 //  Created by Eszenyi Gábor on 2017. 12. 12..
@@ -9,10 +9,10 @@
 import Foundation
 import ObjectMapper
 
-class User: BaseResponse, Hashable, Equatable {
+class UserData: BaseResponse, Hashable, Equatable {
     var hashValue: Int { return userId.hashValue }
     
-    static func == (lhs: User, rhs: User) -> Bool {
+    static func == (lhs: UserData, rhs: UserData) -> Bool {
         return lhs.userId == rhs.userId
     }
     

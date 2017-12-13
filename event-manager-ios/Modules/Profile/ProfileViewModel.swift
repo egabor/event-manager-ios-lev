@@ -9,19 +9,28 @@
 import Foundation
 import RxCocoa
 import RxSwift
+import Firebase
 
 class ProfileViewModel {
 
     // MARK: - let constants
 
     // MARK: - var variables
-    var user = User() {
+    var userData = UserData() {
         didSet {
-            name.value = user.fullName
-            email.value = user.email ?? ""
-            billingName.value = user.billingName ?? ""
-            billingAddress.value = user.billingAddress ?? ""
-            profileImageUrl.value = user.profileImageUrl ?? ""
+            name.value = userData.fullName
+            email.value = userData.email ?? ""
+            billingName.value = userData.billingName ?? ""
+            billingAddress.value = userData.billingAddress ?? ""
+            profileImageUrl.value = userData.profileImageUrl ?? ""
+        }
+    }
+    
+    var user: User? {
+        didSet {
+            name.value = user?.displayName ?? ""
+            email.value = user?.email ?? ""
+            profileImageUrl.value = user?.photoURL?.absoluteString ?? ""
         }
     }
     
@@ -36,17 +45,18 @@ class ProfileViewModel {
     // MARK: - Lifecycle Methods
 
     init () {
-        self.isLoading.value = true
-        RestClient.shared.getProfile { [weak self] (user, error) in
+        setUser(ReferenceManager.shared.user)
+        /*self.isLoading.value = true
+        RestClient.shared.getProfile { [weak self] (userData, error) in
             guard let strongSelf = self  else { return }
             if error != nil {
                 print("Error: \(String(describing: error))")
             }
-            if let user = user {
-                strongSelf.user = user
+            if let userData = userData {
+                strongSelf.userData = userData
                 strongSelf.isLoading.value = false
             }
-        }
+        }*/
     }
 
     deinit {
@@ -54,6 +64,10 @@ class ProfileViewModel {
     }
 
     // MARK: - Business Logic
+    
+    func setUser(_ user: User?) {
+        self.user = user
+    }
 
     // MARK: - Helper Methods
 

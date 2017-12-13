@@ -63,11 +63,11 @@ class RestClient {
         }
     }
     
-    public func getProfile(_ userId: String = "me", completionBlock: ((User?, String?) -> Void)?) {
+    public func getProfile(_ userId: String = "me", completionBlock: ((UserData?, String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/users/\(userId)")!
         
         // TODO: send the correct headers
-        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseObject { (response: DataResponse<User>) in
+        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseObject { (response: DataResponse<UserData>) in
             if response.result.isSuccess {
                 guard let result = response.result.value else { return }
                 completionBlock?(result, nil)
