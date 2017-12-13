@@ -18,6 +18,7 @@ target 'event-manager-ios' do
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'SwiftyAttributes'
   pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'Firebase/Auth'
   
 end
 
