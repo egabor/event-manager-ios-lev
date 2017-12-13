@@ -2,7 +2,7 @@
 
 ## Development state
 
-![picture](https://i.imgur.com/f8ZKapm.png)
+![picture](https://imgur.com/a/AlRiY.png)
 
 ## Meaning of emojis used in commit messages
 Commit Type | Emoji
