@@ -19,6 +19,8 @@ target 'event-manager-ios' do
   pod 'SwiftyAttributes'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'Firebase/Auth'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
   
 end
 
