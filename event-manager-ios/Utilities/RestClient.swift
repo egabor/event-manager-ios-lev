@@ -25,8 +25,9 @@ class RestClient {
         let url = URL(string: configuration.environment.baseURL + "/events")!
 
         // TODO: send the correct headers
-        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[Event]>) in
+        Alamofire.request(url, method: .delete, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[Event]>) in
             if response.result.isSuccess {
+                guard let strongSelf = self else { return }
                 guard let result = response.result.value else { return }
                 self?.events.value = result
                 complitionBlock?(result, nil)
@@ -38,8 +39,9 @@ class RestClient {
         let url = URL(string: configuration.environment.baseURL + "/places")!
 
         // TODO: send the correct headers
-        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[Place]>) in
+        Alamofire.request(url, method: .delete, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[Place]>) in
             if response.result.isSuccess {
+                guard let strongSelf = self else { return }
                 guard let result = response.result.value else { return }
                 self?.places.value = result
                 complitionBlock?(result, nil)
@@ -53,8 +55,21 @@ class RestClient {
         // TODO: send the correct heders
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseArray { [weak self] (response: DataResponse<[News]>) in
             if response.result.isSuccess {
+                guard let strongSelf = self else { return }
                 guard let result = response.result.value else { return }
                 self?.news.value = result
+                complitionBlock?(result, nil)
+            }
+        }
+    }
+    
+    public func getProfile(_ userId: String = "me", complitionBlock: ((User, String?) -> Void)?) {
+        let url = URL(string: configuration.environment.baseURL + "/users/\(userId)")!
+        
+        // TODO: send the correct headers
+        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseObject { (response: DataResponse<User>) in
+            if response.result.isSuccess {
+                guard let result = response.result.value else { return }
                 complitionBlock?(result, nil)
             }
         }
