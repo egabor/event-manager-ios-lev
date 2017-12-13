@@ -72,8 +72,8 @@ class Authenticator {
                 print("Login failed. \(error)")
                 self?.handler(nil, error)
             } else {
-                self?.handler(user, nil)
                 ReferenceManager.shared.user = user
+                self?.handler(user, nil)
                 print("Logged in! \(user?.displayName), \(user?.email), \(user?.photoURL)")
 
             }
