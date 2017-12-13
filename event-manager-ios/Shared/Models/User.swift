@@ -19,7 +19,7 @@ class User: BaseResponse, Hashable, Equatable {
     // MARK: - Model Properties
     var userId: String! = ""
     var fullName: String! = ""
-    var provider: String? = ""
+    var provider: String?
     var authToken: String?
     var profileImageUrl: String?
     var socialToken: String?

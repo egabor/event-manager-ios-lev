@@ -58,7 +58,7 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="Profile.Email"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eszenyi Gábor" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhi-xe-bt3">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhi-xe-bt3">
                                                     <rect key="frame" x="118.5" y="11.5" width="240.5" height="94.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -213,11 +213,20 @@
                         <outlet property="profileImageView" destination="7V1-d5-R44" id="fgz-0i-cpx"/>
                         <outlet property="profileImageWrapperView" destination="Wlg-go-4wA" id="URD-ia-DgJ"/>
                         <segue destination="6gm-Tp-5hy" kind="show" id="WBG-XO-xFw"/>
+                        <segue destination="BMA-8E-e3t" kind="presentation" identifier="ShowModalLoading" animates="NO" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="se8-0l-nHk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="226-t7-8dz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1452" y="3.1484257871064472"/>
+        </scene>
+        <!--LoadingViewController-->
+        <scene sceneID="a56-NW-f3Y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Shared" referencedIdentifier="LoadingViewController" id="BMA-8E-e3t" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zz8-Ul-hpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1452" y="390"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="lOS-G1-fI7">

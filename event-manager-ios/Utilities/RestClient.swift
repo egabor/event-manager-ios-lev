@@ -63,7 +63,7 @@ class RestClient {
         }
     }
     
-    public func getProfile(_ userId: String = "me", completionBlock: ((User, String?) -> Void)?) {
+    public func getProfile(_ userId: String = "me", completionBlock: ((User?, String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/users/\(userId)")!
         
         // TODO: send the correct headers

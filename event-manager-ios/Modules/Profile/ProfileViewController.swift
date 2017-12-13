@@ -9,6 +9,8 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import SDWebImage
+import SnapKit
 
 class ProfileViewController: UITableViewController {
 
@@ -37,9 +39,41 @@ class ProfileViewController: UITableViewController {
 
         profileImageWrapperView.layer.borderWidth = 2.0
         profileImageWrapperView.layer.borderColor = UIColor.black.cgColor
-        // TODO: Do the viewmodel binding here
+
+        viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
+        viewModel.email.asObservable().bind(to: emailLabel.rx.text).disposed(by: disposeBag)
+        viewModel.billingName.asObservable().subscribe { [weak self] (event) in
+            guard let strongSelf = self else { return }
+            guard let billingName = event.element else { return }
+            strongSelf.billingNameLabel.text = billingName
+            strongSelf.tableView.reloadData()
+            }.disposed(by: disposeBag)
+
+        viewModel.billingAddress.asObservable().subscribe { [weak self] (event) in
+            guard let strongSelf = self else { return }
+            guard let billingAddress = event.element else { return }
+            strongSelf.billingAddressLabel.text = billingAddress
+            strongSelf.tableView.reloadData()
+            }.disposed(by: disposeBag)
+        
+        viewModel.profileImageUrl.asObservable().subscribe { [weak self] (event) in
+            guard let strongSelf = self else { return }
+            guard let imageUrl = event.element else { return }
+            strongSelf.profileImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder"))
+            }.disposed(by: disposeBag)
+        
+        viewModel.isLoading.asObservable().throttle(3.0, latest: true, scheduler: MainScheduler.instance).subscribe { [weak self] (event) in
+            guard let strongSelf = self else { return }
+            guard let isLoading = event.element else { return }
+            if isLoading {
+                
+            } else {
+                
+            }
+            }.disposed(by: disposeBag)
+
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         profileImageWrapperView.layer.cornerRadius = profileImageWrapperView.bounds.height / 2.0
