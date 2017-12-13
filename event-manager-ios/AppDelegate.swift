@@ -19,10 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FirebaseApp.configure()
-        
-        if FBSDKAccessToken.current() != nil {
-            Authenticator.shared.facebookAuth()
-        }
         var configuration = Configuration()
         print(configuration.environment.baseURL)
         RestClient.shared.getEvents(completionBlock: nil)

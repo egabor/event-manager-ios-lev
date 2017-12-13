@@ -138,13 +138,17 @@
                     <navigationItem key="navigationItem" title="News" id="w0e-0X-tu3">
                         <barButtonItem key="rightBarButtonItem" image="profile" id="Qah-d1-D8W">
                             <connections>
-                                <segue destination="2hs-kE-jT9" kind="show" id="dXj-Lc-GJc"/>
+                                <action selector="showProfile:" destination="b7i-TK-eQ5" id="y0L-LB-zsB"/>
                             </connections>
                         </barButtonItem>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="News.Title"/>
                         </userDefinedRuntimeAttributes>
                     </navigationItem>
+                    <connections>
+                        <outlet property="profileButton" destination="Qah-d1-D8W" id="t7n-8i-4lv"/>
+                        <segue destination="2hs-kE-jT9" kind="show" identifier="ShowProfile" id="9qc-RU-zsm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4m-FE-J7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,7 +254,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="profile" id="NAS-bO-Vxi">
                             <connections>
-                                <segue destination="L99-pV-GqJ" kind="show" id="3W9-bz-3Cg"/>
+                                <action selector="showProfile:" destination="NIl-dS-16z" id="LkY-ek-apg"/>
                             </connections>
                         </barButtonItem>
                         <userDefinedRuntimeAttributes>
@@ -259,7 +263,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="ohS-pu-c89" id="aLU-Eu-uiK"/>
+                        <outlet property="profileButton" destination="NAS-bO-Vxi" id="JQs-Pt-gcZ"/>
                         <segue destination="Jhh-Yw-SDo" kind="show" identifier="ShowPlaceDetails" id="19h-hy-mDh"/>
+                        <segue destination="L99-pV-GqJ" kind="show" identifier="ShowProfile" id="seY-Em-Ohg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwZ-G7-IKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -516,7 +522,7 @@
                         <barButtonItem key="rightBarButtonItem" image="profile" id="CTJ-f2-uPO">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="4x3-da-nLW" kind="show" id="lrf-W2-5h5"/>
+                                <action selector="showProfile:" destination="rbq-S1-cPZ" id="2xG-al-wNN"/>
                             </connections>
                         </barButtonItem>
                         <userDefinedRuntimeAttributes>
@@ -528,6 +534,7 @@
                         <outlet property="changeGroupButton" destination="ah9-Y9-Fr1" id="eyJ-pf-YtW"/>
                         <outlet property="groupAndFilterConstraint" destination="QMb-Dy-Con" id="1eM-hN-8PH"/>
                         <outlet property="onlyGroupConstraint" destination="g4A-wU-e11" id="flM-1b-2gu"/>
+                        <outlet property="profileButton" destination="CTJ-f2-uPO" id="jKa-lS-OzH"/>
                         <outlet property="tableView" destination="ZOI-83-O0Y" id="afD-Bf-cbV"/>
                         <segue destination="4x3-da-nLW" kind="show" identifier="ShowProfile" id="9Qy-Gf-gKA"/>
                         <segue destination="L4h-S1-xy1" kind="show" identifier="ShowEventDetails" id="zoX-68-gK2"/>
@@ -1178,7 +1185,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="19h-hy-mDh"/>
-        <segue reference="lrf-W2-5h5"/>
         <segue reference="zoX-68-gK2"/>
     </inferredMetricsTieBreakers>
 </document>

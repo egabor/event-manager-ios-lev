@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import MapKit
+import MBProgressHUD
 
 class MapViewController: UIViewController {
 
@@ -25,6 +26,7 @@ class MapViewController: UIViewController {
 
     // MARK: - Interface Builder Outlets
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var profileButton: UIBarButtonItem!
 
     // MARK: - UIViewController Lifecycle Methods
 
@@ -33,6 +35,19 @@ class MapViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(showPlaceDetails(_:)), name: Constants.Notifications.MapShowPlaceDetails, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getDirections(_:)), name: Constants.Notifications.MapGetDirections, object: nil)
 
+        viewModel.isLoading.asObservable().throttle(1.0, latest: true, scheduler: MainScheduler.instance).subscribe { [weak self] (event) in
+            guard let strongSelf = self else { return }
+            guard let isLoading = event.element else { return }
+            if isLoading {
+                MBProgressHUD.showAdded(to: strongSelf.view, animated: true)
+            } else {
+                MBProgressHUD.hide(for: strongSelf.view, animated: true)
+            }
+            }.disposed(by: disposeBag)
+        
+        viewModel.isLoading.asObservable().map { !$0 }.throttle(1.0, latest: true, scheduler: MainScheduler.instance).bind(to: profileButton.rx.isEnabled).disposed(by: disposeBag)
+
+        
         viewModel.annotations.asObservable().subscribe { [weak self] (event) in
             self?.mapView.removeAnnotations(self?.mapView.annotations ?? [])
             guard let annotations = event.element else { return }
@@ -97,6 +112,22 @@ extension MapViewController {
         actionSheetController.place = place
         actionSheetController.popoverPresentationController?.sourceView = view
         self.present(actionSheetController, animated: true, completion: nil)
+    }
+    
+    @IBAction func showProfile(_ sender: UIBarButtonItem?) {
+        viewModel.isLoading.value = true
+        Authenticator.shared.authenticate(with: .facebook) { [weak self] (user, error) in
+            guard let strongSelf = self else { return }
+            strongSelf.viewModel.isLoading.value = false
+            if error != nil {
+                let alert = UIAlertController(title: "Login.Error.Title".localized, message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Login.Error.Ok.Button".localized, style: UIAlertActionStyle.default, handler: nil))
+                strongSelf.present(alert, animated: true, completion: nil)
+            }
+            if let user = user {
+                strongSelf.performSegue(withIdentifier: "ShowProfile", sender: nil)
+            }
+        }
     }
 }
 

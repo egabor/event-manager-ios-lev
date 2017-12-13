@@ -42,7 +42,7 @@ class ProfileViewController: UITableViewController {
         profileImageWrapperView.layer.borderColor = UIColor.black.cgColor
 
         viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
-        viewModel.email.asObservable().bind(to: emailLabel.rx.text).disposed(by: disposeBag)
+        viewModel.email.asObservable().map{ "Profile.Email".localized + $0 }.bind(to: emailLabel.rx.text).disposed(by: disposeBag)
         viewModel.billingName.asObservable().subscribe { [weak self] (event) in
             guard let strongSelf = self else { return }
             guard let billingName = event.element else { return }

@@ -46,6 +46,16 @@ class ProfileViewModel {
 
     init () {
         setUser(ReferenceManager.shared.user)
+        
+        /*self.isLoading.value = true
+        Authenticator.shared.authenticate(with: .facebook) { [weak self] (user, error) in
+            guard let strongSelf = self else { return }
+            if let user = user {
+                strongSelf.user = user
+            }
+            strongSelf.isLoading.value = false
+        }*/
+        
         /*self.isLoading.value = true
         RestClient.shared.getProfile { [weak self] (userData, error) in
             guard let strongSelf = self  else { return }
@@ -54,8 +64,9 @@ class ProfileViewModel {
             }
             if let userData = userData {
                 strongSelf.userData = userData
-                strongSelf.isLoading.value = false
+         
             }
+            strongSelf.isLoading.value = false
         }*/
     }
 

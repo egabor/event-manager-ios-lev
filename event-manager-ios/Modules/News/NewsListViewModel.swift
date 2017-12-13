@@ -19,6 +19,7 @@ class NewsListViewModel {
 
     var sections = Variable([TableViewSection]())
     var dataSource = RxTableViewSectionedReloadDataSource<TableViewSection>()
+    var isLoading = Variable(false)
 
     // MARK: Lifecycle Methods
 

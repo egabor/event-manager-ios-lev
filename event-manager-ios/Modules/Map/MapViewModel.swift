@@ -21,6 +21,7 @@ class MapViewModel {
     var places = Variable([Place]())
     var placeTypesToFilter = Variable([PlaceType]())
     var annotations = Variable([MKPlaceAnnotaion]())
+    var isLoading = Variable(false)
 
     // MARK: - Lifecycle Methods
 

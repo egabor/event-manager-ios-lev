@@ -23,6 +23,7 @@ class EventListViewModel {
     var sections = Variable([TableViewSection]())
     var dataSource = RxTableViewSectionedReloadDataSource<TableViewSection>()
     var events = Variable([Event]())
+    var isLoading = Variable(false)
 
     var groups = [ EventGroup(name: "A-Z", option: .alphabetical, filters: []),
                    EventGroup(name: "Places", option: .places, filters: []),

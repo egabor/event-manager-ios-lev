@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import MBProgressHUD
 
 class EventListViewController: UIViewController {
 
@@ -29,6 +30,7 @@ class EventListViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var changeGroupButton: UIButton!
     @IBOutlet weak var changeFilterButton: UIButton!
+    @IBOutlet weak var profileButton: UIBarButtonItem!
 
     // MARK: - ViewController Lifecycle Methods
 
@@ -60,6 +62,18 @@ class EventListViewController: UIViewController {
     }
 
     func setUpBindings() {
+        viewModel.isLoading.asObservable().throttle(1.0, latest: true, scheduler: MainScheduler.instance).subscribe { [weak self] (event) in
+            guard let strongSelf = self else { return }
+            guard let isLoading = event.element else { return }
+            if isLoading {
+                MBProgressHUD.showAdded(to: strongSelf.view, animated: true)
+            } else {
+                MBProgressHUD.hide(for: strongSelf.view, animated: true)
+            }
+            }.disposed(by: disposeBag)
+        
+        viewModel.isLoading.asObservable().map { !$0 }.throttle(1.0, latest: true, scheduler: MainScheduler.instance).bind(to: profileButton.rx.isEnabled).disposed(by: disposeBag)
+
         viewModel.selectedGroup.asObservable().map { $0.name }.bind(to: changeGroupButton.rx.title()).disposed(by: disposeBag)
         viewModel.selectedFilter.asObservable().map { $0.name }.bind(to: changeFilterButton.rx.title()).disposed(by: disposeBag)
         /*viewModel.searchBarVisible.asObservable().subscribe { [weak self] (event) in
@@ -209,6 +223,22 @@ extension EventListViewController {
 
     @IBAction func changeFilter(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowFilterSelect", sender: (viewModel.selectedGroup.value.filters, viewModel.selectedFilter.value))
+    }
+    
+    @IBAction func showProfile(_ sender: UIBarButtonItem?) {
+        viewModel.isLoading.value = true
+        Authenticator.shared.authenticate(with: .facebook) { [weak self] (user, error) in
+            guard let strongSelf = self else { return }
+            strongSelf.viewModel.isLoading.value = false
+            if error != nil {
+                let alert = UIAlertController(title: "Login.Error.Title".localized, message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Login.Error.Ok.Button".localized, style: UIAlertActionStyle.default, handler: nil))
+                strongSelf.present(alert, animated: true, completion: nil)
+            }
+            if let user = user {
+                strongSelf.performSegue(withIdentifier: "ShowProfile", sender: nil)
+            }
+        }
     }
 }
 

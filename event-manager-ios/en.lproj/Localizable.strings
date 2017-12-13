@@ -48,3 +48,6 @@
 "Profile.BillingInfo.Name" = "Name";
 "Profile.BillingInfo.Address" = "Address";
 "Profile.Email" = "email: ";
+
+"Login.Error.Title" = "Error";
+"Login.Error.Ok.Button" = "OK";
