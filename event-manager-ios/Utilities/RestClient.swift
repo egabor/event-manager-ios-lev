@@ -21,7 +21,7 @@ class RestClient {
 
     private init() {}
 
-    public func getEvents(complitionBlock: (([Event], String?) -> Void)?) {
+    public func getEvents(completionBlock: (([Event], String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/events")!
 
         // TODO: send the correct headers
@@ -35,7 +35,7 @@ class RestClient {
         }
     }
 
-    public func getPlaces(complitionBlock: (([Place], String?) -> Void)?) {
+    public func getPlaces(completionBlock: (([Place], String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/places")!
 
         // TODO: send the correct headers
@@ -49,7 +49,7 @@ class RestClient {
         }
     }
 
-    public func getNews(complitionBlock: (([News], String?) -> Void)?) {
+    public func getNews(completionBlock: (([News], String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/news")!
 
         // TODO: send the correct heders
@@ -63,7 +63,7 @@ class RestClient {
         }
     }
     
-    public func getProfile(_ userId: String = "me", complitionBlock: ((User, String?) -> Void)?) {
+    public func getProfile(_ userId: String = "me", completionBlock: ((User, String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/users/\(userId)")!
         
         // TODO: send the correct headers
