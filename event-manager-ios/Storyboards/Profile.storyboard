@@ -30,7 +30,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlg-go-4wA">
                                                     <rect key="frame" x="16" y="11" width="94.5" height="94.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="egabor" translatesAutoresizingMaskIntoConstraints="NO" id="7V1-d5-R44">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="7V1-d5-R44">
                                                             <rect key="frame" x="3" y="3" width="88.5" height="88.5"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -329,7 +329,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="egabor" width="460" height="460"/>
+        <image name="profilePlaceholder" width="370" height="370"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ByA-9R-LDm"/>
