@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 import SDWebImage
 import SnapKit
+import MBProgressHUD
 
 class ProfileViewController: UITableViewController {
 
@@ -62,13 +63,13 @@ class ProfileViewController: UITableViewController {
             strongSelf.profileImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "placeholder"))
             }.disposed(by: disposeBag)
         
-        viewModel.isLoading.asObservable().throttle(3.0, latest: true, scheduler: MainScheduler.instance).subscribe { [weak self] (event) in
+        viewModel.isLoading.asObservable().throttle(1.0, latest: true, scheduler: MainScheduler.instance).subscribe { [weak self] (event) in
             guard let strongSelf = self else { return }
             guard let isLoading = event.element else { return }
             if isLoading {
-                
+                MBProgressHUD.showAdded(to: strongSelf.view, animated: true)
             } else {
-                
+                MBProgressHUD.hide(for: strongSelf.view, animated: true)
             }
             }.disposed(by: disposeBag)
 
