@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
         var configuration = Configuration()
         print(configuration.environment.baseURL)
-        RestClient.shared.getEvents(complitionBlock: nil)
-        RestClient.shared.getPlaces(complitionBlock: nil)
+        RestClient.shared.getEvents(completionBlock: nil)
+        RestClient.shared.getPlaces(completionBlock: nil)
 
 		return true
 	}

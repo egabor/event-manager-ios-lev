@@ -30,7 +30,7 @@ class RestClient {
                 guard let strongSelf = self else { return }
                 guard let result = response.result.value else { return }
                 self?.events.value = result
-                complitionBlock?(result, nil)
+                completionBlock?(result, nil)
             }
         }
     }
@@ -44,7 +44,7 @@ class RestClient {
                 guard let strongSelf = self else { return }
                 guard let result = response.result.value else { return }
                 self?.places.value = result
-                complitionBlock?(result, nil)
+                completionBlock?(result, nil)
             }
         }
     }
@@ -58,7 +58,7 @@ class RestClient {
                 guard let strongSelf = self else { return }
                 guard let result = response.result.value else { return }
                 self?.news.value = result
-                complitionBlock?(result, nil)
+                completionBlock?(result, nil)
             }
         }
     }
@@ -70,7 +70,7 @@ class RestClient {
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: [:]).responseObject { (response: DataResponse<User>) in
             if response.result.isSuccess {
                 guard let result = response.result.value else { return }
-                complitionBlock?(result, nil)
+                completionBlock?(result, nil)
             }
         }
     }
