@@ -17,7 +17,8 @@ target 'event-manager-ios' do
   pod 'SDWebImage', '~> 4.0'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'SwiftyAttributes'
-
+  pod 'MBProgressHUD', '~> 1.1.0'
+  
 end
 
 post_install do |installer|
