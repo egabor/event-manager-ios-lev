@@ -56,6 +56,8 @@
 		62C39C0D1FE19F5400A9D916 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C39C0C1FE19F5400A9D916 /* Authenticator.swift */; };
 		62C39C111FE1A3C300A9D916 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C39C101FE1A3C300A9D916 /* GoogleService-Info.plist */; };
 		62C39C131FE1AAAE00A9D916 /* ReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C39C121FE1AAAE00A9D916 /* ReferenceManager.swift */; };
+		62C9B86E1FE2F41D00176D62 /* RelatedEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9B86C1FE2F41D00176D62 /* RelatedEventsViewModel.swift */; };
+		62C9B86F1FE2F41D00176D62 /* RelatedEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9B86D1FE2F41D00176D62 /* RelatedEventsTableViewController.swift */; };
 		62E06BF11FB738DD0000376C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E06BEF1FB738DD0000376C /* MapViewModel.swift */; };
 		62E06BF21FB738DD0000376C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E06BF01FB738DD0000376C /* MapViewController.swift */; };
 		62E06BF61FB740C90000376C /* MapOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E06BF41FB740C90000376C /* MapOptionsViewModel.swift */; };
@@ -133,6 +135,8 @@
 		62C39C0C1FE19F5400A9D916 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62C39C101FE1A3C300A9D916 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62C39C121FE1AAAE00A9D916 /* ReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceManager.swift; sourceTree = "<group>"; };
+		62C9B86C1FE2F41D00176D62 /* RelatedEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedEventsViewModel.swift; sourceTree = "<group>"; };
+		62C9B86D1FE2F41D00176D62 /* RelatedEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedEventsTableViewController.swift; sourceTree = "<group>"; };
 		62E06BEF1FB738DD0000376C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		62E06BF01FB738DD0000376C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		62E06BF41FB740C90000376C /* MapOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOptionsViewModel.swift; sourceTree = "<group>"; };
@@ -287,6 +291,15 @@
 			path = EventFilter;
 			sourceTree = "<group>";
 		};
+		62C9B86B1FE2F3B600176D62 /* RelatedEvents */ = {
+			isa = PBXGroup;
+			children = (
+				62C9B86D1FE2F41D00176D62 /* RelatedEventsTableViewController.swift */,
+				62C9B86C1FE2F41D00176D62 /* RelatedEventsViewModel.swift */,
+			);
+			path = RelatedEvents;
+			sourceTree = "<group>";
+		};
 		62E06BEE1FB738460000376C /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +436,7 @@
 				7D575DD11FA1E01900AE5BD2 /* News */,
 				627E31101FB7625900BAB196 /* PlaceDetails */,
 				628A9B391FDF3C96008F9853 /* Profile */,
+				62C9B86B1FE2F3B600176D62 /* RelatedEvents */,
 				628A9B3A1FDF3CD2008F9853 /* Tickets */,
 			);
 			path = Modules;
@@ -692,6 +706,7 @@
 				628A9B3D1FDF41A6008F9853 /* ProfileViewModel.swift in Sources */,
 				62B2B1811FA2173300617D08 /* EventFilterCell.swift in Sources */,
 				6213B5A71F88E18500121CFF /* TableViewSection.swift in Sources */,
+				62C9B86F1FE2F41D00176D62 /* RelatedEventsTableViewController.swift in Sources */,
 				7D575DD31FA1E30600AE5BD2 /* NewsListViewController.swift in Sources */,
 				7D575DD51FA1EE4900AE5BD2 /* NewsListViewModel.swift in Sources */,
 				62374F381F93C3DE00C9841A /* EventDetailDescription.swift in Sources */,
@@ -732,6 +747,7 @@
 				62B2B1851FA2173300617D08 /* EventFilterTableViewController.swift in Sources */,
 				62374F311F93A2CD00C9841A /* EventDetailsViewModel.swift in Sources */,
 				626695C11F89335600AA54EA /* EventCell.swift in Sources */,
+				62C9B86E1FE2F41D00176D62 /* RelatedEventsViewModel.swift in Sources */,
 				6213B5B41F88FE4400121CFF /* BaseResponse.swift in Sources */,
 				62C39C131FE1AAAE00A9D916 /* ReferenceManager.swift in Sources */,
 				9653EFD61F8422FF00A98D68 /* Constants.swift in Sources */,

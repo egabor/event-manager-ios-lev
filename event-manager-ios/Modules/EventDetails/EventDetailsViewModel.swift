@@ -29,6 +29,7 @@ class EventDetailsViewModel {
             startTimeInfo.value = model.startDate.toString(format: "MMM dd, EEEE - hh:mm")!
             placeInfo.value = model.place.name
             facebookEventInfo.value = model.facebookEventUrl ?? facebookEventInfo.value
+            hasRelatedEvents.value = (model.relatedEvents?.count ?? 0) > 0 ? true : false
         }
     }
     var bottomConstraintOffset = Variable(CGFloat(0.0))
@@ -39,6 +40,7 @@ class EventDetailsViewModel {
     var placeInfo = Variable("")
     var ticketInfo = Variable("No ticket information.")
     var facebookEventInfo = Variable("No facebook event available.")
+    var hasRelatedEvents = Variable(false)
 
     // Change the sections variable to update the TableView
     var sections = Variable([TableViewSection]())

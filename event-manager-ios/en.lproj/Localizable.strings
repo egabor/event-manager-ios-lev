@@ -41,6 +41,8 @@
 "PlaceDetails.ContextMenu.Cancel" = "Cancel";
 "PlaceDetails.ContextMenu.GetDirections" = "Get Directions";
 
+"RelatedEvents.Title" = "Related events";
+
 "Profile.Section.Tickets" = "Tickets";
 "Profile.PurchasedTickets" = "Purchased Tickets";
 "Profile.BuyTickets" = "Buy Tickets";

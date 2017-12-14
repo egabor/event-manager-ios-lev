@@ -21,7 +21,7 @@ class Event: BaseResponse, Hashable, Equatable {
     var performer: Performer! = Performer()
     var place: Place! = Place()
     var type: EventType! = .unknown
-    var relatedEvents: [Event]? = []
+    var relatedEvents: [String]? = []
     var showOnDate: Date! = Date.init(timeIntervalSince1970: 0)
     var startDate: Date! = Date.init(timeIntervalSince1970: 0)
     var performingMinutes: Int = 0

@@ -35,6 +35,8 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var ticketLabel: UILabel!
     @IBOutlet weak var facebookEventLabel: UILabel!
+    @IBOutlet weak var seeAllButton: UIButton!
+    @IBOutlet weak var relatedEventsButton: UIButton!
 
     // MARK: - ViewController Lifecycle Methods
 
@@ -88,6 +90,8 @@ class EventDetailsViewController: UIViewController {
             }).disposed(by: disposeBag)
 
         viewModel.bottomConstraintOffset.asObservable().bind(to: imageViewBottomConstraint.rx.constant).disposed(by: disposeBag)
+        
+        viewModel.hasRelatedEvents.asObservable().map { !$0 }.bind(to: relatedEventsButton.rx.isHidden).disposed(by: disposeBag)
 
         // MARK: - Cell Binding
 
@@ -138,6 +142,12 @@ class EventDetailsViewController: UIViewController {
                     destination.viewModel.place.value = place
                 }
             }
+        } else if segue.identifier == "ShowRelatedEvents" {
+            if let destination = segue.destination as? RelatedEventsTableViewController {
+                if let event = sender as? Event {
+                    destination.viewModel.event.value = event
+                }
+            }
         }
     }
 
@@ -171,6 +181,8 @@ extension EventDetailsViewController {
 
     @IBAction func showRelatedEvents(_ sender: UIButton) {
         print("Show Related Events")
+        guard let event = viewModel.model else { return }
+        performSegue(withIdentifier: "ShowRelatedEvents", sender: event)
     }
 }
 

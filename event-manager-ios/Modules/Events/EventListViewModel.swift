@@ -61,7 +61,7 @@ class EventListViewModel {
                     case .places, .live:
                         self!.groups[i].filters = eventsToFilter.map { $0.place }.uniqueElements.sorted { $0.order < $1.order }.map { EventFilter(name: $0.name, identifier: $0.placeId) }
                     case .days:
-                        self!.groups[i].filters = eventsToFilter.map { $0.showOnDate }.uniqueElements.sorted { $0 < $1 }.map { EventFilter(name: $0.longDate()!, identifier: $0.toString()!) }
+                        self!.groups[i].filters = eventsToFilter.map { $0.showOnDate }.uniqueElements.sorted { $0 < $1 }.map { EventFilter(name: $0.toString(format: "yyyy. MMMM dd.")!, identifier: $0.toString()!) }
                     case .favorites:
                         self!.groups[i].filters = eventsToFilter.map { $0.showOnDate }.uniqueElements.sorted { $0 < $1 }.map { EventFilter(name: $0.longDate()!, identifier: $0.toString()!) }
                     case .months:
@@ -117,7 +117,7 @@ class EventListViewModel {
                 data.append(TableViewSection(header: EventHeader(with: key), items: element))
             }
         case .days:
-            filteredEvents.group { $0.showOnDate.longDate()! }.forEach { (key, element) in
+            filteredEvents.group { $0.showOnDate.toString(format: "yyyy. MMMM dd.")! }.forEach { (key, element) in
                 data.append(TableViewSection(header: EventHeader(with: key), items: element))
             }
             data = data.sorted { (section1, section2) in
