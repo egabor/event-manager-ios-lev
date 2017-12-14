@@ -72,9 +72,35 @@ class Authenticator {
                 print("Login failed. \(error)")
                 self?.handler(nil, error)
             } else {
-                ReferenceManager.shared.user = user
-                self?.handler(user, nil)
-                print("Logged in! \(user?.displayName), \(user?.email), \(user?.photoURL)")
+                FIRDatabase.database().reference(withPath: "users").child(loggedInUser.referenceId).child("userData").observeSingleEvent(of: .value, with: { [weak self] (snapshot) in
+                    guard let strongSelf = self else { return }
+                    if(snapshot.exists() == false){
+                        // Create only property
+                        snapshot.ref.child("registrationDate").setValue(Date().toString())
+                        // First time things
+                        
+                        
+                        print("New user created. @ LOGIN")
+                        snapshot.ref.child("firstName").setValue(loggedInUser.firstName)
+                        snapshot.ref.child("lastName").setValue(loggedInUser.lastName)
+                        snapshot.ref.child("email").setValue(loggedInUser.email)
+                        snapshot.ref.child("profileImageURL").setValue(loggedInUser.profileImageURL)
+                        snapshot.ref.child("lastLoginDate").setValue(Date().toString())
+                        
+                    } else {
+                        print("Existing user. @ LOGIN")
+                    }
+                    
+                    
+                    
+                    
+                    ReferenceManager.shared.user = snap
+                    
+                    self?.handler(user, error)
+                    print("Logged in! \(user?.displayName), \(user?.email), \(user?.photoURL)")
+                    
+                })
+                
 
             }
         }
