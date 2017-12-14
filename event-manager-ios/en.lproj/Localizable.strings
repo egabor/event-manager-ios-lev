@@ -24,6 +24,7 @@
 "Map.ContextMenu.GetDirections" = "Get Directions";
 "Map.ContextMenu.PlaceDetails" = "Place Details";
 
+"MapOptions.Title" = "Options";
 "MapOptions.Header.HideShowPlacesByType.Title" = "Show places";
 
 "Friends.Title" = "Friends";

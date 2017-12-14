@@ -28,7 +28,7 @@ class MapOptionsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "MapOptions.Title".localized
         tableView.dataSource = nil
         /*
         // Uncomment if the cells are self-sizing
