@@ -16,8 +16,9 @@ class ProfileViewModel {
     // MARK: - let constants
 
     // MARK: - var variables
-    var userData = UserData() {
+    var userData: UserData? = UserData() {
         didSet {
+            guard let userData = userData else { return }
             name.value = userData.fullName
             email.value = userData.email ?? ""
             billingName.value = userData.billingName ?? ""
@@ -45,7 +46,7 @@ class ProfileViewModel {
     // MARK: - Lifecycle Methods
 
     init () {
-        setUser(ReferenceManager.shared.user)
+        setUserData(ReferenceManager.shared.userData)
         
         /*self.isLoading.value = true
         Authenticator.shared.authenticate(with: .facebook) { [weak self] (user, error) in
@@ -78,6 +79,10 @@ class ProfileViewModel {
     
     func setUser(_ user: User?) {
         self.user = user
+    }
+    
+    func setUserData(_ userData: UserData?) {
+        self.userData = userData
     }
 
     // MARK: - Helper Methods

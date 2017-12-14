@@ -5,5 +5,15 @@ admin.initializeApp(functions.config().firebase);
 
 
 exports.editProfile = functions.https.onRequest((req, res) => {
-    response.send("Test");
-});
+    var userId = req.get('Auth-Token')
+    let billingName;
+    let billingAddress;
+    switch (req.get('content-type')) {
+        // '{"name":"John"}'
+        case 'application/json':
+        billingName = req.body.billingName;
+        billingAddress = req.body.billingAddress;        
+        break;
+    }
+    res.status(200).send('Hello, World!' + userId + "   " + billingName);
+  });

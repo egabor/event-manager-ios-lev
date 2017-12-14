@@ -1,0 +1,156 @@
+[debug] [2017-12-14T23:01:25.165Z] ----------------------------------------------------------------------
+[debug] [2017-12-14T23:01:25.167Z] Command:       /usr/local/Cellar/node/9.3.0_1/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-12-14T23:01:25.167Z] CLI Version:   3.16.0
+[debug] [2017-12-14T23:01:25.167Z] Platform:      darwin
+[debug] [2017-12-14T23:01:25.167Z] Node Version:  v9.3.0
+[debug] [2017-12-14T23:01:25.167Z] Time:          Fri Dec 15 2017 00:01:25 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:25.167Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-14T23:01:25.180Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-14T23:01:25.180Z] > authorizing via signed-in user
+[debug] [2017-12-14T23:01:25.181Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/event-manager-1400e  
+  
+ Fri Dec 15 2017 00:01:25 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:26.568Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:26.569Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/event-manager-1400e/tokens  
+  
+ Fri Dec 15 2017 00:01:26 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:27.882Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'event-manager-1400e'...
+[info] 
+[info] i  deploying functions
+[debug] [2017-12-14T23:01:28.643Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.4.2",
+    "firebase-functions": "^0.7.1"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2017-12-14T23:01:28.645Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/event-manager-1400e?view=CONSUMER_VIEW  
+  
+ Fri Dec 15 2017 00:01:28 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:28.646Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/event-manager-1400e?view=CONSUMER_VIEW  
+  
+ Fri Dec 15 2017 00:01:28 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:29.835Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2017-12-14T23:01:29.841Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:29.842Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/event-manager-1400e  
+  
+ Fri Dec 15 2017 00:01:29 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:29.843Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/event-manager-1400e/apiKeys  
+  
+ Fri Dec 15 2017 00:01:29 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:30.735Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:30.947Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2017-12-14T23:01:41.451Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/event-manager-1400e/configs  
+  
+ Fri Dec 15 2017 00:01:41 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:42.908Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (62.67 KB) for uploading
+[debug] [2017-12-14T23:01:52.658Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.event-manager-1400e.appspot.com  
+  
+ Fri Dec 15 2017 00:01:52 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:52.919Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:52.919Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.event-manager-1400e.appspot.com/o?uploadType=media&name=firebase-functions-source  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 64175,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/br/51b_b8y10dq1hb27jcgfn9f80000gn/T/firebase-functions-69061Pw2f7KsSGJPZ.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: undefined,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 64175 } 
+ Fri Dec 15 2017 00:01:52 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:53.536Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2017-12-14T23:01:53.538Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/event-manager-1400e/locations/us-central1/functions  
+  
+ Fri Dec 15 2017 00:01:53 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:54.341Z] <<< HTTP RESPONSE 200
+[info] i  functions: creating function editProfile...
+[debug] [2017-12-14T23:01:54.343Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: deleting function helloWorld...
+[debug] [2017-12-14T23:01:54.345Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/event-manager-1400e/locations/us-central1/functions  
+ { sourceArchiveUrl: 'gs://staging.event-manager-1400e.appspot.com/firebase-functions-source',
+  name: 'projects/event-manager-1400e/locations/us-central1/functions/editProfile',
+  entryPoint: 'editProfile',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  httpsTrigger: {} } 
+ Fri Dec 15 2017 00:01:54 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:54.346Z] >>> HTTP REQUEST DELETE https://cloudfunctions.googleapis.com/v1/projects/event-manager-1400e/locations/us-central1/functions/helloWorld  
+  
+ Fri Dec 15 2017 00:01:54 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:55.022Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:55.454Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:55.456Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/event-manager-1400e/locations/us-central1/functions  
+  
+ Fri Dec 15 2017 00:01:55 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:55.724Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:55.725Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/ZXZlbnQtbWFuYWdlci0xNDAwZS91cy1jZW50cmFsMS9lZGl0UHJvZmlsZS9xWjlGOXYzTS0wUQ  
+  
+ Fri Dec 15 2017 00:01:55 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:55.726Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/ZXZlbnQtbWFuYWdlci0xNDAwZS91cy1jZW50cmFsMS9oZWxsb1dvcmxkL1F0LTFKczl0RXRJ  
+  
+ Fri Dec 15 2017 00:01:55 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:56.676Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:56.706Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:58.677Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/ZXZlbnQtbWFuYWdlci0xNDAwZS91cy1jZW50cmFsMS9lZGl0UHJvZmlsZS9xWjlGOXYzTS0wUQ  
+  
+ Fri Dec 15 2017 00:01:58 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:58.707Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/ZXZlbnQtbWFuYWdlci0xNDAwZS91cy1jZW50cmFsMS9oZWxsb1dvcmxkL1F0LTFKczl0RXRJ  
+  
+ Fri Dec 15 2017 00:01:58 GMT+0100 (CET)
+[debug] [2017-12-14T23:01:58.924Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:01:58.952Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:02:00.927Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/ZXZlbnQtbWFuYWdlci0xNDAwZS91cy1jZW50cmFsMS9oZWxsb1dvcmxkL1F0LTFKczl0RXRJ  
+  
+ Fri Dec 15 2017 00:02:00 GMT+0100 (CET)
+[debug] [2017-12-14T23:02:00.953Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/ZXZlbnQtbWFuYWdlci0xNDAwZS91cy1jZW50cmFsMS9lZGl0UHJvZmlsZS9xWjlGOXYzTS0wUQ  
+  
+ Fri Dec 15 2017 00:02:00 GMT+0100 (CET)
+[debug] [2017-12-14T23:02:01.199Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-14T23:02:01.203Z] <<< HTTP RESPONSE 200
+[info] ✔  functions[helloWorld]: Successful delete operation. 

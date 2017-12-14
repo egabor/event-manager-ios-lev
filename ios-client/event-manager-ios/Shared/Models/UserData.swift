@@ -46,5 +46,26 @@ class UserData: BaseResponse, Hashable, Equatable {
         billingAddress <- map["billing_address"]
         email <- map["email"]
     }
+    
+    
+    init?(_ userId: String, _ fullName: String, _ email: String? = "", _ profileImageUrl: String? = nil, _ billingName: String? = nil, _ billingAddress: String? = nil) {
+        super.init()
+        self.userId = userId
+        self.fullName = fullName
+        self.email = email
+        self.profileImageUrl = profileImageUrl
+        self.billingName = billingName
+        self.billingAddress = billingAddress
+    }
+    
+    init?(_ userId: String, _ data: [String: Any]) {
+        super.init()
+        self.userId = userId
+        self.fullName = data["fullName"] as? String ?? ""
+        self.email = data["email"] as? String ?? ""
+        self.profileImageUrl = data["profileImageUrl"] as? String ?? ""
+        self.billingName = data["billingName"] as? String ?? ""
+        self.billingAddress = data["billingAddress"] as? String ?? ""
+    }
 }
 
