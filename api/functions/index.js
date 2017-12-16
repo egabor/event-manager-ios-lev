@@ -126,4 +126,40 @@ exports.places = functions.https.onRequest((req, res) => {
     });
 });
 
+exports.purchaseTicket = functions.https.onRequest((req, res) => {
+    
+
+    var userId = req.url.split('/')[1]
+    var authToken = req.get('Auth-Token');
+    var ticket = req.body;
+    var ticketId = ticket.ticketId;
+  
+    
+    return admin.database().ref('users/' + userId + '/userData').once('value', (snapshot) => {
+        var userData = snapshot.val();
+        if (snapshot.val() && snapshot.val().authToken == authToken) {
+            userData.userId = userId;
+  
+            admin.database().ref('users/' + userId + '/userData/tickets').once('value', (snapshot) => {
+                var ticketSnap = snapshot.val()
+                if (ticketSnap) {
+                    ticket.ticketId = null;
+                    ticketSnap[ticketId] = ticket;
+                }
+                admin.database().ref('users/' + userId + '/userData/tickets').update(ticketSnap);
+  
+                admin.database().ref('users/' + userId + '/userData').once('value', (snap) => {
+                  res.send(snap.val());
+                });
+            });
+  
+            
+        } else {
+            let errors = {}
+            errors.message = "Forbidden access."
+            res.status(403);
+            res.send(errors);
+        }
+    });
+  });
 
