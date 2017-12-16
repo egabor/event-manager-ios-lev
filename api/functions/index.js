@@ -21,16 +21,24 @@ exports.editProfile = functions.https.onRequest((req, res) => {
         billingAddress = req.body.billingAddress;
         if (billingName) {
             dict.billingName = billingName;
-        } 
+        } else {
+            dict.billingName = null
+        }
         if (billingZipCode) {
             dict.billingZipCode = billingZipCode;
-        } 
+        } else {
+            dict.billingZipCode = null
+        }
         if (billingCity) {
             dict.billingCity = billingCity;
-        } 
+        } else {
+            dict.billingCity = null
+        }
         if (billingAddress) {
             dict.billingAddress = billingAddress;
-        }   
+        } else {
+            dict.billingAddress = null
+        }  
         break;
     }
     return admin.database().ref('users/' + userId + '/userData').once('value', (snapshot) => {
