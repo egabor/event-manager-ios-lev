@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import MBProgressHUD
 
 class EditProfileViewController: UITableViewController {
 
@@ -42,6 +43,16 @@ class EditProfileViewController: UITableViewController {
         zipCodeTextField.rx.text.orEmpty.bind(to: viewModel.editedZipCode).disposed(by: disposeBag)
         cityTextField.rx.text.orEmpty.bind(to: viewModel.editedCity).disposed(by: disposeBag)
         addressTextField.rx.text.orEmpty.bind(to: viewModel.editedAddress).disposed(by: disposeBag)
+
+        viewModel.isLoading.asObservable().throttle(1.0, latest: true, scheduler: MainScheduler.instance).subscribe { [weak self] (event) in
+            guard let strongSelf = self else { return }
+            guard let isLoading = event.element else { return }
+            if isLoading {
+                MBProgressHUD.showAdded(to: strongSelf.view, animated: true)
+            } else {
+                MBProgressHUD.hide(for: strongSelf.view, animated: true)
+            }
+            }.disposed(by: disposeBag)
 
     }
 

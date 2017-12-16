@@ -29,6 +29,7 @@ class EditProfileViewModel {
     var editedZipCode = Variable("")
     var editedCity = Variable("")
     var editedAddress = Variable("")
+    var isLoading = Variable(false)
 
     var editedUserData = UserData()
 

@@ -12,9 +12,9 @@ import RxSwift
 import Firebase
 
 class ProfileViewModel {
-    
+
     // MARK: - let constants
-    
+
     // MARK: - var variables
     var userData: UserData? = UserData() {
         didSet {
@@ -45,8 +45,7 @@ class ProfileViewModel {
     var billingAddress = Variable("")
     var profileImageUrl = Variable("")
     var isLoading = Variable(false)
-    
-    
+
     // MARK: - Lifecycle Methods
     
     init () {
@@ -60,7 +59,7 @@ class ProfileViewModel {
          }
          strongSelf.isLoading.value = false
          }*/
-        
+
         self.isLoading.value = true
         RestClient.shared.getProfile { [weak self] (userData, error) in
             guard let strongSelf = self  else { return }
@@ -72,26 +71,26 @@ class ProfileViewModel {
             }
             strongSelf.isLoading.value = false
         }
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(updateUser(_:)), name: NSNotification.Name(rawValue: "UpdateUser"), object: nil)
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+
     // MARK: - Business Logic
-    
+
     func setUser(_ user: User?) {
         self.user = user
     }
-    
+
     func setUserData(_ userData: UserData?) {
         self.userData = userData
     }
     
     // MARK: - Helper Methods
-    
+
 }
 
 // MARK: - Notification handlers can be placed here
@@ -102,4 +101,3 @@ extension ProfileViewModel {
         userData = uodatedUser
     }
 }
-
