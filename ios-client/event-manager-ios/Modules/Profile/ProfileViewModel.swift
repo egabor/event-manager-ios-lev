@@ -22,11 +22,13 @@ class ProfileViewModel {
             name.value = userData.fullName
             email.value = userData.email ?? ""
             billingName.value = userData.billingName ?? ""
+            billingZipCode.value = userData.billingZipCode ?? ""
+            billingCity.value = userData.billingCity ?? ""
             billingAddress.value = userData.billingAddress ?? ""
             profileImageUrl.value = userData.profileImageUrl ?? ""
         }
     }
-    
+
     var user: User? {
         didSet {
             name.value = user?.displayName ?? ""
@@ -34,10 +36,12 @@ class ProfileViewModel {
             profileImageUrl.value = user?.photoURL?.absoluteString ?? ""
         }
     }
-    
+
     var name = Variable("")
     var email = Variable("")
     var billingName = Variable("")
+    var billingZipCode = Variable("")
+    var billingCity = Variable("")
     var billingAddress = Variable("")
     var profileImageUrl = Variable("")
     var isLoading = Variable(false)
@@ -46,17 +50,6 @@ class ProfileViewModel {
     // MARK: - Lifecycle Methods
 
     init () {
-        //setUserData(ReferenceManager.shared.userData)
-        
-        /*self.isLoading.value = true
-        Authenticator.shared.authenticate(with: .facebook) { [weak self] (user, error) in
-            guard let strongSelf = self else { return }
-            if let user = user {
-                strongSelf.user = user
-            }
-            strongSelf.isLoading.value = false
-        }*/
-        
         self.isLoading.value = true
         RestClient.shared.getProfile { [weak self] (userData, error) in
             guard let strongSelf = self  else { return }
@@ -75,11 +68,11 @@ class ProfileViewModel {
     }
 
     // MARK: - Business Logic
-    
+
     func setUser(_ user: User?) {
         self.user = user
     }
-    
+
     func setUserData(_ userData: UserData?) {
         self.userData = userData
     }

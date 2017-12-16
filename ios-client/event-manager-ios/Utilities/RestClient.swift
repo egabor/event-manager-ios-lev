@@ -74,7 +74,7 @@ class RestClient {
         } else {
             headers["UserId"] = userId
         }
-        
+
         // TODO: send the correct headers
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse<UserData>) in
             if response.result.isSuccess {
@@ -83,10 +83,10 @@ class RestClient {
             }
         }
     }
-    
+
     public func editProfile(_ userId: String = "me", completionBlock: ((UserData?, String?) -> Void)?) {
         let url = URL(string: configuration.environment.baseURL + "/users/\(userId)")!
-        
+
         // TODO: send the correct headers
         Alamofire.request(url, method: .post, encoding: JSONEncoding.default, headers: [:]).responseObject { (response: DataResponse<UserData>) in
             if response.result.isSuccess {

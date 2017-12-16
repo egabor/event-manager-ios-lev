@@ -49,6 +49,8 @@
 "Profile.BuyTickets" = "Buy Tickets";
 "Profile.Section.BillingInfo" = "Billing Info";
 "Profile.BillingInfo.Name" = "Name";
+"Profile.BillingInfo.ZipCode" = "Zip code";
+"Profile.BillingInfo.City" = "City";
 "Profile.BillingInfo.Address" = "Address";
 "Profile.Email" = "email: ";
 

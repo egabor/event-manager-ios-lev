@@ -31,6 +31,8 @@ class ProfileViewController: UITableViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var billingNameLabel: UILabel!
+    @IBOutlet weak var billingZipCodeLabel: UILabel!
+    @IBOutlet weak var billingCityLabel: UILabel!
     @IBOutlet weak var billingAddressLabel: UILabel!
 
     // MARK: - UIViewController Lifecycle Methods
@@ -42,13 +44,27 @@ class ProfileViewController: UITableViewController {
         profileImageWrapperView.layer.borderColor = UIColor.black.cgColor
 
         viewModel.name.asObservable().bind(to: nameLabel.rx.text).disposed(by: disposeBag)
-        viewModel.email.asObservable().map{ "Profile.Email".localized + $0 }.bind(to: emailLabel.rx.text).disposed(by: disposeBag)
+        viewModel.email.asObservable().map { "Profile.Email".localized + $0 }.bind(to: emailLabel.rx.text).disposed(by: disposeBag)
         viewModel.billingName.asObservable().subscribe { [weak self] (event) in
             guard let strongSelf = self else { return }
             guard let billingName = event.element else { return }
             strongSelf.billingNameLabel.text = billingName
             strongSelf.tableView.reloadData()
             }.disposed(by: disposeBag)
+        
+        viewModel.billingZipCode.asObservable().subscribe { [weak self] (event) in
+            guard let strongSelf = self else { return }
+            guard let billingZipCode = event.element else { return }
+            strongSelf.billingZipCodeLabel.text = billingZipCode
+            strongSelf.tableView.reloadData()
+            }.disposed(by: disposeBag)
+        
+        viewModel.billingCity.asObservable().subscribe { [weak self] (event) in
+                guard let strongSelf = self else { return }
+                guard let billingCity = event.element else { return }
+                strongSelf.billingCityLabel.text = billingCity
+                strongSelf.tableView.reloadData()
+                }.disposed(by: disposeBag)
 
         viewModel.billingAddress.asObservable().subscribe { [weak self] (event) in
             guard let strongSelf = self else { return }
@@ -56,7 +72,7 @@ class ProfileViewController: UITableViewController {
             strongSelf.billingAddressLabel.text = billingAddress
             strongSelf.tableView.reloadData()
             }.disposed(by: disposeBag)
-        
+
         viewModel.profileImageUrl.asObservable().subscribe { [weak self] (event) in
             guard let strongSelf = self else { return }
             guard let imageUrl = event.element else { return }
