@@ -63,3 +63,8 @@
 "BuyTickets.PurchaseAlert.Message" = "Are you sure to buy this ticket?";
 "BuyTickets.PurchaseAlert.CancelButton.Title" = "Cancel";
 "BuyTickets.PurchaseAlert.OkButton.Title" = "Ok";
+
+"BuyTickets.SuccessAlert.Title" = "Success";
+"BuyTickets.SuccessAlert.Message" = "Ticket purchased.";
+"BuyTickets.SuccessAlert.OkButton.Title" = "Ok";
+
