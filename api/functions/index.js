@@ -132,7 +132,7 @@ exports.purchaseTicket = functions.https.onRequest((req, res) => {
     var userId = req.get('UserId');
     var authToken = req.get('Auth-Token');
     var ticket = req.body;
-    ticket.userId = userId;
+    ticket.userId = null;
     var ticketId = req.body.ticketId;
     
     return admin.database().ref('users/' + userId + '/userData').once('value', (snapshot) => {
