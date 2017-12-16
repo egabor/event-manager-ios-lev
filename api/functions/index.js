@@ -38,9 +38,28 @@ exports.editProfile = functions.https.onRequest((req, res) => {
 
         admin.database().ref('users/' + userId + '/userData').once('value', (snapshot) => {
             var userData = snapshot.val();
+            userData.authToken = snapshot.key;
             res.send(userData);
             
          });
+        } else {
+            let errors = {}
+            errors.message = "Forbidden access."
+            res.status(403);
+            res.send(errors);
+        }
+    });
+  });
+
+
+  exports.getProfile = functions.https.onRequest((req, res) => {
+    var userId = req.get('Auth-Token')
+    
+    return admin.database().ref('users/' + userId + '/userData').once('value', (snapshot) => {
+        if (snapshot.val()) {
+            var userData = snapshot.val();
+            userData.userId = snapshot.key;
+            res.send(userData);
         } else {
             let errors = {}
             errors.message = "Forbidden access."
