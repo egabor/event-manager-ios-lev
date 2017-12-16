@@ -54,6 +54,7 @@
 		62B2B1831FA2173300617D08 /* EventFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B17E1FA2173300617D08 /* EventFilterViewModel.swift */; };
 		62B2B1841FA2173300617D08 /* EventFilterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B17F1FA2173300617D08 /* EventFilterCellViewModel.swift */; };
 		62B2B1851FA2173300617D08 /* EventFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B1801FA2173300617D08 /* EventFilterTableViewController.swift */; };
+		62B6B6C81FE5A1C800FDE01D /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B6B6C71FE5A1C800FDE01D /* Ticket.swift */; };
 		62C39C0B1FE04D9000A9D916 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C39C0A1FE04D9000A9D916 /* UserData.swift */; };
 		62C39C0D1FE19F5400A9D916 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C39C0C1FE19F5400A9D916 /* Authenticator.swift */; };
 		62C39C111FE1A3C300A9D916 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C39C101FE1A3C300A9D916 /* GoogleService-Info.plist */; };
@@ -135,6 +136,7 @@
 		62B2B17E1FA2173300617D08 /* EventFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterViewModel.swift; sourceTree = "<group>"; };
 		62B2B17F1FA2173300617D08 /* EventFilterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterCellViewModel.swift; sourceTree = "<group>"; };
 		62B2B1801FA2173300617D08 /* EventFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterTableViewController.swift; sourceTree = "<group>"; };
+		62B6B6C71FE5A1C800FDE01D /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		62C39C0A1FE04D9000A9D916 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		62C39C0C1FE19F5400A9D916 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62C39C101FE1A3C300A9D916 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				6213B5AD1F88E85E00121CFF /* Performer.swift */,
 				6213B5AF1F88E86E00121CFF /* Place.swift */,
 				62C39C0A1FE04D9000A9D916 /* UserData.swift */,
+				62B6B6C71FE5A1C800FDE01D /* Ticket.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				6213B59F1F88E13A00121CFF /* UIExtended.swift in Sources */,
 				62E06BF21FB738DD0000376C /* MapViewController.swift in Sources */,
 				628A9B3E1FDF41A6008F9853 /* ProfileViewController.swift in Sources */,
+				62B6B6C81FE5A1C800FDE01D /* Ticket.swift in Sources */,
 				6213B5A81F88E18500121CFF /* TitlePresentable.swift in Sources */,
 				6213B5AE1F88E85E00121CFF /* Performer.swift in Sources */,
 				627E31191FB769E300BAB196 /* MapOption.swift in Sources */,

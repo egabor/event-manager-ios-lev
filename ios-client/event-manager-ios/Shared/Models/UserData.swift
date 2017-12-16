@@ -28,6 +28,7 @@ class UserData: BaseResponse, Hashable, Equatable {
     var billingCity: String?
     var billingAddress: String?
     var email: String?
+    var availableTickets: [Ticket]?
     
     required init?(map: Map) {
         super.init(map: map)
@@ -49,6 +50,7 @@ class UserData: BaseResponse, Hashable, Equatable {
         billingCity <- map["billingCity"]
         billingAddress <- map["billingAddress"]
         email <- map["email"]
+        availableTickets <- map["availableTickets"]
     }
 
     init?(_ userId: String, _ fullName: String, _ email: String? = "", _ profileImageUrl: String? = nil, _ billingName: String? = nil, _ billingZipCode: String? = nil, _ billingCity: String? = nil, _ billingAddress: String? = nil) {
@@ -61,6 +63,7 @@ class UserData: BaseResponse, Hashable, Equatable {
         self.billingZipCode = billingZipCode
         self.billingCity = billingCity
         self.billingAddress = billingAddress
+        // TODO: map tickets
     }
 
     init?(_ userId: String, _ data: [String: Any]) {
@@ -74,5 +77,6 @@ class UserData: BaseResponse, Hashable, Equatable {
         self.billingZipCode = data["billingZipCode"] as? String ?? ""
         self.billingCity = data["billingCity"] as? String ?? ""
         self.billingAddress = data["billingAddress"] as? String ?? ""
+        // TODO: map tickets
     }
 }
