@@ -74,4 +74,16 @@ class RestClient {
             }
         }
     }
+    
+    public func editProfile(_ userId: String = "me", completionBlock: ((UserData?, String?) -> Void)?) {
+        let url = URL(string: configuration.environment.baseURL + "/users/\(userId)")!
+        
+        // TODO: send the correct headers
+        Alamofire.request(url, method: .post, encoding: JSONEncoding.default, headers: [:]).responseObject { (response: DataResponse<UserData>) in
+            if response.result.isSuccess {
+                guard let result = response.result.value else { return }
+                completionBlock?(result, nil)
+            }
+        }
+    }
 }

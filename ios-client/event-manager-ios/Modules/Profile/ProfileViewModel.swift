@@ -46,7 +46,9 @@ class ProfileViewModel {
     // MARK: - Lifecycle Methods
 
     init () {
-        setUserData(ReferenceManager.shared.userData)
+        //setUserData(ReferenceManager.shared.userData)
+        
+    
         
         /*self.isLoading.value = true
         Authenticator.shared.authenticate(with: .facebook) { [weak self] (user, error) in
@@ -57,7 +59,7 @@ class ProfileViewModel {
             strongSelf.isLoading.value = false
         }*/
         
-        /*self.isLoading.value = true
+        self.isLoading.value = true
         RestClient.shared.getProfile { [weak self] (userData, error) in
             guard let strongSelf = self  else { return }
             if error != nil {
@@ -68,7 +70,7 @@ class ProfileViewModel {
          
             }
             strongSelf.isLoading.value = false
-        }*/
+        }
     }
 
     deinit {
