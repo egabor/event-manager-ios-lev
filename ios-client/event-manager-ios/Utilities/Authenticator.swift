@@ -87,7 +87,6 @@ class Authenticator {
                         snapshot.ref.child("fullName").setValue(loggedInUser.fullName)
                         snapshot.ref.child("email").setValue(loggedInUser.email)
                         snapshot.ref.child("profileImageUrl").setValue(loggedInUser.profileImageUrl)
-                        snapshot.ref.child("lastLoginDate").setValue(Date().toString())
                         
                     } else {
                         print("Existing user. @ LOGIN")
@@ -95,7 +94,8 @@ class Authenticator {
                         ReferenceManager.shared.userData = userData
 
                     }
-                    
+                    snapshot.ref.child("lastLoginDate").setValue(Date().toString())
+
                     
                     
                     ReferenceManager.shared.user = user

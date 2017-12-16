@@ -24,6 +24,8 @@ class UserData: BaseResponse, Hashable, Equatable {
     var profileImageUrl: String?
     var socialToken: String?
     var billingName: String?
+    var billingZipCode: String?
+    var billingCity: String?
     var billingAddress: String?
     var email: String?
     
@@ -37,24 +39,28 @@ class UserData: BaseResponse, Hashable, Equatable {
     
     override func mapping(map: Map) {
         userId <- map["id"]
-        fullName <- map["full_name"]
+        fullName <- map["fullName"]
         provider <- map["provider"]
-        authToken <- map["auth_token"]
-        profileImageUrl <- map["profile_image_url"]
-        socialToken <- map["social_token"]
-        billingName <- map["billing_name"]
-        billingAddress <- map["billing_address"]
+        authToken <- map["authToken"]
+        profileImageUrl <- map["profileImageUrl"]
+        socialToken <- map["socialToken"]
+        billingName <- map["billingName"]
+        billingZipCode <- map["billingZipCode"]
+        billingCity <- map["billingCity"]
+        billingAddress <- map["billingAddress"]
         email <- map["email"]
     }
     
     
-    init?(_ userId: String, _ fullName: String, _ email: String? = "", _ profileImageUrl: String? = nil, _ billingName: String? = nil, _ billingAddress: String? = nil) {
+    init?(_ userId: String, _ fullName: String, _ email: String? = "", _ profileImageUrl: String? = nil, _ billingName: String? = nil, _ billingZipCode: String? = nil, _ billingCity: String? = nil , _ billingAddress: String? = nil) {
         super.init()
         self.userId = userId
         self.fullName = fullName
         self.email = email
         self.profileImageUrl = profileImageUrl
         self.billingName = billingName
+        self.billingZipCode = billingZipCode
+        self.billingCity = billingCity
         self.billingAddress = billingAddress
     }
     
@@ -65,6 +71,8 @@ class UserData: BaseResponse, Hashable, Equatable {
         self.email = data["email"] as? String ?? ""
         self.profileImageUrl = data["profileImageUrl"] as? String ?? ""
         self.billingName = data["billingName"] as? String ?? ""
+        self.billingZipCode = data["billingZipCode"] as? String ?? ""
+        self.billingCity = data["billingCity"] as? String ?? ""
         self.billingAddress = data["billingAddress"] as? String ?? ""
     }
 }
