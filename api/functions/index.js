@@ -8,12 +8,33 @@ exports.editProfile = functions.https.onRequest((req, res) => {
     var userId = req.get('Auth-Token')
     let billingName;
     let billingAddress;
+    var dict = {};
     switch (req.get('content-type')) {
-        // '{"name":"John"}'
         case 'application/json':
         billingName = req.body.billingName;
-        billingAddress = req.body.billingAddress;        
+        billingAddress = req.body.billingAddress;
+        if (billingName) {
+            dict.billingName = billingName;
+        } 
+        if (billingAddress) {
+            dict.billingAddress = billingAddress;
+        }   
         break;
     }
-    res.status(200).send('Hello, World!' + userId + "   " + billingName);
+    return admin.database().ref('users/' + userId + '/userData').once('value', (snapshot) => {
+        if (snapshot.val()) {
+            admin.database().ref('users/' + userId + '/userData').update(dict);
+
+        admin.database().ref('users/' + userId + '/userData').once('value', (snapshot) => {
+            var userData = snapshot.val();
+            res.send(userData);
+            
+         });
+        } else {
+            let errors = {}
+            errors.message = "Forbidden access."
+            res.status(403);
+            res.send(errors);
+        }
+    });
   });
