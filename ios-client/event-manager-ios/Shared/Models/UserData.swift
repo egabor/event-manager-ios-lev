@@ -69,6 +69,7 @@ class UserData: BaseResponse, Hashable, Equatable {
         self.userId = userId
         self.fullName = data["fullName"] as? String ?? ""
         self.email = data["email"] as? String ?? ""
+        self.authToken = data["authToken"] as? String ?? ""
         self.profileImageUrl = data["profileImageUrl"] as? String ?? ""
         self.billingName = data["billingName"] as? String ?? ""
         self.billingZipCode = data["billingZipCode"] as? String ?? ""

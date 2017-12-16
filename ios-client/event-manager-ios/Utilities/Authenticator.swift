@@ -88,15 +88,24 @@ class Authenticator {
                         snapshot.ref.child("fullName").setValue(loggedInUser.fullName)
                         snapshot.ref.child("email").setValue(loggedInUser.email)
                         snapshot.ref.child("profileImageUrl").setValue(loggedInUser.profileImageUrl)
-                        
+                        let newRef = snapshot.ref.child("authToken").childByAutoId()
+                        snapshot.ref.child("authToken").setValue(newRef.key)
+
+                        let userData = UserData(loggedInUser.userId, snapshot.value as? [String: Any] ?? [:])
+                        userData?.fullName = loggedInUser.fullName
+                        userData?.email = loggedInUser.email
+                        userData?.profileImageUrl = loggedInUser.profileImageUrl
+                        userData?.authToken = newRef.key
+                        ReferenceManager.shared.userData = userData
                     } else {
                         print("Existing user. @ LOGIN")
-                        let userData = UserData(snapshot.key, snapshot.value as? [String: Any] ?? [:])
+                        let userData = UserData(loggedInUser.userId, snapshot.value as? [String: Any] ?? [:])
                         ReferenceManager.shared.userData = userData
 
                     }
                     snapshot.ref.child("lastLoginDate").setValue(Date().toString())
-
+                    
+                    
                     
                     
                     ReferenceManager.shared.user = user
