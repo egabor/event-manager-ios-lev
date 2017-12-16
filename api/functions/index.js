@@ -61,8 +61,6 @@ exports.editProfile = functions.https.onRequest((req, res) => {
 
 
   exports.users = functions.https.onRequest((req, res) => {
-      console.log(req.url.split('/')[1]);
-
     var urlUserId = req.url.split('/')[1]
     var userId = ''
     var authToken = req.get('Auth-Token');
@@ -90,3 +88,32 @@ exports.editProfile = functions.https.onRequest((req, res) => {
         }
     });
   });
+
+
+exports.events = functions.https.onRequest((req, res) => {
+    return admin.database().ref('events').once('value', (snapshot) => {
+        var elements = snapshot.val();
+        Object.keys(elements).forEach(function(key) {
+            elements[key]['eventId'] = key;
+        });
+        var elementValues = Object.keys(elements).map(function(key) {
+            return elements[key];
+        });
+        res.send(elementValues);
+    });
+});
+
+exports.places = functions.https.onRequest((req, res) => {
+    return admin.database().ref('places').once('value', (snapshot) => {
+        var elements = snapshot.val();
+        Object.keys(elements).forEach(function(key) {
+            elements[key]['placeId'] = key;
+        });
+        var elementValues = Object.keys(elements).map(function(key) {
+            return elements[key];
+        });
+        res.send(elementValues);
+    });
+});
+
+
