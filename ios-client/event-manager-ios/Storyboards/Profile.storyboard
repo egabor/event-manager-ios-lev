@@ -260,7 +260,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="billingAddressLabel" destination="dal-Ro-ghO" id="QKX-Re-u3o"/>
+                        <outlet property="billingAddressLabel" destination="z2B-xy-o9m" id="atd-mt-EHf"/>
                         <outlet property="billingCityLabel" destination="nj2-go-aU6" id="3V6-2B-dgq"/>
                         <outlet property="billingNameLabel" destination="64o-IY-PQa" id="h2w-u8-Pbh"/>
                         <outlet property="billingZipCodeLabel" destination="dal-Ro-ghO" id="4CN-r7-eP7"/>
@@ -287,7 +287,7 @@
         <!--Edit Profile-->
         <scene sceneID="lOS-G1-fI7">
             <objects>
-                <tableViewController id="6gm-Tp-5hy" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6gm-Tp-5hy" customClass="EditProfileViewController" customModule="event_manager_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Dfp-Xq-Vum">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,11 +398,20 @@
                     <navigationItem key="navigationItem" title="Edit Profile" id="y0b-du-9Fd">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="EcX-2O-w8m">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveProfile:" destination="6gm-Tp-5hy" id="049-7H-SWe"/>
+                            </connections>
                         </barButtonItem>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="EditProfile.Title"/>
                         </userDefinedRuntimeAttributes>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressTextField" destination="hcj-fy-5nu" id="pGu-3f-JsE"/>
+                        <outlet property="cityTextField" destination="VL3-Jo-jMc" id="Isx-YY-R5l"/>
+                        <outlet property="nameTextField" destination="Qdf-oQ-p80" id="tOn-BQ-Le0"/>
+                        <outlet property="zipCodeTextField" destination="1hA-Ap-cxg" id="PMc-l6-WuB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R42-OV-c00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

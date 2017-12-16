@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UITableViewController {
 
     // MARK: - let constants
 
@@ -28,13 +28,21 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
 
-
     // MARK: - UIViewController Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.userData.asObservable().map { $0.billingName }.bind(to: nameTextField.rx.text).disposed(by: disposeBag)
+        viewModel.userData.asObservable().map { $0.billingZipCode }.bind(to: zipCodeTextField.rx.text).disposed(by: disposeBag)
+        viewModel.userData.asObservable().map { $0.billingCity }.bind(to: cityTextField.rx.text).disposed(by: disposeBag)
+        viewModel.userData.asObservable().map { $0.billingAddress }.bind(to: addressTextField.rx.text).disposed(by: disposeBag)
 
-        // TODO: Do the viewmodel binding here
+        nameTextField.rx.text.orEmpty.bind(to: viewModel.editedName).disposed(by: disposeBag)
+        zipCodeTextField.rx.text.orEmpty.bind(to: viewModel.editedZipCode).disposed(by: disposeBag)
+        cityTextField.rx.text.orEmpty.bind(to: viewModel.editedCity).disposed(by: disposeBag)
+        addressTextField.rx.text.orEmpty.bind(to: viewModel.editedAddress).disposed(by: disposeBag)
+
     }
 
     deinit {
@@ -63,7 +71,11 @@ class EditProfileViewController: UIViewController {
 // MARK: - Interface Builder Actions
 
 extension EditProfileViewController {
+    @IBAction func saveProfile(_ sender: UIBarButtonItem) {
+        RestClient.shared.editProfile(viewModel.editedUserData) { (user, error) in
 
+        }
+    }
 }
 
 // MARK: - Notification handlers can be placed here

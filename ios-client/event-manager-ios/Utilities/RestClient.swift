@@ -75,7 +75,6 @@ class RestClient {
             headers["UserId"] = userId
         }
 
-        // TODO: send the correct headers
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse<UserData>) in
             if response.result.isSuccess {
                 guard let result = response.result.value else { return }
@@ -84,11 +83,14 @@ class RestClient {
         }
     }
 
-    public func editProfile(_ userId: String = "me", completionBlock: ((UserData?, String?) -> Void)?) {
-        let url = URL(string: configuration.environment.baseURL + "/users/\(userId)")!
+    public func editProfile(_ user: UserData, completionBlock: ((UserData?, String?) -> Void)?) {
+        let url = URL(string: "https://us-central1-event-manager-1400e.cloudfunctions.net" + "/editProfile")!
 
-        // TODO: send the correct headers
-        Alamofire.request(url, method: .post, encoding: JSONEncoding.default, headers: [:]).responseObject { (response: DataResponse<UserData>) in
+        var headers = [String: String]()
+        headers["UserId"] = user.userId
+        headers["Auth-Token"] = user.authToken
+        
+        Alamofire.request(url, method: .post, parameters: user.toJSON(), encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse<UserData>) in
             if response.result.isSuccess {
                 guard let result = response.result.value else { return }
                 completionBlock?(result, nil)

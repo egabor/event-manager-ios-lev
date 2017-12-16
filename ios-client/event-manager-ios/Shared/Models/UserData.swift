@@ -38,7 +38,7 @@ class UserData: BaseResponse, Hashable, Equatable {
     }
     
     override func mapping(map: Map) {
-        userId <- map["id"]
+        userId <- map["userId"]
         fullName <- map["fullName"]
         provider <- map["provider"]
         authToken <- map["authToken"]
@@ -50,9 +50,8 @@ class UserData: BaseResponse, Hashable, Equatable {
         billingAddress <- map["billingAddress"]
         email <- map["email"]
     }
-    
-    
-    init?(_ userId: String, _ fullName: String, _ email: String? = "", _ profileImageUrl: String? = nil, _ billingName: String? = nil, _ billingZipCode: String? = nil, _ billingCity: String? = nil , _ billingAddress: String? = nil) {
+
+    init?(_ userId: String, _ fullName: String, _ email: String? = "", _ profileImageUrl: String? = nil, _ billingName: String? = nil, _ billingZipCode: String? = nil, _ billingCity: String? = nil, _ billingAddress: String? = nil) {
         super.init()
         self.userId = userId
         self.fullName = fullName
@@ -63,7 +62,7 @@ class UserData: BaseResponse, Hashable, Equatable {
         self.billingCity = billingCity
         self.billingAddress = billingAddress
     }
-    
+
     init?(_ userId: String, _ data: [String: Any]) {
         super.init()
         self.userId = userId
@@ -77,4 +76,3 @@ class UserData: BaseResponse, Hashable, Equatable {
         self.billingAddress = data["billingAddress"] as? String ?? ""
     }
 }
-
