@@ -38,6 +38,8 @@ class ProfileViewModel {
     var name = Variable("")
     var email = Variable("")
     var billingName = Variable("")
+    var billingZipCode = Variable("")
+    var billingCity = Variable("")
     var billingAddress = Variable("")
     var profileImageUrl = Variable("")
     var isLoading = Variable(false)
