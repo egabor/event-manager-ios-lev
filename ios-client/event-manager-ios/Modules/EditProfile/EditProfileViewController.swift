@@ -73,7 +73,10 @@ class EditProfileViewController: UITableViewController {
 extension EditProfileViewController {
     @IBAction func saveProfile(_ sender: UIBarButtonItem) {
         RestClient.shared.editProfile(viewModel.editedUserData) { (user, error) in
-
+            if user != nil {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateUser"), object: user)
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }
