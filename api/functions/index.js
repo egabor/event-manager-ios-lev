@@ -95,6 +95,16 @@ exports.events = functions.https.onRequest((req, res) => {
         var elements = snapshot.val();
         Object.keys(elements).forEach(function(key) {
             elements[key]['eventId'] = key;
+            if (elements[key]['availableTickets']) {
+                var tickets = elements[key]['availableTickets']
+                Object.keys(tickets).forEach(function(ticketId) {
+                    tickets[ticketId]['ticketId'] = ticketId;
+                });
+                var ticketValues = Object.keys(tickets).map(function(key) {
+                    return tickets[key];
+                });
+                elements[key]['availableTickets'] = ticketValues;
+            }
         });
         var elementValues = Object.keys(elements).map(function(key) {
             return elements[key];
