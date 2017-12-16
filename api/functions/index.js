@@ -129,7 +129,7 @@ exports.places = functions.https.onRequest((req, res) => {
 exports.purchaseTicket = functions.https.onRequest((req, res) => {
     
 
-    var userId = req.url.split('/')[1]
+    var userId = req.get('UserId');
     var authToken = req.get('Auth-Token');
     var ticket = req.body;
     var ticketId = ticket.ticketId;
