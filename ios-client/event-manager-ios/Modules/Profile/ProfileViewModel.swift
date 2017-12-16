@@ -22,6 +22,8 @@ class ProfileViewModel {
             name.value = userData.fullName
             email.value = userData.email ?? ""
             billingName.value = userData.billingName ?? ""
+            billingZipCode.value = userData.billingZipCode ?? ""
+            billingCity.value = userData.billingCity ?? ""
             billingAddress.value = userData.billingAddress ?? ""
             profileImageUrl.value = userData.profileImageUrl ?? ""
         }
