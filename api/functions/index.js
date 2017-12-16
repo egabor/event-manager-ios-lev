@@ -7,14 +7,25 @@ admin.initializeApp(functions.config().firebase);
 exports.editProfile = functions.https.onRequest((req, res) => {
     var userId = req.get('Auth-Token')
     let billingName;
+    let billingZipCode;
+    let billingCity;
     let billingAddress;
+    
     var dict = {};
     switch (req.get('content-type')) {
         case 'application/json':
         billingName = req.body.billingName;
+        billingZipCode = req.body.billingZipCode;
+        billingCity = req.body.billingCity;
         billingAddress = req.body.billingAddress;
         if (billingName) {
             dict.billingName = billingName;
+        } 
+        if (billingZipCode) {
+            dict.billingZipCode = billingZipCode;
+        } 
+        if (billingCity) {
+            dict.billingCity = billingCity;
         } 
         if (billingAddress) {
             dict.billingAddress = billingAddress;
