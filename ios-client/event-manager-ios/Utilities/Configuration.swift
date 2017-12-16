@@ -29,7 +29,7 @@ enum Environment: String {
 	var baseURL: String {
 		switch self {
 		case .mock: return "http://s29pda6cgdg2lubuf-mock.stoplight-proxy.io/api"
-		case .staging: return ""
+		case .staging: return "https://us-central1-event-manager-1400e.cloudfunctions.net"
 		case .release: return ""
 		}
 	}

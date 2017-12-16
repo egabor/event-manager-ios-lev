@@ -64,7 +64,7 @@ class RestClient {
     }
     
     public func getProfile(_ userId: String = "me", completionBlock: ((UserData?, String?) -> Void)?) {
-        let url = URL(string: "https://us-central1-event-manager-1400e.cloudfunctions.net" + "/users/\(userId)")!
+        let url = URL(string: configuration.environment.baseURL + "/users/\(userId)")!
         var headers = [String: String]()
         if userId == "me" {
             headers["UserId"] = ReferenceManager.shared.userData?.userId ?? ""
@@ -84,7 +84,7 @@ class RestClient {
     }
 
     public func editProfile(_ user: UserData, completionBlock: ((UserData?, String?) -> Void)?) {
-        let url = URL(string: "https://us-central1-event-manager-1400e.cloudfunctions.net" + "/editProfile")!
+        let url = URL(string: configuration.environment.baseURL + "/editProfile")!
 
         var headers = [String: String]()
         headers["UserId"] = user.userId
