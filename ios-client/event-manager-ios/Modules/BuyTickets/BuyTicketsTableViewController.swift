@@ -104,6 +104,8 @@ extension BuyTicketsTableViewController {
     @objc func purchaseTicket(_ notification: Notification) {
         guard let ticket = notification.object as? Ticket else { return }
         guard let user = ReferenceManager.shared.userData else { return }
+        guard let event = viewModel.event else { return }
+        ticket.eventId = event.eventId
         print("purchse")
         let alert = UIAlertController(title: "BuyTickets.PurchaseAlert.Title".localized, message: "BuyTickets.PurchaseAlert.Message".localized, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "BuyTickets.PurchaseAlert.OkButton.Title".localized, style: .default, handler: { _ in

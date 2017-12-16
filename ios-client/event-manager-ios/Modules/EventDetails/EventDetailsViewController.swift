@@ -150,6 +150,7 @@ class EventDetailsViewController: UIViewController {
             }
         } else if segue.identifier == "ShowAvailableTickets" {
             if let destination = segue.destination as? BuyTicketsTableViewController {
+                destination.viewModel.event = viewModel.model
                 destination.viewModel.items.value = viewModel.model?.availableTickets ?? []
             }
         }

@@ -17,6 +17,7 @@ class BuyTicketsViewModel {
     // MARK: - var variables
 
     var items = Variable([Ticket]())
+    var event: Event?
 
     // MARK: - Lifecycle Methods
 
