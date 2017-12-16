@@ -123,6 +123,10 @@ class ProfileViewController: UITableViewController {
 // MARK: - Interface Builder Actions
 
 extension ProfileViewController {
+    
+    @IBAction func showEditProfile(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "ShowEditProfile", sender: nil)
+    }
 
 }
 
