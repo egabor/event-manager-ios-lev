@@ -28,6 +28,7 @@ class EditProfileViewController: UITableViewController {
     @IBOutlet weak var zipCodeTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
 
     // MARK: - UIViewController Lifecycle Methods
 
@@ -43,7 +44,8 @@ class EditProfileViewController: UITableViewController {
         zipCodeTextField.rx.text.orEmpty.bind(to: viewModel.editedZipCode).disposed(by: disposeBag)
         cityTextField.rx.text.orEmpty.bind(to: viewModel.editedCity).disposed(by: disposeBag)
         addressTextField.rx.text.orEmpty.bind(to: viewModel.editedAddress).disposed(by: disposeBag)
-
+        
+        viewModel.isLoading.asObservable().map { !$0 }.throttle(1.0, latest: true, scheduler: MainScheduler.instance).bind(to: saveButton.rx.isEnabled).disposed(by: disposeBag)
         viewModel.isLoading.asObservable().throttle(1.0, latest: true, scheduler: MainScheduler.instance).subscribe { [weak self] (event) in
             guard let strongSelf = self else { return }
             guard let isLoading = event.element else { return }
@@ -83,11 +85,14 @@ class EditProfileViewController: UITableViewController {
 
 extension EditProfileViewController {
     @IBAction func saveProfile(_ sender: UIBarButtonItem) {
-        RestClient.shared.editProfile(viewModel.editedUserData) { (user, error) in
+        viewModel.isLoading.value = true
+        RestClient.shared.editProfile(viewModel.editedUserData) { [weak self] (user, error) in
+            guard let strongSelf = self else { return }
             if user != nil {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateUser"), object: user)
-                self.navigationController?.popViewController(animated: true)
+                strongSelf.navigationController?.popViewController(animated: true)
             }
+            strongSelf.viewModel.isLoading.value = false
         }
     }
 }

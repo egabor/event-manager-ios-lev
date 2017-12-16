@@ -410,6 +410,7 @@
                         <outlet property="addressTextField" destination="hcj-fy-5nu" id="pGu-3f-JsE"/>
                         <outlet property="cityTextField" destination="VL3-Jo-jMc" id="Isx-YY-R5l"/>
                         <outlet property="nameTextField" destination="Qdf-oQ-p80" id="tOn-BQ-Le0"/>
+                        <outlet property="saveButton" destination="EcX-2O-w8m" id="nBd-q2-05O"/>
                         <outlet property="zipCodeTextField" destination="1hA-Ap-cxg" id="PMc-l6-WuB"/>
                     </connections>
                 </tableViewController>
