@@ -148,6 +148,10 @@ class EventDetailsViewController: UIViewController {
                     destination.viewModel.event.value = event
                 }
             }
+        } else if segue.identifier == "ShowAvailableTickets" {
+            if let destination = segue.destination as? BuyTicketsTableViewController {
+                destination.viewModel.items.value = viewModel.model?.availableTickets ?? []
+            }
         }
     }
 
@@ -183,6 +187,12 @@ extension EventDetailsViewController {
         print("Show Related Events")
         guard let event = viewModel.model else { return }
         performSegue(withIdentifier: "ShowRelatedEvents", sender: event)
+    }
+    
+    @IBAction func showAvailableTickets(_ sender: UIGestureRecognizer) {
+        if viewModel.model?.availableTickets?.count ?? 0 > 0 {
+            performSegue(withIdentifier: "ShowAvailableTickets", sender: nil)
+        }
     }
 }
 

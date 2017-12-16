@@ -56,3 +56,5 @@
 
 "Login.Error.Title" = "Error";
 "Login.Error.Ok.Button" = "OK";
+
+"BuyTickets.Title" = "Tickets";

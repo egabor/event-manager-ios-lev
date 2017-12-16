@@ -687,7 +687,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0b-hH-QNu">
+                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0b-hH-QNu">
                                                             <rect key="frame" x="338.5" y="0.0" width="20.5" height="20.5"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket" translatesAutoresizingMaskIntoConstraints="NO" id="j0S-p1-u2m">
@@ -707,6 +707,10 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="sqx-GE-KPE" appends="YES" id="o5E-eT-QYD"/>
+                                                    </connections>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Hpz-kj-guw">
                                                     <rect key="frame" x="0.0" y="67.5" width="359" height="20.5"/>
@@ -914,9 +918,15 @@
                         <outlet property="ticketLabel" destination="f41-R9-HGs" id="cnS-Qj-C6d"/>
                         <segue destination="Jhh-Yw-SDo" kind="show" identifier="ShowPlaceDetails" id="kLM-v0-4HG"/>
                         <segue destination="z76-dg-1Jc" kind="show" identifier="ShowRelatedEvents" id="6Zv-1c-JWN"/>
+                        <segue destination="uEd-qm-A81" kind="show" identifier="ShowAvailableTickets" id="6xo-fF-XEE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Row-Ae-7fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="sqx-GE-KPE">
+                    <connections>
+                        <action selector="showAvailableTickets:" destination="L4h-S1-xy1" id="2v1-Gy-5EL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3014" y="-940"/>
         </scene>
@@ -1021,6 +1031,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41V-t0-HaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4254" y="-940"/>
+        </scene>
+        <!--Buy Tickets Table View Controller-->
+        <scene sceneID="dy1-YN-1En">
+            <objects>
+                <tableViewController storyboardIdentifier="BuyTicketsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uEd-qm-A81" customClass="BuyTicketsTableViewController" customModule="event_manager_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iQv-pe-OkE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AvailableTicketCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AvailableTicketCell" id="h8E-kr-kX3" customClass="AvailableTicketCell" customModule="event_manager_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h8E-kr-kX3" id="aj3-pW-q2o">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.81568627449999997" green="0.0078431372550000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uEd-qm-A81" id="Lm2-wY-b9h"/>
+                            <outlet property="delegate" destination="uEd-qm-A81" id="NHW-Dq-0XB"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M86-wl-YEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3903" y="-1901"/>
         </scene>
         <!--Map Options Table View Controller-->
         <scene sceneID="07v-8k-vNI">

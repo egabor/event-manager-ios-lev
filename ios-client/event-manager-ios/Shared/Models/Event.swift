@@ -28,6 +28,7 @@ class Event: BaseResponse, Hashable, Equatable {
     var isFavorite: Bool = false
     var facebookEventUrl: String?
     var imageUrl: String?
+    var availableTickets: [Ticket]?
     
     var displayPriority: EventGroupOption?
 
@@ -51,6 +52,7 @@ class Event: BaseResponse, Hashable, Equatable {
         isFavorite <- map["isFavorite"]
         facebookEventUrl <- map["facebookEventUrl"]
         imageUrl <- map["imageUrl"]
+        availableTickets <- map["availableTickets"]
     }
 
     func description() -> String! {

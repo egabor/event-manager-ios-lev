@@ -55,6 +55,10 @@
 		62B2B1841FA2173300617D08 /* EventFilterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B17F1FA2173300617D08 /* EventFilterCellViewModel.swift */; };
 		62B2B1851FA2173300617D08 /* EventFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2B1801FA2173300617D08 /* EventFilterTableViewController.swift */; };
 		62B6B6C81FE5A1C800FDE01D /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B6B6C71FE5A1C800FDE01D /* Ticket.swift */; };
+		62B6B6D31FE5A56600FDE01D /* AvailableTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B6B6CE1FE5A56600FDE01D /* AvailableTicketCell.swift */; };
+		62B6B6D51FE5A56600FDE01D /* BuyTicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B6B6D01FE5A56600FDE01D /* BuyTicketsViewModel.swift */; };
+		62B6B6D61FE5A56600FDE01D /* AvailableTicketCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B6B6D11FE5A56600FDE01D /* AvailableTicketCellViewModel.swift */; };
+		62B6B6D71FE5A56600FDE01D /* BuyTicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B6B6D21FE5A56600FDE01D /* BuyTicketsTableViewController.swift */; };
 		62C39C0B1FE04D9000A9D916 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C39C0A1FE04D9000A9D916 /* UserData.swift */; };
 		62C39C0D1FE19F5400A9D916 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C39C0C1FE19F5400A9D916 /* Authenticator.swift */; };
 		62C39C111FE1A3C300A9D916 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C39C101FE1A3C300A9D916 /* GoogleService-Info.plist */; };
@@ -137,6 +141,10 @@
 		62B2B17F1FA2173300617D08 /* EventFilterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterCellViewModel.swift; sourceTree = "<group>"; };
 		62B2B1801FA2173300617D08 /* EventFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFilterTableViewController.swift; sourceTree = "<group>"; };
 		62B6B6C71FE5A1C800FDE01D /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		62B6B6CE1FE5A56600FDE01D /* AvailableTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTicketCell.swift; sourceTree = "<group>"; };
+		62B6B6D01FE5A56600FDE01D /* BuyTicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTicketsViewModel.swift; sourceTree = "<group>"; };
+		62B6B6D11FE5A56600FDE01D /* AvailableTicketCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTicketCellViewModel.swift; sourceTree = "<group>"; };
+		62B6B6D21FE5A56600FDE01D /* BuyTicketsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTicketsTableViewController.swift; sourceTree = "<group>"; };
 		62C39C0A1FE04D9000A9D916 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		62C39C0C1FE19F5400A9D916 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62C39C101FE1A3C300A9D916 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -306,6 +314,17 @@
 			path = EventFilter;
 			sourceTree = "<group>";
 		};
+		62B6B6C91FE5A44E00FDE01D /* BuyTickets */ = {
+			isa = PBXGroup;
+			children = (
+				62B6B6D21FE5A56600FDE01D /* BuyTicketsTableViewController.swift */,
+				62B6B6D01FE5A56600FDE01D /* BuyTicketsViewModel.swift */,
+				62B6B6CE1FE5A56600FDE01D /* AvailableTicketCell.swift */,
+				62B6B6D11FE5A56600FDE01D /* AvailableTicketCellViewModel.swift */,
+			);
+			path = BuyTickets;
+			sourceTree = "<group>";
+		};
 		62C9B86B1FE2F3B600176D62 /* RelatedEvents */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +460,7 @@
 		96FC2BE01F81710C005D3B54 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				62B6B6C91FE5A44E00FDE01D /* BuyTickets */,
 				625109661FE5662700A05F12 /* EditProfile */,
 				62374F2D1F93A2B000C9841A /* EventDetails */,
 				62B2B17B1FA2169400617D08 /* EventFilter */,
@@ -723,6 +743,7 @@
 				627E31131FB762CF00BAB196 /* PlaceDetailsViewModel.swift in Sources */,
 				62374F351F93A2FC00C9841A /* EventDetailDescriptionCell.swift in Sources */,
 				62B2B1821FA2173300617D08 /* Filter.swift in Sources */,
+				62B6B6D71FE5A56600FDE01D /* BuyTicketsTableViewController.swift in Sources */,
 				628A9B3D1FDF41A6008F9853 /* ProfileViewModel.swift in Sources */,
 				62B2B1811FA2173300617D08 /* EventFilterCell.swift in Sources */,
 				6213B5A71F88E18500121CFF /* TableViewSection.swift in Sources */,
@@ -743,6 +764,7 @@
 				6213B5A61F88E18500121CFF /* ReactiveBindable.swift in Sources */,
 				627E311B1FB769E300BAB196 /* MapOptionCellViewModel.swift in Sources */,
 				627E311A1FB769E300BAB196 /* MapOptionCell.swift in Sources */,
+				62B6B6D31FE5A56600FDE01D /* AvailableTicketCell.swift in Sources */,
 				624BE26B1F9A892B0000F5EB /* Collection+Extensions.swift in Sources */,
 				62C39C0D1FE19F5400A9D916 /* Authenticator.swift in Sources */,
 				62E06BF61FB740C90000376C /* MapOptionsViewModel.swift in Sources */,
@@ -760,6 +782,7 @@
 				6213B5AE1F88E85E00121CFF /* Performer.swift in Sources */,
 				627E31191FB769E300BAB196 /* MapOption.swift in Sources */,
 				62A1DB251FB8DC0E009148A3 /* PlaceDetailsMenuViewController.swift in Sources */,
+				62B6B6D61FE5A56600FDE01D /* AvailableTicketCellViewModel.swift in Sources */,
 				62C39C0B1FE04D9000A9D916 /* UserData.swift in Sources */,
 				96FC2BCA1F816D42005D3B54 /* AppDelegate.swift in Sources */,
 				62A1DB211FB8CD2B009148A3 /* MapOptionHeader.swift in Sources */,
@@ -775,6 +798,7 @@
 				9653EFD61F8422FF00A98D68 /* Constants.swift in Sources */,
 				62B2B1841FA2173300617D08 /* EventFilterCellViewModel.swift in Sources */,
 				62374F361F93A2FC00C9841A /* EventDetailDescriptionCellViewModel.swift in Sources */,
+				62B6B6D51FE5A56600FDE01D /* BuyTicketsViewModel.swift in Sources */,
 				625DC8261F89373C008AE6DE /* Sequence+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
