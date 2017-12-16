@@ -132,26 +132,27 @@ exports.purchaseTicket = functions.https.onRequest((req, res) => {
     var userId = req.get('UserId');
     var authToken = req.get('Auth-Token');
     var ticket = req.body;
-    var ticketId = ticket.ticketId;
-  
+    ticket.userId = userId;
+    var ticketId = req.body.ticketId;
     
     return admin.database().ref('users/' + userId + '/userData').once('value', (snapshot) => {
         var userData = snapshot.val();
         if (snapshot.val() && snapshot.val().authToken == authToken) {
-            userData.userId = userId;
-  
-            admin.database().ref('users/' + userId + '/userData/tickets').once('value', (snapshot) => {
-                var ticketSnap = snapshot.val()
-                if (ticketSnap) {
-                    ticket.ticketId = null;
-                    ticketSnap[ticketId] = ticket;
-                }
-                admin.database().ref('users/' + userId + '/userData/tickets').update(ticketSnap);
-  
-                admin.database().ref('users/' + userId + '/userData').once('value', (snap) => {
-                  res.send(snap.val());
-                });
+            ticket.ticketId = null;
+            if (userData.tickets) {
+                userData.tickets[ticketId] = ticket;
+            } else {
+                var dict = {};
+                dict[ticketId] = ticket;
+                userData.tickets = dict;
+            }
+            admin.database().ref('users/' + userId + '/userData').update(userData);
+
+            admin.database().ref('users/' + userId + '/userData').once('value', (snap) => {
+                res.send(snap.val());
             });
+  
+         
   
             
         } else {
