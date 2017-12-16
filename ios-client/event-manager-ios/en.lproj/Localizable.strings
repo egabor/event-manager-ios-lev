@@ -58,3 +58,8 @@
 "Login.Error.Ok.Button" = "OK";
 
 "BuyTickets.Title" = "Tickets";
+
+"BuyTickets.PurchaseAlert.Title" = "Alert";
+"BuyTickets.PurchaseAlert.Message" = "Are you sure to buy this ticket?";
+"BuyTickets.PurchaseAlert.CancelButton.Title" = "Cancel";
+"BuyTickets.PurchaseAlert.OkButton.Title" = "Ok";

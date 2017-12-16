@@ -23,6 +23,8 @@ class AvailableTicketCell: UITableViewCell {
     // MARK: - var variables
 
     // MARK: - Interface Builder Outlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var purchaseButton: UIButton!
 
     // MARK: - UITableViewCell Lifecycle Methods
 
@@ -51,7 +53,7 @@ class AvailableTicketCell: UITableViewCell {
 extension AvailableTicketCell: ReactiveBindable {
 
     func setUpBindings() {
-        // TODO: Do the viewmodel binding here
+        viewModel.title.asObservable().bind(to: titleLabel.rx.text).disposed(by: disposeBag)
     }
 
     func bind(to model: Bindable?) {
@@ -64,6 +66,10 @@ extension AvailableTicketCell: ReactiveBindable {
 // MARK: - Interface Builder Actions
 
 extension AvailableTicketCell {
+    
+    @IBAction func puchaseTicket(_ sender: UIButton) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PurchaseTicket"), object: viewModel.model)
+    }
 
 }
 

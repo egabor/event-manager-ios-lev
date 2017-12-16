@@ -1041,14 +1041,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AvailableTicketCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AvailableTicketCell" id="h8E-kr-kX3" customClass="AvailableTicketCell" customModule="event_manager_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AvailableTicketCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AvailableTicketCell" rowHeight="91" id="h8E-kr-kX3" customClass="AvailableTicketCell" customModule="event_manager_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h8E-kr-kX3" id="aj3-pW-q2o">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3O-Do-pWa">
+                                            <rect key="frame" x="16" y="11" width="42" height="68.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZO-DU-lyt">
+                                            <rect key="frame" x="295" y="0.0" width="64" height="91"/>
+                                            <state key="normal" title="Purchase"/>
+                                            <connections>
+                                                <action selector="puchaseTicket:" destination="h8E-kr-kX3" eventType="touchUpInside" id="aSa-AQ-l5n"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="h3O-Do-pWa" firstAttribute="leading" secondItem="aj3-pW-q2o" secondAttribute="leading" constant="16" id="9fK-dE-pXi"/>
+                                        <constraint firstAttribute="trailing" secondItem="mZO-DU-lyt" secondAttribute="trailing" constant="16" id="EMv-SW-QFH"/>
+                                        <constraint firstAttribute="bottom" secondItem="h3O-Do-pWa" secondAttribute="bottom" constant="11" id="WD4-R2-PMb"/>
+                                        <constraint firstItem="mZO-DU-lyt" firstAttribute="centerY" secondItem="aj3-pW-q2o" secondAttribute="centerY" id="gX2-Nf-Ala"/>
+                                        <constraint firstItem="mZO-DU-lyt" firstAttribute="top" secondItem="aj3-pW-q2o" secondAttribute="top" id="haI-ao-pGx"/>
+                                        <constraint firstItem="mZO-DU-lyt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="h3O-Do-pWa" secondAttribute="trailing" constant="8" id="iF2-d1-4Vs"/>
+                                        <constraint firstItem="h3O-Do-pWa" firstAttribute="top" secondItem="aj3-pW-q2o" secondAttribute="top" constant="11" id="oDd-tk-oVF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.81568627449999997" green="0.0078431372550000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="purchaseButton" destination="mZO-DU-lyt" id="fne-x4-JWs"/>
+                                    <outlet property="titleLabel" destination="h3O-Do-pWa" id="Do0-xy-dfh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1059,7 +1087,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M86-wl-YEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3903" y="-1901"/>
+            <point key="canvasLocation" x="3901.5999999999999" y="-1901.1994002998501"/>
         </scene>
         <!--Map Options Table View Controller-->
         <scene sceneID="07v-8k-vNI">

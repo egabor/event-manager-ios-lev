@@ -18,9 +18,13 @@ class AvailableTicketCellViewModel {
 
     var model: Ticket? {
         didSet {
+            guard let model = model else { return }
+            title.value = model.displayName + " | " + model.price
             // Prepare the values
         }
     }
+    
+    var title = Variable("")
 
     // MARK: - Lifecycle Methods
 

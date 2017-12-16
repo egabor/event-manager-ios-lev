@@ -319,8 +319,8 @@
 			children = (
 				62B6B6D21FE5A56600FDE01D /* BuyTicketsTableViewController.swift */,
 				62B6B6D01FE5A56600FDE01D /* BuyTicketsViewModel.swift */,
-				62B6B6CE1FE5A56600FDE01D /* AvailableTicketCell.swift */,
 				62B6B6D11FE5A56600FDE01D /* AvailableTicketCellViewModel.swift */,
+				62B6B6CE1FE5A56600FDE01D /* AvailableTicketCell.swift */,
 			);
 			path = BuyTickets;
 			sourceTree = "<group>";

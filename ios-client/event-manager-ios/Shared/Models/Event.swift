@@ -41,7 +41,7 @@ class Event: BaseResponse, Hashable, Equatable {
     }
 
     override func mapping(map: Map) {
-        eventId <- map["id"]
+        eventId <- map["eventId"]
         performer <- map["performer"]
         place <- map["place"]
         type <- map["type"]

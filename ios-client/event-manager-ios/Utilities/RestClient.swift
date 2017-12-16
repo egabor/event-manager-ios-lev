@@ -97,4 +97,19 @@ class RestClient {
             }
         }
     }
+    
+    public func purchase(ticket: Ticket, for user: UserData, completionBlock: ((UserData?, String?) -> Void)?) {
+        let url = URL(string: configuration.environment.baseURL + "/purchaseTicket")!
+        
+        var headers = [String: String]()
+        headers["UserId"] = user.userId
+        headers["Auth-Token"] = user.authToken
+        
+        Alamofire.request(url, method: .post, parameters: ticket.toJSON(), encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse<UserData>) in
+            if response.result.isSuccess {
+                guard let result = response.result.value else { return }
+                completionBlock?(result, nil)
+            }
+        }
+    }
 }

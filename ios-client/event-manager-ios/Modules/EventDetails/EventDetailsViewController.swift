@@ -188,10 +188,39 @@ extension EventDetailsViewController {
         guard let event = viewModel.model else { return }
         performSegue(withIdentifier: "ShowRelatedEvents", sender: event)
     }
-    
+
     @IBAction func showAvailableTickets(_ sender: UIGestureRecognizer) {
         if viewModel.model?.availableTickets?.count ?? 0 > 0 {
-            performSegue(withIdentifier: "ShowAvailableTickets", sender: nil)
+            if ReferenceManager.shared.userData == nil {
+                let loginAlert = UIAlertController(title: "Alert".localized, message: "This action requires login.".localized, preferredStyle: UIAlertControllerStyle.alert)
+                loginAlert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+                loginAlert.addAction(UIAlertAction(title: "Login".localized, style: .default, handler: { _ in
+                    Authenticator.shared.authenticate(with: .facebook) { [weak self] (user, error) in
+                        guard let strongSelf = self else { return }
+                        if error != nil {
+                            let alert = UIAlertController(title: "Error".localized, message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Dismiss".localized, style: UIAlertActionStyle.default, handler: nil))
+                            strongSelf.present(alert, animated: true, completion: nil)
+                        }
+                        if user != nil {
+                            RestClient.shared.getProfile { [weak self] (userData, error) in
+                                guard let strongSelf = self  else { return }
+                                if error != nil {
+                                    print("Error: \(String(describing: error))")
+                                }
+                                if let userData = userData {
+                                    ReferenceManager.shared.userData = userData
+                                    strongSelf.performSegue(withIdentifier: "ShowAvailableTickets", sender: nil)
+                                }
+                                
+                            }
+                        }
+                    }
+                }))
+                self.present(loginAlert, animated: true, completion: nil)
+            } else {
+                performSegue(withIdentifier: "ShowAvailableTickets", sender: nil)
+            }
         }
     }
 }

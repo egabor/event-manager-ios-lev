@@ -64,6 +64,16 @@ class BuyTicketsTableViewController: UITableViewController {
         */
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(purchaseTicket(_:)), name: NSNotification.Name(rawValue: "PurchaseTicket"), object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "PurchaseTicket"), object: nil)
+    }
 
     deinit {
         // Don't forget to remove the observers here
@@ -91,7 +101,28 @@ class BuyTicketsTableViewController: UITableViewController {
 // MARK: - Interface Builder Actions
 
 extension BuyTicketsTableViewController {
-
+    @objc func purchaseTicket(_ notification: Notification) {
+        guard let ticket = notification.object as? Ticket else { return }
+        guard let user = ReferenceManager.shared.userData else { return }
+        print("purchse")
+        let alert = UIAlertController(title: "BuyTickets.PurchaseAlert.Title".localized, message: "BuyTickets.PurchaseAlert.Message".localized, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "BuyTickets.PurchaseAlert.OkButton.Title".localized, style: .default, handler: { _ in
+            print("ok")
+            RestClient.shared.purchase(ticket: ticket, for: user, completionBlock: { [weak self] (data, error) in
+                guard let strongSelf = self else { return }
+                if error != nil {
+                    print("ERROR: \(String(describing: error))")
+                }
+                if data != nil {
+                    let successAlert = UIAlertController(title: "BuyTickets.SuccessAlert.Title".localized, message: "BuyTickets.SuccessAlert.Message".localized, preferredStyle: UIAlertControllerStyle.alert)
+                    successAlert.addAction(UIAlertAction(title: "BuyTickets.SuccessAlert.OkButton.Title".localized, style: .default, handler: nil))
+                    strongSelf.present(successAlert, animated: true, completion: nil)
+                }
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "BuyTickets.PurchaseAlert.CancelButton.Title".localized, style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Notification handlers can be placed here

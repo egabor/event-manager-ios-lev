@@ -30,6 +30,7 @@ class EventDetailsViewModel {
             placeInfo.value = model.place.name
             facebookEventInfo.value = model.facebookEventUrl ?? facebookEventInfo.value
             hasRelatedEvents.value = (model.relatedEvents?.count ?? 0) > 0 ? true : false
+            ticketInfo.value = (model.availableTickets?.count ?? 0) > 0 ? "TICKETS AVAILABLE" : "No ticket information"
         }
     }
     var bottomConstraintOffset = Variable(CGFloat(0.0))
