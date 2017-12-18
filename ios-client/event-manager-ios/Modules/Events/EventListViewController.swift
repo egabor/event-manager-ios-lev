@@ -224,7 +224,7 @@ extension EventListViewController {
     @IBAction func changeFilter(_ sender: UIButton) {
         performSegue(withIdentifier: "ShowFilterSelect", sender: (viewModel.selectedGroup.value.filters, viewModel.selectedFilter.value))
     }
-    
+
     @IBAction func showProfile(_ sender: UIBarButtonItem?) {
         viewModel.isLoading.value = true
         Authenticator.shared.authenticate(with: .facebook) { [weak self] (user, error) in

@@ -28,8 +28,8 @@ class EventListViewModel {
     var groups = [ EventGroup(name: "A-Z", option: .alphabetical, filters: []),
                    EventGroup(name: "Places", option: .places, filters: []),
                    EventGroup(name: "Days", option: .days, filters: []),
-                   EventGroup(name: "Months", option: .months, filters: []),
-                   EventGroup(name: "Favorites", option: .favorites, filters: [])
+                   EventGroup(name: "Months", option: .months, filters: [])
+                  // EventGroup(name: "Favorites", option: .favorites, filters: [])
                    //EventGroup(name: "Live", option: .live, filters: [])
     ]
 

@@ -514,11 +514,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Events" id="3tj-tw-Wld">
-                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="cAz-R4-unF">
-                            <connections>
-                                <action selector="toggleSearch:" destination="rbq-S1-cPZ" id="RcN-aJ-0Xv"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="profile" id="CTJ-f2-uPO">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>

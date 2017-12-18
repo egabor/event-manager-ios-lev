@@ -34,7 +34,7 @@ class Place: BaseResponse, Hashable, Equatable {
     }
 
     override func mapping(map: Map) {
-        placeId <- map["placeId"]
+        placeId <- map["id"]
         name <- map["name"]
         type <- map["type"]
         location <- map["location"]
