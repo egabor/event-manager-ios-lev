@@ -1,5 +1,17 @@
 # event-manager-ios
 
+## Technologies & tools used
+
+- CocoaTouch, Swift
+- [RxCocoa, RxSwift](https://github.com/ReactiveX/RxSwift)
+- [MVCVM  arhitecture](https://github.com/egabor/mvcvm-swift-file-templates)
+- REST
+- JSON
+- [CocoaPods](https://cocoapods.org)
+- Firebase
+- [SwiftLint](https://github.com/realm/SwiftLint)
+- Stoplight mock api
+
 ## Development state
 
 ![picture](https://i.imgur.com/X9jzIRx.png)
