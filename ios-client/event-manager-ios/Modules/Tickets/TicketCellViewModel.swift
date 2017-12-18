@@ -19,7 +19,9 @@ class TicketCellViewModel {
     var model: Ticket? {
         didSet {
             guard let model = model else { return }
-            title.value = "\(model.displayName) | \(model.price)"
+            guard let displayName = model.displayName else { return }
+            guard let price = model.price else { return }
+            title.value = "\(displayName) | \(price)"
         }
     }
     var title = Variable("")
