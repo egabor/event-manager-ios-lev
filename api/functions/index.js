@@ -78,6 +78,17 @@ exports.editProfile = functions.https.onRequest((req, res) => {
             userData.userId = userId;
             if (urlUserId != 'me') {
                 userData.authToken = null;
+            } else {
+                if (userData['tickets']) {
+                    var tickets = userData['tickets'];
+                    Object.keys(tickets).forEach(function(ticketId) {
+                        tickets[ticketId]['ticketId'] = ticketId;
+                    });
+                    var ticketValues = Object.keys(tickets).map(function(key) {
+                        return tickets[key];
+                    });
+                    userData['tickets'] = ticketValues;
+                }
             }
             res.send(userData);
         } else {
@@ -96,7 +107,7 @@ exports.events = functions.https.onRequest((req, res) => {
         Object.keys(elements).forEach(function(key) {
             elements[key]['eventId'] = key;
             if (elements[key]['availableTickets']) {
-                var tickets = elements[key]['availableTickets']
+                var tickets = elements[key]['availableTickets'];
                 Object.keys(tickets).forEach(function(ticketId) {
                     tickets[ticketId]['ticketId'] = ticketId;
                 });
@@ -117,7 +128,7 @@ exports.places = functions.https.onRequest((req, res) => {
     return admin.database().ref('places').once('value', (snapshot) => {
         var elements = snapshot.val();
         Object.keys(elements).forEach(function(key) {
-            elements[key]['placeId'] = key;
+            elements[key]['id'] = key;
         });
         var elementValues = Object.keys(elements).map(function(key) {
             return elements[key];
