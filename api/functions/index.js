@@ -117,7 +117,7 @@ exports.places = functions.https.onRequest((req, res) => {
     return admin.database().ref('places').once('value', (snapshot) => {
         var elements = snapshot.val();
         Object.keys(elements).forEach(function(key) {
-            elements[key]['placeId'] = key;
+            elements[key]['id'] = key;
         });
         var elementValues = Object.keys(elements).map(function(key) {
             return elements[key];
