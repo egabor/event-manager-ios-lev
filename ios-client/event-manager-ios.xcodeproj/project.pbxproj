@@ -63,6 +63,10 @@
 		62C39C0D1FE19F5400A9D916 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C39C0C1FE19F5400A9D916 /* Authenticator.swift */; };
 		62C39C111FE1A3C300A9D916 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C39C101FE1A3C300A9D916 /* GoogleService-Info.plist */; };
 		62C39C131FE1AAAE00A9D916 /* ReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C39C121FE1AAAE00A9D916 /* ReferenceManager.swift */; };
+		62C68CC71FE852DA008B1816 /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C68CC31FE852DA008B1816 /* TicketCell.swift */; };
+		62C68CC81FE852DA008B1816 /* TicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C68CC41FE852DA008B1816 /* TicketsViewModel.swift */; };
+		62C68CC91FE852DA008B1816 /* TicketCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C68CC51FE852DA008B1816 /* TicketCellViewModel.swift */; };
+		62C68CCA1FE852DA008B1816 /* TicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C68CC61FE852DA008B1816 /* TicketsTableViewController.swift */; };
 		62C9B86E1FE2F41D00176D62 /* RelatedEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9B86C1FE2F41D00176D62 /* RelatedEventsViewModel.swift */; };
 		62C9B86F1FE2F41D00176D62 /* RelatedEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C9B86D1FE2F41D00176D62 /* RelatedEventsTableViewController.swift */; };
 		62E06BF11FB738DD0000376C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E06BEF1FB738DD0000376C /* MapViewModel.swift */; };
@@ -149,6 +153,10 @@
 		62C39C0C1FE19F5400A9D916 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		62C39C101FE1A3C300A9D916 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62C39C121FE1AAAE00A9D916 /* ReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceManager.swift; sourceTree = "<group>"; };
+		62C68CC31FE852DA008B1816 /* TicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
+		62C68CC41FE852DA008B1816 /* TicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewModel.swift; sourceTree = "<group>"; };
+		62C68CC51FE852DA008B1816 /* TicketCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCellViewModel.swift; sourceTree = "<group>"; };
+		62C68CC61FE852DA008B1816 /* TicketsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsTableViewController.swift; sourceTree = "<group>"; };
 		62C9B86C1FE2F41D00176D62 /* RelatedEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedEventsViewModel.swift; sourceTree = "<group>"; };
 		62C9B86D1FE2F41D00176D62 /* RelatedEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedEventsTableViewController.swift; sourceTree = "<group>"; };
 		62E06BEF1FB738DD0000376C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -291,6 +299,10 @@
 		628A9B3A1FDF3CD2008F9853 /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
+				62C68CC61FE852DA008B1816 /* TicketsTableViewController.swift */,
+				62C68CC41FE852DA008B1816 /* TicketsViewModel.swift */,
+				62C68CC31FE852DA008B1816 /* TicketCell.swift */,
+				62C68CC51FE852DA008B1816 /* TicketCellViewModel.swift */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -734,6 +746,7 @@
 				7D575DD81FA1EFF100AE5BD2 /* NewsCell.swift in Sources */,
 				96FC2BEC1F817CA7005D3B54 /* RestClient.swift in Sources */,
 				6213B5BA1F89062800121CFF /* Date+Extensions.swift in Sources */,
+				62C68CC81FE852DA008B1816 /* TicketsViewModel.swift in Sources */,
 				625DC8231F8934FF008AE6DE /* EventListViewController.swift in Sources */,
 				7D575DDA1FA1F28D00AE5BD2 /* News.swift in Sources */,
 				625DC8241F8934FF008AE6DE /* EventListViewModel.swift in Sources */,
@@ -757,6 +770,7 @@
 				96FC2BF21F81964B005D3B54 /* Configuration.swift in Sources */,
 				6213B5B21F88E98300121CFF /* Location.swift in Sources */,
 				62A1DB1C1FB8B96E009148A3 /* MapMenuViewController.swift in Sources */,
+				62C68CCA1FE852DA008B1816 /* TicketsTableViewController.swift in Sources */,
 				96FC2BE91F81739A005D3B54 /* LogInViewController.swift in Sources */,
 				62E06BF11FB738DD0000376C /* MapViewModel.swift in Sources */,
 				6213B5A51F88E18500121CFF /* Bindable.swift in Sources */,
@@ -770,6 +784,7 @@
 				62E06BF61FB740C90000376C /* MapOptionsViewModel.swift in Sources */,
 				6213B5AA1F88E2D900121CFF /* Enums.swift in Sources */,
 				9653EFD41F841F5800A98D68 /* LoadingViewModel.swift in Sources */,
+				62C68CC91FE852DA008B1816 /* TicketCellViewModel.swift in Sources */,
 				62E06BF71FB740C90000376C /* MapOptionsTableViewController.swift in Sources */,
 				6213B5B01F88E86E00121CFF /* Place.swift in Sources */,
 				96FC2BEA1F81739A005D3B54 /* LogInViewModel.swift in Sources */,
@@ -792,6 +807,7 @@
 				62B2B1851FA2173300617D08 /* EventFilterTableViewController.swift in Sources */,
 				62374F311F93A2CD00C9841A /* EventDetailsViewModel.swift in Sources */,
 				626695C11F89335600AA54EA /* EventCell.swift in Sources */,
+				62C68CC71FE852DA008B1816 /* TicketCell.swift in Sources */,
 				62C9B86E1FE2F41D00176D62 /* RelatedEventsViewModel.swift in Sources */,
 				6213B5B41F88FE4400121CFF /* BaseResponse.swift in Sources */,
 				62C39C131FE1AAAE00A9D916 /* ReferenceManager.swift in Sources */,

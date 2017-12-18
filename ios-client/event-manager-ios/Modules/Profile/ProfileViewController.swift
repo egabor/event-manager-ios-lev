@@ -117,7 +117,22 @@ class ProfileViewController: UITableViewController {
                 guard let userData = viewModel.userData else { return }
                 destination.viewModel.userData.value = userData
             }
+        } else if segue.identifier == "ShowPurchasedTickets" {
+            if let destination = segue.destination as? TicketsTableViewController {
+                guard let userData = viewModel.userData else { return }
+                destination.viewModel.items.value = userData.tickets ?? []
+            }
         }
+    }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "ShowPurchasedTickets" {
+            if (viewModel.userData?.tickets?.count ?? 0) > 0 {
+                return true
+            }
+            //return false
+        }
+        return true
     }
 
     // MARK: - Helper Methods
